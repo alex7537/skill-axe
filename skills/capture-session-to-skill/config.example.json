@@ -1,7 +1,7 @@
 {
   "source_skills_dir": "~/.codex/skills",
-  "repository_url": "git@github.com:alex7537/skill-axe.git",
-  "checkout_dir": "~/.codex/skill-repos/skill-axe",
+  "repository_url": "<private-skill-repository>",
+  "checkout_dir": "~/.codex/skill-repos/skill-backup",
   "managed_subdir": "skills",
   "manifest_name": "skills-manifest.json"
 }

@@ -296,7 +296,7 @@ Request fields:
 {
   "Offset": 0,
   "Limit": 20,
-  "SearchWord": "liyueheng",
+  "SearchWord": "<creator>",
   "DontShowInstanceSet": true
 }
 ```
@@ -417,7 +417,7 @@ Minimal custom-image shape:
   "ImageType": "TCR",
   "DataConfigs": [
     {
-      "MappingPath": "/share_data/liyueheng",
+      "MappingPath": "/share_data/<creator>",
       "DataSourceType": "PUBLIC_DATA_SOURCE",
       "PublicDataSource": {"DataSourceId": "dsrc-...", "SubPath": "/"},
       "ReadOnly": false
@@ -490,14 +490,14 @@ For custom-image Flask services:
 }
 ```
 
-For the dataset-management labeling service, a practical startup command is:
+For the `<application-repository>` labeling service, a practical startup command is:
 
 ```bash
 bash -lc '
 set -e
-mkdir -p /mnt/cos /share_data/hetianjia
-ln -sfn /share_data/hetianjia/psi-dc-prod-data /mnt/cos/psi-dc-prod-data
-cd /root/codes/dataset-management
+mkdir -p /mnt/cos /share_data/<data-owner>
+ln -sfn /share_data/<data-owner>/<dataset> /mnt/cos/<dataset>
+cd /root/codes/<application-repository>
 exec bash start_web_server.sh 8080
 '
 ```

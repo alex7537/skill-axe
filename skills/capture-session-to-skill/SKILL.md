@@ -34,7 +34,7 @@ python3 scripts/install_global_reminder.py --execute
 
 1. Prefer the current conversation context. Read a local transcript only when important evidence was compacted or the user identifies another session. Search the narrowest known session; do not sweep all history by default.
 2. Extract outcome, prerequisites, decision points, exact verified commands, failure modes, safety boundaries, validation evidence, and reusable artifacts.
-3. Remove secrets, tokens, passwords, private keys, signed URLs, personal access tokens, raw Docker auth, and irrelevant chat narrative. If a secret appeared in the session, recommend rotation; never copy it into a skill or Git repository.
+3. The local skill may retain machine-specific context needed to run successfully, but keep it in runtime `config.json` or clearly identified private references when possible. Never store secrets, tokens, passwords, private keys, signed URLs, personal access tokens, or raw Docker auth in a skill. If a secret appeared in the session, recommend rotation.
 4. Search existing personal skill descriptions first. Update the closest skill when the workflow belongs there; create a new skill only when it has a distinct trigger and responsibility.
 5. Use the installed `skill-creator` and `skill-authoring` skills. Store only distilled knowledge, scripts, and focused references—never the raw session JSONL.
 6. Validate scripts and run the official skill validator. State what was verified and what still requires a live environment.
@@ -46,13 +46,17 @@ Read `references/capture-criteria.md` when choosing between updating an existing
 
 Use `config.json` and the bundled script. The script manages only `skills/` and `skills-manifest.json` in the configured repository; it never uploads sessions, Codex auth/state files, `.system`, or plugin caches.
 
+If `config.json` is absent after restoring from Git, copy `config.example.json` to `config.json` and fill the private repository URL and checkout path. Keep this runtime file local.
+
 Preview first:
 
 ```bash
 python3 scripts/sync_personal_skills.py
 ```
 
-Review the included skills, excluded files, secret-scan result, destination, and proposed Git changes. Then ask for explicit confirmation before any commit or push.
+The export layer leaves local skills unchanged. It excludes runtime `config.json` and configured private-only files, replaces configured names, hosts, and paths with semantic placeholders in the Git snapshot, then scans the exported bytes for unresolved private information and credentials. Portable setup shapes belong in `config.example.json`.
+
+Review included skills, exclusions, replacement count, privacy/secret scan result, destination, and proposed Git changes. Then ask for explicit confirmation before any commit or push.
 
 After confirmation, run one of:
 
@@ -75,4 +79,6 @@ Use `--prune` only when the user also authorizes removing repository skill direc
 - Do not back up `~/.codex` wholesale; it contains auth, session, state, logs, and local configuration.
 - A successful local copy is not a Git backup until a commit exists remotely.
 - Treat secret scanning as a guardrail, not proof that content is safe; always review the staged diff.
+- The machine-local `~/.codex/skill-sync-privacy.json` controls `replacements`, `exclude_globs`, `blocked_literals`, and `blocked_regexes`; it is never copied into the skill repository.
+- A restored exported skill keeps its reusable workflow and scripts. Machine-specific operations may require recreating `config.json`; this is an intentional setup step, not skill corruption.
 - Read `references/restore-on-new-machine.md` when restoring the skill library on another computer.

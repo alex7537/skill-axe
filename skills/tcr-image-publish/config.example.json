@@ -1,0 +1,7 @@
+{
+  "registry": "<registry-host>",
+  "repository_prefix": "<namespace>",
+  "registry_region": "<region>",
+  "preferred_relay": "<same-region-linux-host>",
+  "remote_transfer_dir": "<remote-transfer-directory>"
+}

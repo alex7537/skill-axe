@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import hashlib
 import json
 from pathlib import Path
@@ -20,6 +21,7 @@ SKIP_NAMES = {".DS_Store", "auth.json", "hooks.json"}
 SKIP_SUFFIXES = {".pyc", ".pyo", ".log", ".sqlite", ".sqlite-shm", ".sqlite-wal"}
 SENSITIVE_FILENAMES = {
     ".env",
+    "config.json",
     "credentials",
     "credentials.json",
     "id_rsa",
@@ -27,6 +29,7 @@ SENSITIVE_FILENAMES = {
     "known_hosts",
     "docker-config.json",
 }
+DEFAULT_PRIVACY_CONFIG = Path.home() / ".codex" / "skill-sync-privacy.json"
 SENSITIVE_JSON_KEYS = {
     "access_token",
     "api_key",
@@ -58,6 +61,27 @@ TOKEN_PATTERNS = [
     re.compile(rb"sk-[A-Za-z0-9_-]{20,}"),
     re.compile(rb"xox[baprs]-[A-Za-z0-9-]{20,}"),
 ]
+PRIVACY_PATTERNS = [
+    (
+        "absolute user home path",
+        re.compile(r"(?<![~\w])/(?:Users|home)/[A-Za-z0-9._-]+(?:/|\b)"),
+    ),
+    (
+        "email address",
+        re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE),
+    ),
+    (
+        "IPv4 address",
+        re.compile(r"(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])"),
+    ),
+    (
+        "concrete cloud resource id",
+        re.compile(
+            r"\b(?:nb|train|tcr|vpc|subnet|rsg|dsrc)-(?=[a-z0-9]{6,}\b)(?=[a-z0-9]*\d)[a-z0-9]+\b",
+            re.IGNORECASE,
+        ),
+    ),
+]
 STRUCTURED_SECRET_RE = re.compile(
     r"^\s*(access[_-]?token|api[_-]?key|auth|authorization|client[_-]?secret|password|private[_-]?key|secret|secret[_-]?id|secret[_-]?key|token)\s*[:=]\s*[\"']?([^\"'#\s][^#]*)",
     re.IGNORECASE | re.MULTILINE,
@@ -77,6 +101,11 @@ def run(cmd: list[str], *, cwd: Path | None = None, capture: bool = True) -> sub
 
 def load_config() -> dict[str, str]:
     path = Path(__file__).resolve().parent.parent / "config.json"
+    if not path.is_file():
+        raise SystemExit(
+            f"Missing machine-local config: {path}. "
+            "Copy config.example.json to config.json and fill the private repository settings."
+        )
     return json.loads(path.read_text())
 
 
@@ -87,12 +116,69 @@ def parse_args(config: dict[str, str]) -> argparse.Namespace:
     parser.add_argument("--checkout", type=Path, default=Path(config["checkout_dir"]))
     parser.add_argument("--managed-subdir", default=config["managed_subdir"])
     parser.add_argument("--manifest", default=config["manifest_name"])
+    parser.add_argument("--privacy-config", type=Path, default=DEFAULT_PRIVACY_CONFIG)
     parser.add_argument("--execute", action="store_true", help="Clone/copy skills into the checkout")
     parser.add_argument("--commit", action="store_true", help="Commit managed changes")
     parser.add_argument("--push", action="store_true", help="Push HEAD to origin")
     parser.add_argument("--prune", action="store_true", help="Remove stale skill directories from the checkout")
     parser.add_argument("--message", default="Sync personal Codex skills")
     return parser.parse_args()
+
+
+def load_privacy_config(path: Path) -> dict[str, Any]:
+    if not path.expanduser().is_file():
+        return {"replacements": {}, "exclude_globs": [], "blocked_literals": [], "blocked_regexes": []}
+    value = json.loads(path.expanduser().read_text())
+    return {
+        "replacements": {
+            str(source): str(replacement)
+            for source, replacement in value.get("replacements", {}).items()
+            if str(source)
+        },
+        "exclude_globs": [str(item) for item in value.get("exclude_globs", []) if str(item)],
+        "blocked_literals": [str(item) for item in value.get("blocked_literals", []) if str(item)],
+        "blocked_regexes": [str(item) for item in value.get("blocked_regexes", []) if str(item)],
+    }
+
+
+def export_bytes(path: Path, replacements: dict[str, str]) -> bytes:
+    data = path.read_bytes()
+    try:
+        text = data.decode("utf-8")
+    except UnicodeDecodeError:
+        return data
+    for source, replacement in sorted(replacements.items(), key=lambda item: len(item[0]), reverse=True):
+        text = re.sub(re.escape(source), lambda _: replacement, text, flags=re.IGNORECASE)
+    return text.encode("utf-8")
+
+
+def privacy_findings(
+    source: Path,
+    skills: dict[str, list[Path]],
+    privacy_config: dict[str, Any],
+) -> list[str]:
+    findings: list[str] = []
+    custom_patterns = [
+        ("locally blocked pattern", re.compile(pattern, re.IGNORECASE))
+        for pattern in privacy_config["blocked_regexes"]
+    ]
+    blocked_literals = [item.casefold() for item in privacy_config["blocked_literals"]]
+    for paths in skills.values():
+        for path in paths:
+            try:
+                text = export_bytes(path, privacy_config["replacements"]).decode("utf-8")
+            except (OSError, UnicodeDecodeError):
+                continue
+            relative = path.relative_to(source)
+            folded = text.casefold()
+            for literal in blocked_literals:
+                if literal in folded:
+                    findings.append(f"{relative}: locally blocked literal {literal!r}")
+            for label, pattern in PRIVACY_PATTERNS + custom_patterns:
+                match = pattern.search(text)
+                if match:
+                    findings.append(f"{relative}: {label}: {match.group(0)!r}")
+    return sorted(set(findings))
 
 
 def is_placeholder(value: Any) -> bool:
@@ -161,7 +247,7 @@ def sensitive_reason(path: Path) -> str | None:
     return None
 
 
-def discover(source: Path) -> tuple[dict[str, list[Path]], dict[str, str]]:
+def discover(source: Path, exclude_globs: list[str]) -> tuple[dict[str, list[Path]], dict[str, str]]:
     skills: dict[str, list[Path]] = {}
     excluded: dict[str, str] = {}
     for skill_dir in sorted(source.iterdir()):
@@ -174,6 +260,9 @@ def discover(source: Path) -> tuple[dict[str, list[Path]], dict[str, str]]:
                 continue
             if path.is_dir():
                 continue
+            if any(fnmatch.fnmatch(str(relative), pattern) for pattern in exclude_globs):
+                excluded[str(relative)] = "machine-local privacy exclusion"
+                continue
             if path.name in SKIP_NAMES or path.suffix.lower() in SKIP_SUFFIXES:
                 excluded[str(relative)] = "generated/local state"
                 continue
@@ -182,24 +271,22 @@ def discover(source: Path) -> tuple[dict[str, list[Path]], dict[str, str]]:
                 excluded[str(relative)] = reason
                 continue
             accepted.append(path)
-        skills[skill_dir.name] = accepted
+        if accepted:
+            skills[skill_dir.name] = accepted
     return skills, excluded
 
 
-def file_sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as stream:
-        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
-def make_manifest(source: Path, skills: dict[str, list[Path]], excluded: dict[str, str]) -> dict[str, Any]:
+def make_manifest(
+    source: Path,
+    skills: dict[str, list[Path]],
+    excluded: dict[str, str],
+    replacements: dict[str, str],
+) -> dict[str, Any]:
     entries: dict[str, Any] = {}
     for name, paths in skills.items():
         entries[name] = {
             "files": {
-                str(path.relative_to(source / name)): file_sha256(path)
+                str(path.relative_to(source / name)): hashlib.sha256(export_bytes(path, replacements)).hexdigest()
                 for path in paths
             }
         }
@@ -242,6 +329,8 @@ def copy_snapshot(
     manifest_name: str,
     skills: dict[str, list[Path]],
     manifest: dict[str, Any],
+    replacements: dict[str, str],
+    exclude_globs: list[str],
     prune: bool,
 ) -> None:
     managed = (checkout / managed_subdir).resolve()
@@ -249,6 +338,14 @@ def copy_snapshot(
     if checkout_resolved not in managed.parents:
         raise RuntimeError("managed directory escapes checkout")
     managed.mkdir(parents=True, exist_ok=True)
+    for existing_file in sorted(managed.rglob("*")):
+        if existing_file.is_file():
+            relative = existing_file.relative_to(managed)
+            if any(fnmatch.fnmatch(str(relative), pattern) for pattern in exclude_globs):
+                existing_file.unlink()
+    for existing_dir in sorted((path for path in managed.rglob("*") if path.is_dir()), reverse=True):
+        if not any(existing_dir.iterdir()):
+            existing_dir.rmdir()
     with tempfile.TemporaryDirectory(prefix="skill-sync-") as temp_dir:
         staging = Path(temp_dir)
         for name, paths in skills.items():
@@ -257,7 +354,8 @@ def copy_snapshot(
                 relative = path.relative_to(source / name)
                 destination = target / relative
                 destination.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(path, destination)
+                destination.write_bytes(export_bytes(path, replacements))
+                destination.chmod(path.stat().st_mode & 0o777)
         for name in skills:
             destination = managed / name
             if destination.exists():
@@ -286,19 +384,32 @@ def main() -> int:
         print(f"Source skills directory not found: {source}", file=sys.stderr)
         return 2
 
-    skills, excluded = discover(source)
-    manifest = make_manifest(source, skills, excluded)
+    try:
+        privacy_config = load_privacy_config(args.privacy_config)
+    except (OSError, json.JSONDecodeError, re.error) as exc:
+        print(f"Invalid privacy config: {exc}", file=sys.stderr)
+        return 2
+    skills, excluded = discover(source, privacy_config["exclude_globs"])
+    privacy_issues = privacy_findings(source, skills, privacy_config)
+    manifest = make_manifest(source, skills, excluded, privacy_config["replacements"])
     print(f"Repository: {args.repo_url}")
     print(f"Checkout: {checkout}")
     print(f"Managed path: {args.managed_subdir}/")
     print(f"Skills selected ({len(skills)}): {', '.join(skills)}")
     print(f"Files selected: {sum(len(paths) for paths in skills.values())}")
+    print(f"Privacy replacements: {len(privacy_config['replacements'])}")
     if excluded:
         print("Excluded files:")
         for path, reason in sorted(excluded.items()):
             print(f"  {path}: {reason}")
     else:
         print("Excluded files: none")
+    if privacy_issues:
+        print("PRIVACY BLOCK: replace private context with placeholders before syncing:")
+        for finding in privacy_issues:
+            print(f"  {finding}")
+        return 2
+    print("Privacy scan: passed")
 
     if not args.execute:
         print("PLAN ONLY: no checkout, copy, commit, or push was performed.")
@@ -312,6 +423,8 @@ def main() -> int:
             args.manifest,
             skills,
             manifest,
+            privacy_config["replacements"],
+            privacy_config["exclude_globs"],
             args.prune,
         )
     except RuntimeError as exc:

@@ -9,7 +9,7 @@ Publish an image without exposing credentials or mistaking a successful byte tra
 
 ## Defaults
 
-Read `config.json` for this user's non-secret registry and relay defaults. Never store passwords, tokens, Docker `auth`, or temporary login URLs in the skill.
+Read `config.json` for this user's non-secret registry and relay defaults. If it is absent after restoring the exported skill, copy `config.example.json` to `config.json` and fill machine-local values. Never store passwords, tokens, Docker `auth`, or temporary login URLs in the skill.
 
 ## Workflow
 
@@ -58,4 +58,4 @@ Read `config.json` for this user's non-secret registry and relay defaults. Never
 - A `.tar` archive, a loaded local image, a pushed blob, and a committed manifest are four distinct states.
 - A squashed 18+ GB layer removes Docker's normal multi-layer retry advantage.
 - TI-ONE custom-image execution belongs to the `tione` skill; this skill ends after verified publication.
-- Read `references/pytracking-incident.md` only when diagnosing a large single-layer upload or recalling the original successful case.
+- Read `references/large-layer-incident.md` only when diagnosing a large single-layer upload.

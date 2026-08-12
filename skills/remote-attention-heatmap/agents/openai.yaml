@@ -1,4 +1,0 @@
-interface:
-  display_name: "Remote Attention Heatmap"
-  short_description: "Run remote checkpoint heatmaps and pull comparisons"
-  default_prompt: "Use $remote-attention-heatmap to test remote checkpoints on an image directory and pull stitched comparisons locally."

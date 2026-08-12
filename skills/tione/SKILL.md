@@ -39,11 +39,11 @@ Default region in this workspace is usually `ap-shanghai`.
 Use the bundled script when possible:
 
 ```bash
-python3 ~/.codex/skills/tione/scripts/tione_api.py list --status RUNNING --name-contains liyueheng
+python3 ~/.codex/skills/tione/scripts/tione_api.py list --status RUNNING --name-contains <creator>
 python3 ~/.codex/skills/tione/scripts/tione_api.py describe train-...
 python3 ~/.codex/skills/tione/scripts/tione_api.py pods train-...
 python3 ~/.codex/skills/tione/scripts/tione_api.py logs --service TRAIN --service-id train-... --pod-name 'train-...*'
-python3 ~/.codex/skills/tione/scripts/tione_api.py notebooks --creator liyueheng
+python3 ~/.codex/skills/tione/scripts/tione_api.py notebooks --creator <creator>
 python3 ~/.codex/skills/tione/scripts/tione_api.py notebook nb-...
 python3 ~/.codex/skills/tione/scripts/tione_api.py encode-start-cmd --worker-start-cmd @launch.sh
 python3 ~/.codex/skills/tione/scripts/tione_api.py raw CreateTrainingTask --payload @payload.json
@@ -74,7 +74,7 @@ For logs:
 
 For "查开发机 / Notebook":
 
-1. Call `notebooks`; add `--creator liyueheng`, `--status Running`, or `--name-contains ...` when the user gives a filter.
+1. Call `notebooks`; add `--creator <creator>`, `--status Running`, or `--name-contains ...` when the user gives a filter.
 2. For creation parameters, call `notebook <nb-id>` or use `notebooks --details` and summarize `ResourceConf`, `ImageInfo`, `DataConfigs`, `VolumeSourceType`, `VpcId`, `SubnetId`, `RootAccess`, `DirectInternetAccess`, `AutoStopping`, `SSHConfig`, `ExposePortConfig`, `SystemDiskConfig`, `LogEnable`, and timestamps.
 3. Do not print `PublicKey`, image secrets, or presigned URLs with `authToken` unredacted.
 
@@ -92,7 +92,7 @@ For online service planning:
 
 1. Prefer `CreateModelService` over training tasks for persistent web services.
 2. Use custom image, `ServicePort`, `CommandBase64`, `VolumeMount(s)`, health probe, manual replicas, and logging.
-3. For dataset labeling Flask service, remember the path issue: expose data at both `/share_data/hetianjia/psi-dc-prod-data` and `/mnt/cos/psi-dc-prod-data` or create a symlink at startup.
+3. For dataset labeling Flask service, remember the path issue: expose data at both `/share_data/<data-owner>/<dataset>` and `/mnt/cos/<dataset>` or create a symlink at startup.
 
 ## References
 

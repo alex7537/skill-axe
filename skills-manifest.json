@@ -1,6 +1,14 @@
 {
   "excluded_files": {
-    "tione/config.json": "runtime config contains credential fields"
+    "capture-session-to-skill/config.json": "sensitive filename",
+    "remote-attention-heatmap/SKILL.md": "machine-local privacy exclusion",
+    "remote-attention-heatmap/agents/openai.yaml": "machine-local privacy exclusion",
+    "remote-attention-heatmap/scripts/compose_heatmap_comparisons.py": "machine-local privacy exclusion",
+    "remote-attention-heatmap/scripts/remote_heatmap_worker.py": "machine-local privacy exclusion",
+    "remote-attention-heatmap/scripts/run_remote_attention_heatmap.py": "machine-local privacy exclusion",
+    "tcr-image-publish/config.json": "sensitive filename",
+    "tcr-image-publish/references/pytracking-incident.md": "machine-local privacy exclusion",
+    "tione/config.json": "sensitive filename"
   },
   "format_version": 1,
   "skills": {
@@ -19,13 +27,13 @@
     },
     "capture-session-to-skill": {
       "files": {
-        "SKILL.md": "59184b7ad9cae109ec228ecc8b176e2861aae5e39471deae80e9281014b342b4",
+        "SKILL.md": "d145d7e021f71a330bf1e6724279b266948dabe0d3c964770822a82c09e2adf3",
         "agents/openai.yaml": "1e4c870c78a1ff3d9c88d90bb1d3e9796c66b32e4a84d19175305a25268b1621",
-        "config.json": "9e461611543da1da39749077fb4ee0f1625282c57173dac13d4a68a328914c00",
+        "config.example.json": "0160761341383f42db6f5e8de2f578960f6b94f75da01cede4d6fe87b338fb9a",
         "references/capture-criteria.md": "28233b58dbacd11e3ce7171d8b51b9e15b18821e34f7dee84200c5def2920259",
-        "references/restore-on-new-machine.md": "c8e7bf09cded171bf4001978f06f3cf9d652def40aaf2b38deb50fa6c00acb68",
+        "references/restore-on-new-machine.md": "0b39794556c364c1823c5a5cc067868474f58cbcb960b53987410926f5b16368",
         "scripts/install_global_reminder.py": "c48ebc44c38a75f702228d9420589a21c2928cf66033edb4892aa33deb4b2960",
-        "scripts/sync_personal_skills.py": "18cae85fec56a2e9bce14db8a806c95ba103a19f3c93b27620c0f86e148e7f75"
+        "scripts/sync_personal_skills.py": "e89e9f93a5ce03614692b4b23b6001a650492a9c35a11761df0bbc154cb0ff73"
       }
     },
     "claude-guided-coding": {
@@ -55,15 +63,6 @@
         "scripts/plan_training.py": "a630866da7c2994c9d9a154a2a28d0199b1b3cb215887e54aceabf7b13c26347"
       }
     },
-    "remote-attention-heatmap": {
-      "files": {
-        "SKILL.md": "5958775ee7fe8c27f39aab7de49e50b90e024550b28ceeb338946c2e3a1ebc2f",
-        "agents/openai.yaml": "819c4d7d1d795258b52504588a7049c15c14d643ba430f24db66448bf4002a56",
-        "scripts/compose_heatmap_comparisons.py": "2a3a8c5e8938afda3c6fc4d7aaf91a818adbf2f84abdea447f06a8bf49941fc0",
-        "scripts/remote_heatmap_worker.py": "a3e3278a6faf16e98d69f558da73a12d75eb71d2a17e542945857c7dbec4673b",
-        "scripts/run_remote_attention_heatmap.py": "a78bc8a4537f8c4d525e4e2d9f34e070070bfc1e79095a3fa4b01d7584ac15a8"
-      }
-    },
     "skill-authoring": {
       "files": {
         "SKILL.md": "d36cf0d53e192d2240ecd3dd61a417b8caec74c89700d317c86f3afa6ea952d1",
@@ -79,20 +78,20 @@
     },
     "tcr-image-publish": {
       "files": {
-        "SKILL.md": "4c7723f351b634c0ac4c5775c08bb23df8aa284fa400a22db4138813ccde7180",
+        "SKILL.md": "64f596db839ef30d6f4f5124572ece7bc4854e0f23acdbbdc005d14ccdf00320",
         "agents/openai.yaml": "5589622b28782660dcb6e9959c237a212c7584e5e459fbe4f66e14cbad5aa858",
-        "config.json": "5572f6d030a6912f5652df5413004c3644d9b414ba697ef14f00a584eb820783",
-        "references/pytracking-incident.md": "9b1baa27cc146ad1c5f8acaf29994f8f9ebde0603e1c95a400a5b840089554c4",
+        "config.example.json": "eae351bbf502c01fc7c5b2af7c865170537c3eb7868c551e9625f6f999aee141",
+        "references/large-layer-incident.md": "6109efafefda5a955cff3f89c172457d575081865d3a10c266448a00386aa78b",
         "scripts/publish_remote.py": "166b1f416e1c9c1c5e9aacf763e53a4fd2a662aac7d34f1cf6f6dcc5b8346db3",
         "scripts/transfer_archive.py": "4f8714496f903ce8cb0ad9c6805ae2c93c5134704455e06d1428e7f3c576bff7"
       }
     },
     "tione": {
       "files": {
-        "SKILL.md": "8bd756c00bc627bb5e920b8c2f945ce7500f8a6784f10a5e16d93ae4256b582f",
+        "SKILL.md": "4f2a2aacff970b9a75ee795de541ecf86c050ea3cd09d5dc36d53b351d19e7ee",
         "agents/openai.yaml": "9fc9adc9261271a4e0d28e7b09bc196156423535e85576050b7f233649625747",
         "config.example.json": "395c2c11784f1e12655339f67be7d0b0bf334139d007eb0adc3830c450a7b0a7",
-        "references/api-reference.md": "0b119a0602ba498348bce970cf79a48378f72d47b0a716531d1f9e9ad2e99d53",
+        "references/api-reference.md": "d5ab4951ab052796bcd6d2a8e30a851593e609bddc9011f915bbb4ef6f5c6ff5",
         "scripts/tione_api.py": "8a641880503123fc9d87e0b4c7fa77787fd4964f6e5f6ab1b212acc943df744b"
       }
     },

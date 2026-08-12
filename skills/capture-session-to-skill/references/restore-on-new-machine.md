@@ -3,7 +3,7 @@
 1. Configure SSH access to GitHub and clone the repository:
 
    ```bash
-   git clone git@github.com:alex7537/skill-axe.git ~/.codex/skill-repos/skill-axe
+   git clone <private-skill-repository> ~/.codex/skill-repos/skill-axe
    ```
 
 2. Review the repository contents and copy only the managed skill folders:
@@ -22,4 +22,4 @@
 
 4. Start a new Codex session so global `AGENTS.md` guidance and installed skill metadata are reloaded.
 
-5. Recreate machine-local credentials separately. The repository intentionally excludes runtime credential files such as `tione/config.json`, Codex auth/session state, SSH private keys, Docker auth, and tokens.
+5. Recreate machine-local configuration and credentials separately. The repository intentionally excludes every runtime `config.json`, Codex auth/session state, SSH private keys, Docker auth, tokens, private-only references, and the machine-local privacy blocklist. Use each `config.example.json` as the portable schema.
