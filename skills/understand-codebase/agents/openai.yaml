@@ -1,0 +1,4 @@
+interface:
+  display_name: "Understand Codebase"
+  short_description: "Map repositories, trace execution, and explain first principles"
+  default_prompt: "Use $understand-codebase to map this repository and guide me from its main execution path to the underlying principles."

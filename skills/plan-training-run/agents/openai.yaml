@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Training Run"
+  short_description: "Plan comparable epoch, step, warmup, and LR budgets"
+  default_prompt: "Use $plan-training-run to plan a comparable training budget and explain the stopping criteria."

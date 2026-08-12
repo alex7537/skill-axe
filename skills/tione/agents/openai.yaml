@@ -1,0 +1,7 @@
+interface:
+  display_name: "TI-ONE"
+  short_description: "Query and draft Tencent TI-ONE tasks/services"
+  default_prompt: "Use $tione to inspect my running TI-ONE training tasks."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+{
+  "registry": "docker-registry.psibot.net",
+  "repository_prefix": "personal/zhangyurui",
+  "registry_region": "ap-shanghai",
+  "preferred_relay": "TI-ONE or Linux/CVM in ap-shanghai",
+  "remote_transfer_dir": "/share_data/zhangyurui/image_transfer"
+}

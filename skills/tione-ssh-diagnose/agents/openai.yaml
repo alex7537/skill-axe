@@ -1,0 +1,4 @@
+interface:
+  display_name: "TI-ONE SSH 连接诊断"
+  short_description: "快速诊断开发机 SSH 地址、主机指纹与公钥认证问题"
+  default_prompt: "Use $tione-ssh-diagnose to diagnose why my TI-ONE development machine cannot be reached by SSH."

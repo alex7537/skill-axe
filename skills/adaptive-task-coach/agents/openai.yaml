@@ -1,0 +1,4 @@
+interface:
+  display_name: "Adaptive Task Coach"
+  short_description: "Turn complex goals into adaptive, executable learning steps"
+  default_prompt: "Use $adaptive-task-coach to break this goal into executable steps and update the plan as I report progress, results, or confusion."

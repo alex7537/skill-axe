@@ -1,0 +1,4 @@
+interface:
+  display_name: "同步 Follow 分支"
+  short_description: "Safely stash changes and rebase a follow branch"
+  default_prompt: "使用 $sync-follow-branch 保存当前改动，并将本地 follow 分支同步到远端最新提交。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "代码理解教练"
+  short_description: "围绕真实项目代码训练阅读、预测、修改、调试与独立验证能力"
+  default_prompt: "使用 $code-understanding-coach 带我读懂当前代码，并通过预测、最小修改和手动重写检查我是否真正理解。"

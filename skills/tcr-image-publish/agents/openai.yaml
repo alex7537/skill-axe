@@ -1,0 +1,4 @@
+interface:
+  display_name: "TCR 镜像发布"
+  short_description: "通过同地域开发机安全传输、推送并验证腾讯云 TCR 镜像"
+  default_prompt: "Use $tcr-image-publish to publish a local Docker image archive to Tencent Cloud TCR through a nearby development machine."

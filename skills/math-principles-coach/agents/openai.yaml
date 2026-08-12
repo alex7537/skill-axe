@@ -1,0 +1,4 @@
+interface:
+  display_name: "数学原理教练"
+  short_description: "从模型代码和实验出发理解变量、公式、损失与训练推理机制"
+  default_prompt: "使用 $math-principles-coach 从变量、目标函数、损失和训练推理差异带我理解当前模型的数学原理。"
