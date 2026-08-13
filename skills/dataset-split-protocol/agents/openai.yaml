@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dataset Split Protocol"
+  short_description: "Build leak-free grouped splits and sealed holdouts"
+  default_prompt: "Use $dataset-split-protocol to build and validate grouped dataset roles."

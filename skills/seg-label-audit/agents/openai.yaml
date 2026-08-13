@@ -1,0 +1,4 @@
+interface:
+  display_name: "Segmentation Label Audit"
+  short_description: "Audit empty and unreliable segmentation labels"
+  default_prompt: "Use $seg-label-audit to audit empty masks and produce a quarantine manifest."

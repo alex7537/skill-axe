@@ -48,6 +48,18 @@
         "references/learning-path.md": "8643f00ccc782144225068c4d26b0922ac1c43f9e020f74240dbb39e57d4d38d"
       }
     },
+    "dataset-split-protocol": {
+      "files": {
+        "SKILL.md": "1576383d42ad1dbd514ba6522949bda4384f3f6f44fb341af819f71ecc7f7c20",
+        "agents/openai.yaml": "be2f50f6dad1ce795d8cf13c0ea2c2b2145cba8c3f6870cf57015ff4f4187782",
+        "references/holdout-and-incremental-data.md": "b29418dc88214e43b00dfbf4133fca477d1532fbe822c621e8ef9770d1066ae8",
+        "references/invariants-and-manifests.md": "022604ba5cd0f200f6d004c619969e3c3099f1a6ec1fe7fa73b9fac8f4f7b518",
+        "references/mask-generator-v1-v4-case-study.md": "6da909257898f8e324ffc6095db86c8357dbe7164ac77147c5dca644f5b916bd",
+        "scripts/audit_incremental_overlap.py": "2a6e835b3fa8684873bed9d2f281597e520744cfcb3951ec8c3190d9fa73e3f3",
+        "scripts/generate_group_split.py": "31babbe251727c89d14add4b17cc868e963011275d397dc6efafb2bc7dd9e55e",
+        "scripts/validate_role_manifests.py": "ed4edc2b3010c4c2acb1e7524e367e5b9792c41c49893fc04089ba0e839eaec6"
+      }
+    },
     "math-principles-coach": {
       "files": {
         "SKILL.md": "23b30151fa4947c186f5fe56968047dd16c398848243992ea9d3f71cf5b38415",
@@ -61,6 +73,17 @@
         "agents/openai.yaml": "07a359df0273828828efa69e0f9507cafd0507d77cbf705880bbffee2c239789",
         "references/training-principles.md": "0c8660c74fd213a521d75815ffa974ddc6cde5fba1de0a97ae827811fbc892f6",
         "scripts/plan_training.py": "a630866da7c2994c9d9a154a2a28d0199b1b3cb215887e54aceabf7b13c26347"
+      }
+    },
+    "seg-label-audit": {
+      "files": {
+        "SKILL.md": "7f2bc632d6ad2af2277d3221bff8295e82e24e8e6458c9347db928d693fcbe36",
+        "agents/openai.yaml": "cdbc60bd5d980c90b28ed3086a84fc063c38232cec71984dd9b403db5bf5577f",
+        "references/classification-protocol.md": "abd0b8922f60389f5a77b68f32584076e796e2aef1ea42c59fa4f95509a9ed28",
+        "references/manifest-contract.md": "2aa58531c72135ea890320924bd8f8e16e2dfaebea4dfb8e39d8bfff2974e7ce",
+        "references/pseudo-label-audit.md": "46196e1cf97dd7d765ebe2abb64705a0c8517cfbfa5f15b4da78d50b759a32ec",
+        "scripts/summarize_mask_scan.py": "0688cae020019842af1970490558b781c792fd325c08eb093ffbcc37b37a9318",
+        "scripts/validate_label_decisions.py": "a5beae784a5711dd05117f32031f5f02f558c2121b00c6a747f7f469743d7d10"
       }
     },
     "skill-authoring": {
