@@ -1,5 +1,11 @@
 # Robot ML lifecycle contract
 
+## Control plane versus execution plane
+
+The control plane owns objective, autonomy level, cadence, pause state, constraints, budgets, circuit-breaker decisions, human gates, phase state, and durable logs. The execution plane owns code changes, dataset operations, cloud tasks, evaluation, packaging, and publication through specialist Skills.
+
+Never let an execution tool change its own gate, budget, verifier requirement, or autonomy level.
+
 ## Phase gates and owners
 
 | Phase | Primary owner(s) | Minimum evidence to resolve |
@@ -83,6 +89,19 @@ Require explicit confirmation for:
 - deletion of remote checkpoints, bundles, images, logs, or manifests.
 
 Authentication and previously approved read-only inspection do not imply approval for these writes.
+
+Record each approval or rejection in the lifecycle ledger with the exact gate, decision, evidence, and timestamp. A prior approval for one payload, repository, checkpoint, or destination does not authorize a materially different one.
+
+## Maker/checker rule
+
+At L2 or L3, keep implementation and verification logically independent:
+
+- the maker produces a patch, config, checkpoint, bundle, or release candidate;
+- the checker attempts to reject it using frozen acceptance criteria, tests, hashes, data/split identity, and policy gates;
+- `APPROVE` requires reproducible evidence; an unavailable verifier yields escalation, not silent approval;
+- medium/high-risk results remain human-gated even after checker approval.
+
+For robot learning, a verifier may be a separate agent plus deterministic tests, or an evaluation process isolated from checkpoint selection. The training process cannot certify its own scientific success from train loss.
 
 ## Lifecycle state versus task state
 

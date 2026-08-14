@@ -1,20 +1,24 @@
 ---
 name: robot-ml-lifecycle
-description: Orchestrate an end-to-end robot-learning or embodied-AI project across source synchronization, repository understanding, label and dataset gates, training-budget design, TI-ONE infrastructure and training, evaluation, checkpoint packaging, Hugging Face release, and reusable-skill capture. Use when the user asks to run or continue a complete training loop, coordinate several installed robot-ML skills, decide the next experiment from evidence, recover a stalled project, or maintain traceability from Git commit and data split through checkpoint and release. Compose the specialized skills; do not replace their domain logic.
+description: Orchestrate a bounded end-to-end robot-learning or embodied-AI loop across source synchronization, repository understanding, label and dataset gates, training-budget design, TI-ONE infrastructure and training, evaluation, checkpoint packaging, Hugging Face release, and reusable-skill capture. Use when the user asks to run or continue a complete training loop, coordinate several installed robot-ML skills, decide the next experiment from evidence, recover a stalled or repeating loop, add attempts, budgets, human gates, compact state, or circuit breakers, or maintain traceability from Git commit and data split through checkpoint and release. Compose the specialized skills; do not replace their domain logic.
 ---
 
 # Robot ML Lifecycle
 
-Own the lifecycle state and handoffs. Delegate domain decisions and deterministic operations to the specialized Skills that already own them.
+Own the lifecycle control plane and handoffs. Delegate domain decisions and deterministic operations to the specialized Skills that already own them.
 
 ## Operating contract
 
 - Use `$adaptive-task-coach` for the user-facing project plan and learning track. Use this Skill's ledger for experiment provenance and phase gates.
+- Separate an experiment **cycle** from an execution **attempt**. A cycle tests one coherent hypothesis/configuration; attempts are bounded actions within a phase.
 - Keep completed evidence immutable. Start a new cycle when a result sends the work back to code, data, or training design.
 - Keep at most one phase `in_progress` in a cycle.
 - Advance only from observable evidence: manifest, hash, Git commit, task ID, checkpoint, log, metric, digest, or verified artifact.
+- Default to autonomy level `L1` (report/plan only). Move to `L2` or `L3` only with an explicit human decision recorded in the ledger.
+- Run the deterministic circuit breaker before every retry. Stop on pause, repeated failure, attempt/cycle cap, or budget exhaustion.
 - Distinguish explanation from authorization. Never infer permission to create cloud resources, start training, open a holdout, publish an image/model, push Git, or delete anything.
 - Read [references/lifecycle-contract.md](references/lifecycle-contract.md) for phase gates, handoff artifacts, and routing rules.
+- Read [references/control-plane.md](references/control-plane.md) before enabling recurring or autonomous operation.
 
 ## Initialize or resume
 
@@ -24,12 +28,28 @@ For work spanning multiple phases, create a project-local ledger:
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle_ledger.py" init \
   --path <project>/.codex/robot-ml-lifecycle.json \
   --project <project-name> \
-  --objective '<observable objective>'
+  --objective '<observable objective>' \
+  --level L1 \
+  --cadence manual
 ```
 
 If the ledger exists, run `show` and reconcile it with current Git, data, TI-ONE, checkpoint, and release state. Do not overwrite it or reconstruct completed evidence from memory.
 
-Use `next` to identify the first unresolved phase. A phase may be explicitly `skipped` only with evidence explaining why it does not apply.
+When the human explicitly approves more autonomy, record the bounded promotion mechanically:
+
+```bash
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle_ledger.py" level \
+  --path .codex/robot-ml-lifecycle.json \
+  --level L2 \
+  --human-approved \
+  --evidence 'Approved for the named training run and verifier contract'
+```
+
+Do not pass `--human-approved` by inference. A downgrade may be recorded without it.
+
+Use `check` before acting and `context` to build the smallest useful prompt for the next run. A phase may be explicitly `skipped` only with evidence explaining why it does not apply.
+
+Copy `assets/robot-ml-constraints.template.md` into the project when recurring execution needs a durable denylist, external-write policy, budget, or kill switch. Customize it for the repository and treat it as binding together with `AGENTS.md`.
 
 ## Route each phase
 
@@ -99,6 +119,34 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle
   --artifact checkpoint=/verified/path/best.ckpt
 ```
 
+Record every material attempt before retrying:
+
+```bash
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle_ledger.py" attempt \
+  --path <project>/.codex/robot-ml-lifecycle.json \
+  --phase train \
+  --action 'restart after transient worker failure' \
+  --outcome failure \
+  --error 'same worker failure signature' \
+  --tokens 1200 \
+  --cost 3.50
+
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle_ledger.py" check \
+  --path <project>/.codex/robot-ml-lifecycle.json
+```
+
+Exit code `0` permits the next attempt; exit code `2` means stop and escalate. Do not increase thresholds merely to continue.
+
+Record human approvals/rejections as durable decisions before the gated action:
+
+```bash
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle_ledger.py" decision \
+  --path <project>/.codex/robot-ml-lifecycle.json \
+  --gate start-training \
+  --decision approved \
+  --evidence 'User approved exact TI-ONE payload in this run'
+```
+
 Start a new immutable cycle after a retry decision:
 
 ```bash
@@ -106,6 +154,14 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle
   --path <project>/.codex/robot-ml-lifecycle.json \
   --from-phase train_plan \
   --reason 'Validation regression requires a shorter schedule'
+```
+
+For a recurring run, inject compact state rather than the full ledger:
+
+```bash
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle_ledger.py" context \
+  --path <project>/.codex/robot-ml-lifecycle.json \
+  --window 5
 ```
 
 ## Close
@@ -125,4 +181,7 @@ Close only when the requested terminal outcome has evidence. A research iteratio
 - Diagnostic heatmaps expose data and can invalidate holdout independence.
 - A deployment bundle is not an exact-resume checkpoint.
 - Upload completion is not release verification.
+- The phase graph alone is not a loop: recurring operation also needs state loading, attempt limits, verification, budget, a kill switch, and a human escalation path.
+- The agent that changed code/model policy must not be the sole verifier for L2/L3 promotion decisions.
+- Repeating a semantically identical action with the same failure is stagnation, not a new experiment.
 - Do not embed every specialist procedure here; route to the owner Skill and record its output contract.

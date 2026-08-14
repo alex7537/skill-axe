@@ -3,14 +3,17 @@
   "skills": {
     "robot-ml-lifecycle": {
       "added_at": "2026-08-14T15:24:30+08:00",
-      "usage_count": 0,
+      "usage_count": 1,
       "files": {
-        "SKILL.md": "299e8344a9562fcd5ef5a127d632844d7a6a071088404199ba0b2fa8e0c239e6",
-        "agents/openai.yaml": "0e4080edb9898e059d1a1e68ee6876e14881b97ef87522661a2e9468fb464b87",
-        "references/lifecycle-contract.md": "1947b0b883f9508ac086b736e3919864d4624bdc82d7d8e41fad8b47137d2038",
-        "scripts/lifecycle_ledger.py": "a8df87d0d6dc8730974fc4fca9c731e3773b9aac273206849dee38c7148de3ed",
-        "scripts/test_lifecycle_ledger.py": "9be082b3dee2cd68d934ad2b46e852a0a6c2679e156c00a80674e43a16acb4bd"
-      }
+        "SKILL.md": "7d5c9490d0861455de8388b7ee337e375ab42af076f217730dc34ecf9495ea9c",
+        "agents/openai.yaml": "0f880228c23fd843544ddc7f21e67c121af32da521a0298bf76572bc7e71e321",
+        "assets/robot-ml-constraints.template.md": "efa1dcf5db091268c9da0da963d7614f8370a244dd7c3276438160a0706ee6a2",
+        "references/control-plane.md": "a07a465313088d9043338055a8a235f985f18ef58223c8c1320d9d416164ba8a",
+        "references/lifecycle-contract.md": "788d6855e41bb5175dbfcbfa357b5616ea42b2748b713a2f9a3e364028580079",
+        "scripts/lifecycle_ledger.py": "06989d14aa847835cbdc9b548b0a0bb63bdbcf829bb7e0f07839b5565f4b9b10",
+        "scripts/test_lifecycle_ledger.py": "7146ebb5cb6fe6c7d4994732d05a160d4d51fadfb8e74e2f28ec1d746757953d"
+      },
+      "last_used_at": "2026-08-14T15:38:39+08:00"
     },
     "publish-model-release": {
       "added_at": "2026-08-14T14:53:35+08:00",
@@ -150,14 +153,15 @@
     },
     "understand-codebase": {
       "added_at": "2026-07-20T15:48:11+08:00",
-      "usage_count": 0,
+      "usage_count": 1,
       "files": {
         "SKILL.md": "d0775a5ba043727d3fb8b83bcce8a2bdfbfb2f25b9f0cd23ba59bd1035994c6d",
         "agents/openai.yaml": "4ee65e22b26ae74e53ab03ce141f44266658961f0ee1a508c1e78ab35627bb44",
         "references/investigation-playbook.md": "dd47f6d1c04377b1baa370897480c74ebe99741fa954c6d6c9e921252ec02755",
         "references/prompt-ladder.md": "d8598efb5e6ec19331eb6cc866e94ad6eea0626957d7c41e086f3864b977d363",
         "scripts/repo_inventory.py": "f95f068ce1a12150339e6ee48a2e1a682c4d76969457386e61a7d7f73c95f62d"
-      }
+      },
+      "last_used_at": "2026-08-14T15:38:39+08:00"
     },
     "skill-authoring": {
       "added_at": "2026-07-20T15:42:13+08:00",

@@ -1,4 +1,4 @@
 interface:
   display_name: "Robot ML Lifecycle"
-  short_description: "Orchestrate robot ML work from data to release"
-  default_prompt: "Use $robot-ml-lifecycle to coordinate this robot-learning project from evidence and training through evaluation and release."
+  short_description: "Control a bounded robot ML loop from data to release"
+  default_prompt: "Use $robot-ml-lifecycle to coordinate this bounded robot-learning loop from evidence and training through evaluation and release, with durable state, budgets, gates, and circuit breakers."
