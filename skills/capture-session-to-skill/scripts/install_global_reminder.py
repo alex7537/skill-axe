@@ -13,6 +13,7 @@ END = "<!-- capture-session-to-skill:end -->"
 BLOCK = f"""{START}
 # Reusable workflow capture
 
+- When using one or more personal skills, record each skill at most once per session with `python3 ~/.codex/skills/capture-session-to-skill/scripts/record_skill_usage.py <skill-name> [...]`.
 - When a non-trivial task reaches a verified milestone or completes, assess whether it produced a repeatable workflow, difficult diagnosis, non-obvious constraint, reusable script, or valuable failure mode.
 - If it did, finish the requested work first, then add one concise optional question asking whether to capture the result by creating or updating a skill with `capture-session-to-skill` and back it up to `skill-axe`.
 - Do not ask for trivial answers, unresolved work, or tasks already creating, updating, reviewing, or syncing a skill.

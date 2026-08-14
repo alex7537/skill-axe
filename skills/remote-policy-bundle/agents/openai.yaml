@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remote Policy Bundle"
+  short_description: "Export and verify remote policy deployment bundles"
+  default_prompt: "Use $remote-policy-bundle to export selected remote checkpoints and pull verified deployment bundles into this repository."

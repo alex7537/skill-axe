@@ -490,7 +490,7 @@ For custom-image Flask services:
 }
 ```
 
-For the `<application-repository>` labeling service, a practical startup command is:
+For the <application-repository> labeling service, a practical startup command is:
 
 ```bash
 bash -lc '

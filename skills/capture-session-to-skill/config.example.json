@@ -3,5 +3,6 @@
   "repository_url": "<private-skill-repository>",
   "checkout_dir": "~/.codex/skill-repos/skill-backup",
   "managed_subdir": "skills",
-  "manifest_name": "skills-manifest.json"
+  "manifest_name": "skills-manifest.json",
+  "usage_stats_file": "~/.codex/skill-usage.json"
 }

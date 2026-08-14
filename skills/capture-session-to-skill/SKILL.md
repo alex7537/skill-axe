@@ -46,6 +46,14 @@ Read `references/capture-criteria.md` when choosing between updating an existing
 
 Use `config.json` and the bundled script. The script manages only `skills/` and `skills-manifest.json` in the configured repository; it never uploads sessions, Codex auth/state files, `.system`, or plugin caches.
 
+The manifest preserves each skill's `added_at`, sorts skills newest-first, and merges `usage_count` plus `last_used_at` from the machine-local usage file. Record every personal skill at most once per session:
+
+```bash
+python3 scripts/record_skill_usage.py <skill-name> [<skill-name> ...]
+```
+
+The usage file is local state outside every skill folder and is not exported. On a restored machine, the recorder bootstraps each counter from the checked-out manifest before incrementing it.
+
 If `config.json` is absent after restoring from Git, copy `config.example.json` to `config.json` and fill the private repository URL and checkout path. Keep this runtime file local.
 
 Preview first:

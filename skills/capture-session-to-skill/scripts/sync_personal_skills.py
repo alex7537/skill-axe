@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import fnmatch
 import hashlib
 import json
@@ -116,6 +117,11 @@ def parse_args(config: dict[str, str]) -> argparse.Namespace:
     parser.add_argument("--checkout", type=Path, default=Path(config["checkout_dir"]))
     parser.add_argument("--managed-subdir", default=config["managed_subdir"])
     parser.add_argument("--manifest", default=config["manifest_name"])
+    parser.add_argument(
+        "--usage-stats",
+        type=Path,
+        default=Path(config.get("usage_stats_file", "~/.codex/skill-usage.json")),
+    )
     parser.add_argument("--privacy-config", type=Path, default=DEFAULT_PRIVACY_CONFIG)
     parser.add_argument("--execute", action="store_true", help="Clone/copy skills into the checkout")
     parser.add_argument("--commit", action="store_true", help="Commit managed changes")
@@ -276,24 +282,117 @@ def discover(source: Path, exclude_globs: list[str]) -> tuple[dict[str, list[Pat
     return skills, excluded
 
 
+def load_json_object(path: Path) -> dict[str, Any]:
+    if not path.is_file():
+        return {}
+    value = json.loads(path.read_text())
+    if not isinstance(value, dict):
+        raise ValueError(f"expected a JSON object: {path}")
+    return value
+
+
+def load_usage_stats(path: Path) -> dict[str, dict[str, Any]]:
+    value = load_json_object(path.expanduser())
+    skills = value.get("skills", {})
+    if not isinstance(skills, dict):
+        raise ValueError(f"expected a skills object: {path}")
+    return {
+        str(name): entry
+        for name, entry in skills.items()
+        if isinstance(entry, dict)
+    }
+
+
+def first_git_added_at(checkout: Path, managed_subdir: str, name: str) -> str | None:
+    if not (checkout / ".git").is_dir():
+        return None
+    result = run(
+        [
+            "git",
+            "log",
+            "--diff-filter=A",
+            "--format=%aI",
+            "--reverse",
+            "--",
+            f"{managed_subdir}/{name}/SKILL.md",
+        ],
+        cwd=checkout,
+    )
+    if result.returncode != 0:
+        return None
+    lines = [line.strip() for line in result.stdout.splitlines() if line.strip()]
+    return lines[0] if lines else None
+
+
+def local_added_at(skill_file: Path) -> str:
+    stat = skill_file.stat()
+    timestamp = getattr(stat, "st_birthtime", stat.st_ctime)
+    return datetime.fromtimestamp(timestamp, timezone.utc).astimezone().isoformat(timespec="seconds")
+
+
+def parse_timestamp(value: Any) -> datetime:
+    if not isinstance(value, str):
+        return datetime.min.replace(tzinfo=timezone.utc)
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return datetime.min.replace(tzinfo=timezone.utc)
+    return parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
+
+
 def make_manifest(
     source: Path,
     skills: dict[str, list[Path]],
     excluded: dict[str, str],
     replacements: dict[str, str],
+    previous_manifest: dict[str, Any],
+    usage_stats: dict[str, dict[str, Any]],
+    checkout: Path,
+    managed_subdir: str,
 ) -> dict[str, Any]:
-    entries: dict[str, Any] = {}
+    previous_skills = previous_manifest.get("skills", {})
+    if not isinstance(previous_skills, dict):
+        previous_skills = {}
+    unsorted_entries: dict[str, Any] = {}
     for name, paths in skills.items():
-        entries[name] = {
+        previous = previous_skills.get(name, {})
+        if not isinstance(previous, dict):
+            previous = {}
+        usage = usage_stats.get(name, {})
+        added_at = (
+            previous.get("added_at")
+            or local_added_at(source / name / "SKILL.md")
+            or first_git_added_at(checkout, managed_subdir, name)
+        )
+        previous_count = previous.get("usage_count", 0)
+        local_count = usage.get("usage_count", 0)
+        try:
+            usage_count = max(0, int(previous_count), int(local_count))
+        except (TypeError, ValueError):
+            usage_count = 0
+        entry: dict[str, Any] = {
+            "added_at": added_at,
+            "usage_count": usage_count,
             "files": {
                 str(path.relative_to(source / name)): hashlib.sha256(export_bytes(path, replacements)).hexdigest()
                 for path in paths
-            }
+            },
         }
+        last_used_at = usage.get("last_used_at") or previous.get("last_used_at")
+        if last_used_at:
+            entry["last_used_at"] = last_used_at
+        unsorted_entries[name] = entry
+    entries = dict(
+        sorted(
+            unsorted_entries.items(),
+            key=lambda item: (parse_timestamp(item[1]["added_at"]), item[0]),
+            reverse=True,
+        )
+    )
     return {
-        "format_version": 1,
+        "format_version": 2,
         "skills": entries,
-        "excluded_files": excluded,
+        "excluded_files": dict(sorted(excluded.items())),
     }
 
 
@@ -366,7 +465,7 @@ def copy_snapshot(
             if existing.is_dir() and existing.name not in skills:
                 shutil.rmtree(existing)
     manifest_path = checkout / manifest_name
-    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
 
 
 def main() -> int:
@@ -380,23 +479,37 @@ def main() -> int:
         return 2
     source = args.source.expanduser().resolve()
     checkout = args.checkout.expanduser().resolve()
+    usage_stats_path = args.usage_stats.expanduser().resolve()
     if not source.is_dir():
         print(f"Source skills directory not found: {source}", file=sys.stderr)
         return 2
 
     try:
         privacy_config = load_privacy_config(args.privacy_config)
-    except (OSError, json.JSONDecodeError, re.error) as exc:
-        print(f"Invalid privacy config: {exc}", file=sys.stderr)
+        previous_manifest = load_json_object(checkout / args.manifest)
+        usage_stats = load_usage_stats(usage_stats_path)
+    except (OSError, ValueError, json.JSONDecodeError, re.error) as exc:
+        print(f"Invalid config or local state: {exc}", file=sys.stderr)
         return 2
     skills, excluded = discover(source, privacy_config["exclude_globs"])
     privacy_issues = privacy_findings(source, skills, privacy_config)
-    manifest = make_manifest(source, skills, excluded, privacy_config["replacements"])
+    manifest = make_manifest(
+        source,
+        skills,
+        excluded,
+        privacy_config["replacements"],
+        previous_manifest,
+        usage_stats,
+        checkout,
+        args.managed_subdir,
+    )
     print(f"Repository: {args.repo_url}")
     print(f"Checkout: {checkout}")
     print(f"Managed path: {args.managed_subdir}/")
     print(f"Skills selected ({len(skills)}): {', '.join(skills)}")
     print(f"Files selected: {sum(len(paths) for paths in skills.values())}")
+    print(f"Usage stats: {usage_stats_path} ({len(usage_stats)} skills recorded)")
+    print("Manifest order: newest added_at first")
     print(f"Privacy replacements: {len(privacy_config['replacements'])}")
     if excluded:
         print("Excluded files:")
