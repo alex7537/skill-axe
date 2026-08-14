@@ -1,6 +1,22 @@
 {
   "format_version": 2,
   "skills": {
+    "publish-model-release": {
+      "added_at": "2026-08-14T14:53:35+08:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "042e2c151c0a50067e8a20903d58caa2e97821004521c183a0b7eb62b7e36746",
+        "agents/openai.yaml": "e55cc2686b78ccd24ab0e7b15fe0619330bda3bd6f72c0e90850b0fd5238959e",
+        "assets/model-release-template/README.md": "2c4463c73972c74354c85ab74ca9261e2ebbb2c7d70d8acd58d0cb8675c43021",
+        "assets/model-release-template/config.yaml": "11164bb361fd9a8a3df5f48c05862fb5152842d3bfecc349bd329e5bc03ab270",
+        "assets/model-release-template/normalization_stats.json": "ad14bab096ccf4a38416bfac07e8a4f5ca1bf78689b22aed5e46446404e0db3c",
+        "assets/model-release-template/release_manifest.json": "5a6224c15a6bac07cf05c0ab41f0655245f3fa4f229b2f88f336fbb99ab417ae",
+        "references/architecture.md": "5130f44340e3bc83d50704f75ace829e5276b6aee6bca76b7e5f1ad78e9f4012",
+        "references/release-contract.md": "2eb00876eeee331675f564de297374c299b6ef64720a532cba4fe97a1df38bd6",
+        "scripts/audit_model_release.py": "bf9fd54cb90af3e3825cf718df46359137fc13d40746584d1ca4620a8ee577c5",
+        "scripts/test_audit_model_release.py": "55917ac05c67445ed71cbb2900d9d4da9affb623994b10b84f3bda2e44fc0023"
+      }
+    },
     "remote-policy-bundle": {
       "added_at": "2026-08-13T21:19:51+08:00",
       "usage_count": 0,
@@ -39,7 +55,7 @@
     },
     "capture-session-to-skill": {
       "added_at": "2026-08-12T15:08:18+08:00",
-      "usage_count": 1,
+      "usage_count": 2,
       "files": {
         "SKILL.md": "ccd737277fe043b61c8abce22fb694062833aec19f542250034593fe62ea9fc7",
         "agents/openai.yaml": "1e4c870c78a1ff3d9c88d90bb1d3e9796c66b32e4a84d19175305a25268b1621",
@@ -50,7 +66,7 @@
         "scripts/record_skill_usage.py": "9068bb02378a97a665577c07b3415eb8d09312cfb4291532f5bba2cf257faac6",
         "scripts/sync_personal_skills.py": "06806f863c4c9a7f041febe132e5b56d06f221950b8bb218e479c08ad991ad30"
       },
-      "last_used_at": "2026-08-14T10:59:28+08:00"
+      "last_used_at": "2026-08-14T14:50:55+08:00"
     },
     "tcr-image-publish": {
       "added_at": "2026-08-12T14:55:15+08:00",
@@ -133,12 +149,12 @@
     },
     "skill-authoring": {
       "added_at": "2026-07-20T15:42:13+08:00",
-      "usage_count": 1,
+      "usage_count": 2,
       "files": {
         "SKILL.md": "d36cf0d53e192d2240ecd3dd61a417b8caec74c89700d317c86f3afa6ea952d1",
         "references/skill-types.md": "dee1317069a48ec62d4b497a5b9464dc3b64f41b422cfc5e173c8ccf5bd357ee"
       },
-      "last_used_at": "2026-08-14T10:59:28+08:00"
+      "last_used_at": "2026-08-14T14:50:55+08:00"
     },
     "tione": {
       "added_at": "2026-06-12T15:47:26+08:00",

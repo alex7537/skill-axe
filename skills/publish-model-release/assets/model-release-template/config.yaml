@@ -1,0 +1,11 @@
+# Replace this generic contract with the project's resolved inference/training config.
+architecture: replace-me
+inputs:
+  observation_keys: []
+  image_preprocessing: replace-me
+outputs:
+  representation: replace-me
+  horizon: null
+runtime:
+  control_frequency_hz: null
+  dtype: replace-me

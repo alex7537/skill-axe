@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publish Model Release"
+  short_description: "Release reproducible models across GitHub and Hugging Face"
+  default_prompt: "Use $publish-model-release to prepare and verify a reproducible GitHub and Hugging Face model release."

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "model_id": "owner/model-name",
+  "release": "v0.1.0",
+  "artifact_type": "finetune",
+  "source": {
+    "git_url": "https://github.com/owner/repository",
+    "git_commit": "0000000000000000000000000000000000000000"
+  },
+  "weights": [
+    {
+      "path": "model.safetensors",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "role": "policy",
+      "variant": "raw",
+      "format": "safetensors"
+    }
+  ],
+  "config": {
+    "path": "config.yaml",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "normalization": {
+    "path": "normalization_stats.json",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "data": {
+    "id": "replace-me",
+    "split": "replace-me"
+  },
+  "evaluation": {
+    "dataset_id": "replace-me",
+    "split": "replace-me",
+    "command": "replace-me",
+    "metrics": {}
+  },
+  "compatibility": {
+    "python": ">=3.10",
+    "framework": "pytorch",
+    "framework_version": "replace-me"
+  },
+  "license": "replace-me"
+}
