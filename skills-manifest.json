@@ -1,6 +1,17 @@
 {
   "format_version": 2,
   "skills": {
+    "robot-ml-lifecycle": {
+      "added_at": "2026-08-14T15:24:30+08:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "299e8344a9562fcd5ef5a127d632844d7a6a071088404199ba0b2fa8e0c239e6",
+        "agents/openai.yaml": "0e4080edb9898e059d1a1e68ee6876e14881b97ef87522661a2e9468fb464b87",
+        "references/lifecycle-contract.md": "1947b0b883f9508ac086b736e3919864d4624bdc82d7d8e41fad8b47137d2038",
+        "scripts/lifecycle_ledger.py": "a8df87d0d6dc8730974fc4fca9c731e3773b9aac273206849dee38c7148de3ed",
+        "scripts/test_lifecycle_ledger.py": "9be082b3dee2cd68d934ad2b46e852a0a6c2679e156c00a80674e43a16acb4bd"
+      }
+    },
     "publish-model-release": {
       "added_at": "2026-08-14T14:53:35+08:00",
       "usage_count": 0,
@@ -118,13 +129,14 @@
     },
     "adaptive-task-coach": {
       "added_at": "2026-07-24T14:09:18+08:00",
-      "usage_count": 0,
+      "usage_count": 1,
       "files": {
         "SKILL.md": "fbfb72cee16634c94cde75b1beaa85c22c68bee1d06baa84fb3eb119ed02d6e9",
         "agents/openai.yaml": "b1538b7296ead3acdf801104c00ee9235a71d2f05ab0dc29495cc0684584fb12",
         "references/state-schema.md": "fc92ea1e8679d4a72ac5c6e0530a0d0118cef25c2552ae58d24e79e9af446889",
         "scripts/task_state.py": "8c5d8a3d16af4d64eea8cc05bfd236cb9203eeb4fcb9d389aadddedd47128bdd"
-      }
+      },
+      "last_used_at": "2026-08-14T15:13:12+08:00"
     },
     "plan-training-run": {
       "added_at": "2026-07-21T14:18:37+08:00",
@@ -167,19 +179,13 @@
         "scripts/tione_api.py": "8a641880503123fc9d87e0b4c7fa77787fd4964f6e5f6ab1b212acc943df744b"
       }
     },
-    "claude-guided-coding": {
-      "added_at": "2026-05-12T18:40:16+08:00",
-      "usage_count": 0,
-      "files": {
-        "SKILL.md": "44fff44305d987c4661e6469b11b57389b54beb9f76db5122e2f3ee330f48e95"
-      }
-    },
     "andrej-karpathy-skills": {
       "added_at": "2026-04-22T11:03:55+08:00",
-      "usage_count": 0,
+      "usage_count": 1,
       "files": {
         "SKILL.md": "c6699a43afeadfe3152a3423f6559a60bb7af3a01e8bb8d2e963b3ec142a4bad"
-      }
+      },
+      "last_used_at": "2026-08-14T15:22:48+08:00"
     }
   },
   "excluded_files": {
