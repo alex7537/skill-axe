@@ -1,6 +1,17 @@
 {
   "format_version": 2,
   "skills": {
+    "psi-autolabel-service-guide": {
+      "added_at": "2026-08-19T14:51:30+08:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "3db602938634ab152f342652ec923e2a5ac58914858c921a091ebeabbb084d28",
+        "agents/openai.yaml": "362e55511827b4fe37e913a6ed727c063cc4b26733c975066880b45bf97f4dc2",
+        "references/api-surface.md": "9aa975b741c8a1be816e983f1b0ecaee3f71659a40f2b95c7d60c93145ef9a16",
+        "references/runtime-architecture.md": "37fda492cd74fa2444e8415a4e195bfc88173686751ad028e4de626b2a095195"
+      },
+      "last_used_at": "2026-08-19T15:22:37+08:00"
+    },
     "feishu-wiki-readonly-review": {
       "added_at": "2026-08-19T11:14:13+08:00",
       "usage_count": 2,
@@ -88,7 +99,7 @@
     },
     "capture-session-to-skill": {
       "added_at": "2026-08-12T15:08:18+08:00",
-      "usage_count": 4,
+      "usage_count": 5,
       "files": {
         "SKILL.md": "7e08c46e3d993315b2cb918d4817e7fc9cb87de74ea13944e019d231f4b7bb46",
         "agents/openai.yaml": "1e4c870c78a1ff3d9c88d90bb1d3e9796c66b32e4a84d19175305a25268b1621",
@@ -99,7 +110,7 @@
         "scripts/record_skill_usage.py": "9068bb02378a97a665577c07b3415eb8d09312cfb4291532f5bba2cf257faac6",
         "scripts/sync_personal_skills.py": "dd6bfab2713b20ed17a9b242f5f2519f91b2909478cc2c6a8a8bca2a6793b51b"
       },
-      "last_used_at": "2026-08-19T11:54:48+08:00"
+      "last_used_at": "2026-08-19T15:23:44+08:00"
     },
     "tcr-image-publish": {
       "added_at": "2026-08-12T14:55:15+08:00",
@@ -125,13 +136,13 @@
     },
     "sync-follow-branch": {
       "added_at": "2026-08-11T21:09:14+08:00",
-      "usage_count": 2,
+      "usage_count": 3,
       "files": {
         "SKILL.md": "062301f230c56c07774ded4e86afb655e11dd8f51873ff94eeb512021eea170f",
         "agents/openai.yaml": "686bfc2ae3e1e5a2fbf74c710fe0720c06b6baa4240c42a8fa646d9b846d2f0e",
         "scripts/git-follow-preflight.sh": "3fb69239c731d2efbfb37e4a0aa52242f55aa93b300fa3adcb10ea847a77f54f"
       },
-      "last_used_at": "2026-08-19T11:19:21+08:00"
+      "last_used_at": "2026-08-19T14:50:58+08:00"
     },
     "math-principles-coach": {
       "added_at": "2026-08-04T00:23:00+08:00",
@@ -177,7 +188,7 @@
     },
     "understand-codebase": {
       "added_at": "2026-07-20T15:48:11+08:00",
-      "usage_count": 9,
+      "usage_count": 10,
       "files": {
         "SKILL.md": "d0775a5ba043727d3fb8b83bcce8a2bdfbfb2f25b9f0cd23ba59bd1035994c6d",
         "agents/openai.yaml": "4ee65e22b26ae74e53ab03ce141f44266658961f0ee1a508c1e78ab35627bb44",
@@ -185,16 +196,16 @@
         "references/prompt-ladder.md": "d8598efb5e6ec19331eb6cc866e94ad6eea0626957d7c41e086f3864b977d363",
         "scripts/repo_inventory.py": "f95f068ce1a12150339e6ee48a2e1a682c4d76969457386e61a7d7f73c95f62d"
       },
-      "last_used_at": "2026-08-19T11:36:25+08:00"
+      "last_used_at": "2026-08-19T14:50:58+08:00"
     },
     "skill-authoring": {
       "added_at": "2026-07-20T15:42:13+08:00",
-      "usage_count": 6,
+      "usage_count": 7,
       "files": {
         "SKILL.md": "d36cf0d53e192d2240ecd3dd61a417b8caec74c89700d317c86f3afa6ea952d1",
         "references/skill-types.md": "dee1317069a48ec62d4b497a5b9464dc3b64f41b422cfc5e173c8ccf5bd357ee"
       },
-      "last_used_at": "2026-08-19T11:52:03+08:00"
+      "last_used_at": "2026-08-19T14:50:58+08:00"
     },
     "tione": {
       "added_at": "2026-06-12T15:47:26+08:00",

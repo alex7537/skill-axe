@@ -1,0 +1,4 @@
+interface:
+  display_name: "PSI Autolabel Service Guide"
+  short_description: "Map PSI Autolabel APIs and runtime architecture"
+  default_prompt: "Use $psi-autolabel-service-guide to explain or trace a PSI Autolabel API and its runtime path."
