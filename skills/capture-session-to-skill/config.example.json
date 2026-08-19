@@ -4,5 +4,6 @@
   "checkout_dir": "~/.codex/skill-repos/skill-backup",
   "managed_subdir": "skills",
   "manifest_name": "skills-manifest.json",
+  "dashboard_name": "SKILLS.md",
   "usage_stats_file": "~/.codex/skill-usage.json"
 }

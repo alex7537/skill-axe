@@ -2,6 +2,8 @@
 
 This repository is the portable, privacy-filtered backup of a personal Codex Skill library. It stores reusable workflows, deterministic scripts, focused references, and the manifest needed to restore the library on another machine.
 
+See the generated [Skill Usage Dashboard](SKILLS.md) for each exported Skill and its usage count.
+
 It intentionally does **not** back up Codex sessions, authentication state, tokens, private keys, plugin caches, runtime `config.json` files, or machine-private references.
 
 ## Design principles

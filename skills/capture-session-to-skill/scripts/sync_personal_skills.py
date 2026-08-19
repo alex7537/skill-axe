@@ -117,6 +117,7 @@ def parse_args(config: dict[str, str]) -> argparse.Namespace:
     parser.add_argument("--checkout", type=Path, default=Path(config["checkout_dir"]))
     parser.add_argument("--managed-subdir", default=config["managed_subdir"])
     parser.add_argument("--manifest", default=config["manifest_name"])
+    parser.add_argument("--dashboard", default=config.get("dashboard_name", "SKILLS.md"))
     parser.add_argument(
         "--usage-stats",
         type=Path,
@@ -396,6 +397,36 @@ def make_manifest(
     }
 
 
+def render_usage_dashboard(manifest: dict[str, Any], managed_subdir: str) -> str:
+    skills = manifest.get("skills", {})
+    rows: list[tuple[str, int]] = []
+    if isinstance(skills, dict):
+        for name, entry in skills.items():
+            count = entry.get("usage_count", 0) if isinstance(entry, dict) else 0
+            try:
+                usage_count = max(0, int(count))
+            except (TypeError, ValueError):
+                usage_count = 0
+            rows.append((str(name), usage_count))
+    rows.sort(key=lambda item: (-item[1], item[0]))
+    total_usage = sum(count for _, count in rows)
+    lines = [
+        "# Skill Usage Dashboard",
+        "",
+        "Automatically generated from `skills-manifest.json`. Do not edit manually.",
+        "",
+        f"**{len(rows)} skills · {total_usage} total uses**",
+        "",
+        "| Skill | Usage count |",
+        "|---|---:|",
+    ]
+    lines.extend(
+        f"| [{name}]({managed_subdir}/{name}/) | {count} |"
+        for name, count in rows
+    )
+    return "\n".join(lines) + "\n"
+
+
 def ensure_checkout(repo_url: str, checkout: Path) -> None:
     if checkout.exists():
         if not (checkout / ".git").is_dir():
@@ -426,6 +457,7 @@ def copy_snapshot(
     checkout: Path,
     managed_subdir: str,
     manifest_name: str,
+    dashboard_name: str,
     skills: dict[str, list[Path]],
     manifest: dict[str, Any],
     replacements: dict[str, str],
@@ -466,6 +498,8 @@ def copy_snapshot(
                 shutil.rmtree(existing)
     manifest_path = checkout / manifest_name
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+    dashboard_path = checkout / dashboard_name
+    dashboard_path.write_text(render_usage_dashboard(manifest, managed_subdir))
 
 
 def main() -> int:
@@ -506,6 +540,7 @@ def main() -> int:
     print(f"Repository: {args.repo_url}")
     print(f"Checkout: {checkout}")
     print(f"Managed path: {args.managed_subdir}/")
+    print(f"Usage dashboard: {args.dashboard}")
     print(f"Skills selected ({len(skills)}): {', '.join(skills)}")
     print(f"Files selected: {sum(len(paths) for paths in skills.values())}")
     print(f"Usage stats: {usage_stats_path} ({len(usage_stats)} skills recorded)")
@@ -534,6 +569,7 @@ def main() -> int:
             checkout,
             args.managed_subdir,
             args.manifest,
+            args.dashboard,
             skills,
             manifest,
             privacy_config["replacements"],
@@ -551,7 +587,7 @@ def main() -> int:
         print("COPY COMPLETE: review the checkout diff before committing.")
         return 0
 
-    run(["git", "add", "--", args.managed_subdir, args.manifest], cwd=checkout)
+    run(["git", "add", "--", args.managed_subdir, args.manifest, args.dashboard], cwd=checkout)
     staged = run(["git", "diff", "--cached", "--quiet"], cwd=checkout)
     if staged.returncode == 0:
         print("No staged changes; nothing to commit or push.")

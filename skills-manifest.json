@@ -90,14 +90,14 @@
       "added_at": "2026-08-12T15:08:18+08:00",
       "usage_count": 4,
       "files": {
-        "SKILL.md": "ccd737277fe043b61c8abce22fb694062833aec19f542250034593fe62ea9fc7",
+        "SKILL.md": "7e08c46e3d993315b2cb918d4817e7fc9cb87de74ea13944e019d231f4b7bb46",
         "agents/openai.yaml": "1e4c870c78a1ff3d9c88d90bb1d3e9796c66b32e4a84d19175305a25268b1621",
-        "config.example.json": "f1c83eedd1e4d123cc27ed70fbbfd7d7a5beb9d79fc45d95d64c459ea3a8f6f1",
+        "config.example.json": "767b9153120d9a8b315a5ef757fe24b5732b0d69e5c7986c3ea9d55de17a66e3",
         "references/capture-criteria.md": "28233b58dbacd11e3ce7171d8b51b9e15b18821e34f7dee84200c5def2920259",
         "references/restore-on-new-machine.md": "0fd494015830a6004c862835c2a36b013b4196d570aea3036aa0b5e3655bd3d6",
         "scripts/install_global_reminder.py": "b8b57e51b39a5f8dbc3a19448f72136c3df07095c7e3d156f4c29b3a8f5f2b5b",
         "scripts/record_skill_usage.py": "9068bb02378a97a665577c07b3415eb8d09312cfb4291532f5bba2cf257faac6",
-        "scripts/sync_personal_skills.py": "06806f863c4c9a7f041febe132e5b56d06f221950b8bb218e479c08ad991ad30"
+        "scripts/sync_personal_skills.py": "dd6bfab2713b20ed17a9b242f5f2519f91b2909478cc2c6a8a8bca2a6793b51b"
       },
       "last_used_at": "2026-08-19T11:54:48+08:00"
     },
@@ -210,11 +210,11 @@
     },
     "andrej-karpathy-skills": {
       "added_at": "2026-04-22T11:03:55+08:00",
-      "usage_count": 4,
+      "usage_count": 5,
       "files": {
         "SKILL.md": "c6699a43afeadfe3152a3423f6559a60bb7af3a01e8bb8d2e963b3ec142a4bad"
       },
-      "last_used_at": "2026-08-18T16:39:44+08:00"
+      "last_used_at": "2026-08-19T12:28:06+08:00"
     }
   },
   "excluded_files": {
