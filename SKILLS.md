@@ -2,7 +2,7 @@
 
 Automatically generated from `skills-manifest.json`. Do not edit manually.
 
-**19 skills · 52 total uses**
+**20 skills · 53 total uses**
 
 | Skill | Usage count |
 |---|---:|
@@ -17,11 +17,12 @@ Automatically generated from `skills-manifest.json`. Do not edit manually.
 | [adaptive-task-coach](skills/adaptive-task-coach/) | 2 |
 | [feishu-wiki-readonly-review](skills/feishu-wiki-readonly-review/) | 2 |
 | [plan-training-run](skills/plan-training-run/) | 2 |
+| [psi-autolabel-service-guide](skills/psi-autolabel-service-guide/) | 2 |
 | [remote-policy-bundle](skills/remote-policy-bundle/) | 2 |
 | [dataset-split-protocol](skills/dataset-split-protocol/) | 1 |
-| [psi-autolabel-service-guide](skills/psi-autolabel-service-guide/) | 1 |
 | [robot-ml-lifecycle](skills/robot-ml-lifecycle/) | 1 |
 | [seg-label-audit](skills/seg-label-audit/) | 1 |
 | [tione-ssh-diagnose](skills/tione-ssh-diagnose/) | 1 |
+| [mj-demo-runtime-guide](skills/mj-demo-runtime-guide/) | 0 |
 | [publish-model-release](skills/publish-model-release/) | 0 |
 | [tcr-image-publish](skills/tcr-image-publish/) | 0 |

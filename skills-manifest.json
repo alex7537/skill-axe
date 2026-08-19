@@ -1,16 +1,27 @@
 {
   "format_version": 2,
   "skills": {
+    "mj-demo-runtime-guide": {
+      "added_at": "2026-08-19T19:31:31+08:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "792723dcacef9d14770d4f04a4764e0539bd2f54a5562b1e12282bb302603a69",
+        "agents/openai.yaml": "c5010661139d2ccd504bb6a6a58f4ff74680e7f8fffd86dd3d6ae1a1adb75962",
+        "references/external-model-api.md": "ef88367216bb8600e04809126f2fe8742e65218df6ccbe374008d11f5f94119c",
+        "references/runtime-architecture.md": "6aabfdb31a50d08756d8c82d7c995d7738589e952080dad62ead706ece8c7675",
+        "references/safety-and-gotchas.md": "5d6178630e9fdb885b3d7495d5e4e8543c5dc0ead4f6ec9c33913bd60f2bfec3"
+      }
+    },
     "psi-autolabel-service-guide": {
       "added_at": "2026-08-19T14:51:30+08:00",
-      "usage_count": 1,
+      "usage_count": 2,
       "files": {
         "SKILL.md": "3db602938634ab152f342652ec923e2a5ac58914858c921a091ebeabbb084d28",
         "agents/openai.yaml": "362e55511827b4fe37e913a6ed727c063cc4b26733c975066880b45bf97f4dc2",
         "references/api-surface.md": "9aa975b741c8a1be816e983f1b0ecaee3f71659a40f2b95c7d60c93145ef9a16",
         "references/runtime-architecture.md": "37fda492cd74fa2444e8415a4e195bfc88173686751ad028e4de626b2a095195"
       },
-      "last_used_at": "2026-08-19T15:22:37+08:00"
+      "last_used_at": "2026-08-19T19:12:48+08:00"
     },
     "feishu-wiki-readonly-review": {
       "added_at": "2026-08-19T11:14:13+08:00",

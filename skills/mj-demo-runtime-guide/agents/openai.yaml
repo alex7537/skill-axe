@@ -1,0 +1,4 @@
+interface:
+  display_name: "MJ-Demo Runtime Guide"
+  short_description: "麻将机器人运行时、模型 API 与算力边界指南"
+  default_prompt: "Use $mj-demo-runtime-guide to trace this MJ-Demo request from sensor input through external model APIs to validation and robot action."
