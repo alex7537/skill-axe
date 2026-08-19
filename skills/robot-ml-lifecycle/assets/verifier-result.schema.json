@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/robot-ml/verifier-result.schema.json",
+  "title": "Robot ML verifier result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["verdict", "subject_hash", "reason", "checks", "evidence"],
+  "properties": {
+    "verdict": {"enum": ["APPROVE", "REJECT", "ESCALATE_HUMAN"]},
+    "subject_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "reason": {"type": "string", "minLength": 1},
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "status": {"enum": ["passed", "failed", "not_run"]},
+          "detail": {"type": "string"}
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    }
+  }
+}

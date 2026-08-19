@@ -16,9 +16,12 @@ Own the lifecycle control plane and handoffs. Delegate domain decisions and dete
 - Advance only from observable evidence: manifest, hash, Git commit, task ID, checkpoint, log, metric, digest, or verified artifact.
 - Default to autonomy level `L1` (report/plan only). Move to `L2` or `L3` only with an explicit human decision recorded in the ledger.
 - Run the deterministic circuit breaker before every retry. Stop on pause, repeated failure, attempt/cycle cap, or budget exhaustion.
+- In runner-driven mode, the Runner is the only lifecycle-ledger writer. Executors and verifiers return structured results and never invoke ledger mutation commands.
+- Keep runner polls/noops in runner state and the run log, not in lifecycle attempts. Restrict all runner and ledger writes to one control node.
 - Distinguish explanation from authorization. Never infer permission to create cloud resources, start training, open a holdout, publish an image/model, push Git, or delete anything.
 - Read [references/lifecycle-contract.md](references/lifecycle-contract.md) for phase gates, handoff artifacts, and routing rules.
 - Read [references/control-plane.md](references/control-plane.md) before enabling recurring or autonomous operation.
+- Read [references/run-protocol.md](references/run-protocol.md) before using a scheduled Runner or combining executor and verifier output.
 
 ## Initialize or resume
 
@@ -50,6 +53,10 @@ Do not pass `--human-approved` by inference. A downgrade may be recorded without
 Use `check` before acting and `context` to build the smallest useful prompt for the next run. A phase may be explicitly `skipped` only with evidence explaining why it does not apply.
 
 Copy `assets/robot-ml-constraints.template.md` into the project when recurring execution needs a durable denylist, external-write policy, budget, or kill switch. Customize it for the repository and treat it as binding together with `AGENTS.md`.
+
+For a read-only L1 control-plane tick, use `scripts/run_once.py`. It owns only the local runner lock/state, run log, and escalation inbox. It does not call an agent and does not write the lifecycle ledger.
+
+The direct mutation commands below are for a human-controlled/manual session. Stop the scheduler and confirm that no Runner owns the project lock before using them. In runner-driven L2/L3 mode, only the Runner may invoke them after validating executor and verifier contracts.
 
 ## Route each phase
 
@@ -106,7 +113,7 @@ Copy `assets/robot-ml-constraints.template.md` into the project when recurring e
 
 ## Record evidence
 
-Record phase status immediately after verification:
+After verification, have the sole writer record phase status immediately:
 
 ```bash
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle_ledger.py" record \
@@ -119,7 +126,7 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle
   --artifact checkpoint=/verified/path/best.ckpt
 ```
 
-Record every material attempt before retrying:
+Have the sole writer record every material attempt before retrying. A scheduler poll or unchanged observation is a runner-log `noop`, not a lifecycle attempt:
 
 ```bash
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/robot-ml-lifecycle/scripts/lifecycle_ledger.py" attempt \

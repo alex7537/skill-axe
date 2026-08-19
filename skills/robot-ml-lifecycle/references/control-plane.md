@@ -17,17 +17,17 @@ The ledger CLI enforces this boundary: increasing a level requires `level --huma
 
 Execute a recurring run in this order:
 
-1. Read project instructions, constraints, and lifecycle ledger.
+1. Acquire the single control node's local Runner lock and read project instructions, constraints, runner state, and lifecycle ledger.
 2. Run `check`; exit immediately on pause, budget, stagnation, or attempt cap.
 3. Produce compact `context`; do not inject the whole history.
 4. Select the first unresolved actionable phase.
 5. At L1, report only. At L2/L3, confirm the action is allowlisted and gated.
 6. Perform one bounded attempt in an isolated environment when mutation is involved.
 7. Run an independent verifier or deterministic gate.
-8. Append attempt, phase evidence, human decision, and outcome.
+8. Return structured executor and verifier results to the Runner; only the Runner may append attempt, phase evidence, a bound human decision, and outcome.
 9. Decide: continue, start a new cycle, wait for human, complete, or retire.
 
-An empty/no-action run is a successful `noop`; exit cheaply instead of spawning more work.
+An empty/no-action run is a runner-log `noop`; exit cheaply instead of spawning more work. Never add polling noops to lifecycle attempts.
 
 ## Circuit breaker
 
@@ -54,7 +54,7 @@ Recurring execution must define:
 - fire condition and no-op condition;
 - off-hours behavior;
 - maximum concurrent runs;
-- one-writer ownership or locking for the ledger;
+- one control node and Runner-only ownership for ledger writes; a local lock prevents overlap only on that node;
 - notification rule (only actionable human decisions by default);
 - pause and retirement procedure.
 
@@ -68,7 +68,7 @@ Use the resource that actually constrains the loop:
 - storage cap for checkpoints and bundles;
 - attempt and cycle caps for convergence risk.
 
-The bundled ledger mechanically enforces attempt, cycle, token, and monetary caps when recorded. GPU/storage enforcement remains a specialist responsibility until their measurements are recorded as costs/artifacts.
+The bundled schema-2 ledger mechanically enforces attempt, cycle, token, and monetary caps when recorded. Add GPU/storage observations and payload-bound decisions together in schema 3 so breaker decisions can consume them without ad-hoc runner-only state.
 
 ## State hygiene
 

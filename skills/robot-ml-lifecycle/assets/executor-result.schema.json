@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/robot-ml/executor-result.schema.json",
+  "title": "Robot ML executor result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "phase",
+    "action",
+    "outcome",
+    "error",
+    "evidence",
+    "artifacts",
+    "tokens",
+    "cost_estimate",
+    "worktree"
+  ],
+  "properties": {
+    "phase": {
+      "enum": [
+        "frame", "source", "understand", "labels", "split", "train_plan",
+        "infrastructure", "train", "evaluate", "package", "release", "capture"
+      ]
+    },
+    "action": {"type": "string", "minLength": 1},
+    "outcome": {"enum": ["success", "failure", "blocked", "no_change"]},
+    "error": {"type": ["string", "null"]},
+    "evidence": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": {"type": "string", "minLength": 1}
+    },
+    "tokens": {"type": "integer", "minimum": 0},
+    "cost_estimate": {"type": "number", "minimum": 0},
+    "worktree": {"type": ["string", "null"]},
+    "decision_request": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["subject", "payload_hash", "operation", "target"],
+          "properties": {
+            "subject": {"type": "string", "minLength": 1},
+            "payload_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+            "operation": {"type": "string", "minLength": 1},
+            "target": {"type": "string", "minLength": 1}
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"outcome": {"const": "failure"}}},
+      "then": {"properties": {"error": {"type": "string", "minLength": 1}}}
+    }
+  ]
+}

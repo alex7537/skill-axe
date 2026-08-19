@@ -1,17 +1,33 @@
 {
   "format_version": 2,
   "skills": {
+    "feishu-wiki-readonly-review": {
+      "added_at": "2026-08-19T11:14:13+08:00",
+      "usage_count": 2,
+      "files": {
+        "SKILL.md": "4866c76826f11f875200118fb139f4d8a3a5c3a3374b5c0e5f91075b6d643a92",
+        "agents/openai.yaml": "6215a6269ad5daccfa4538fbe371b1e325a6b0cd1c8b13c78ca80a245355edb6",
+        "references/lark-cli-review-workflow.md": "fa70ad86d2f220906c83e99d3e2a45a036a843aab50c653f64491cac0fed70bf",
+        "scripts/fetch_wiki_tree.py": "5e48facd693529eb84650b36ae5fa7fb52f7c21dd23f15b50f8aff3abe4a6dba"
+      },
+      "last_used_at": "2026-08-19T11:38:43+08:00"
+    },
     "robot-ml-lifecycle": {
-      "added_at": "2026-08-14T15:24:30+08:00",
+      "added_at": "2026-08-15T10:58:27+08:00",
       "usage_count": 1,
       "files": {
-        "SKILL.md": "7d5c9490d0861455de8388b7ee337e375ab42af076f217730dc34ecf9495ea9c",
+        "SKILL.md": "2886abe5e6fa508255686e3270a4eb0ef510b7dd76e9150ca61920e96a05f71b",
         "agents/openai.yaml": "0f880228c23fd843544ddc7f21e67c121af32da521a0298bf76572bc7e71e321",
+        "assets/executor-result.schema.json": "9d7dbdc51a022a579f7b9189517f09cb33a6c7ed6f1d37f29937e043eaa8d71d",
         "assets/robot-ml-constraints.template.md": "efa1dcf5db091268c9da0da963d7614f8370a244dd7c3276438160a0706ee6a2",
-        "references/control-plane.md": "a07a465313088d9043338055a8a235f985f18ef58223c8c1320d9d416164ba8a",
+        "assets/verifier-result.schema.json": "ba6bc9c63df15ae4939a33e7671894a5ebbd3ccaeb5a3845086f18682f3866eb",
+        "references/control-plane.md": "af4bba5ba86accb3c9fb180660964ac871db96d650a04746f66b54f41469ee59",
         "references/lifecycle-contract.md": "788d6855e41bb5175dbfcbfa357b5616ea42b2748b713a2f9a3e364028580079",
+        "references/run-protocol.md": "46aef89b835a3ca09fa0ba9ccdeef3e8add95b9a3803400c86602b25e9c6f3e3",
         "scripts/lifecycle_ledger.py": "06989d14aa847835cbdc9b548b0a0bb63bdbcf829bb7e0f07839b5565f4b9b10",
-        "scripts/test_lifecycle_ledger.py": "7146ebb5cb6fe6c7d4994732d05a160d4d51fadfb8e74e2f28ec1d746757953d"
+        "scripts/run_once.py": "9d065abe636bc4e31049e1f2657be9e20ea53ff1ea5bb1448487e952d18fa26a",
+        "scripts/test_lifecycle_ledger.py": "7146ebb5cb6fe6c7d4994732d05a160d4d51fadfb8e74e2f28ec1d746757953d",
+        "scripts/test_run_once.py": "5b5bbeafd363d85ffc45dfd785b01f37b3c0ebafc562a9973a69d0bdef9c84fd"
       },
       "last_used_at": "2026-08-14T15:38:39+08:00"
     },
@@ -33,16 +49,17 @@
     },
     "remote-policy-bundle": {
       "added_at": "2026-08-13T21:19:51+08:00",
-      "usage_count": 0,
+      "usage_count": 2,
       "files": {
         "SKILL.md": "b2dec629fd267e3410c7a0ef87e18ef5d48449357fc4bfb2e9dfa61bc42d656a",
         "agents/openai.yaml": "aa6362d8a7958e6f5f1fe84fcd7b3e70d1fcacf339b8ab237acb3959f42fb93d",
         "scripts/pull_remote_policy_bundle.py": "8472fb3292be031ee7f4c948cc4c8b082c8a9087168a630779ac384c9a52a1ef"
-      }
+      },
+      "last_used_at": "2026-08-18T10:31:57+08:00"
     },
     "dataset-split-protocol": {
       "added_at": "2026-08-13T20:45:26+08:00",
-      "usage_count": 0,
+      "usage_count": 1,
       "files": {
         "SKILL.md": "1576383d42ad1dbd514ba6522949bda4384f3f6f44fb341af819f71ecc7f7c20",
         "agents/openai.yaml": "be2f50f6dad1ce795d8cf13c0ea2c2b2145cba8c3f6870cf57015ff4f4187782",
@@ -52,11 +69,12 @@
         "scripts/audit_incremental_overlap.py": "2a6e835b3fa8684873bed9d2f281597e520744cfcb3951ec8c3190d9fa73e3f3",
         "scripts/generate_group_split.py": "31babbe251727c89d14add4b17cc868e963011275d397dc6efafb2bc7dd9e55e",
         "scripts/validate_role_manifests.py": "ed4edc2b3010c4c2acb1e7524e367e5b9792c41c49893fc04089ba0e839eaec6"
-      }
+      },
+      "last_used_at": "2026-08-14T17:32:45+08:00"
     },
     "seg-label-audit": {
       "added_at": "2026-08-13T20:43:32+08:00",
-      "usage_count": 0,
+      "usage_count": 1,
       "files": {
         "SKILL.md": "7f2bc632d6ad2af2277d3221bff8295e82e24e8e6458c9347db928d693fcbe36",
         "agents/openai.yaml": "cdbc60bd5d980c90b28ed3086a84fc063c38232cec71984dd9b403db5bf5577f",
@@ -65,11 +83,12 @@
         "references/pseudo-label-audit.md": "46196e1cf97dd7d765ebe2abb64705a0c8517cfbfa5f15b4da78d50b759a32ec",
         "scripts/summarize_mask_scan.py": "0688cae020019842af1970490558b781c792fd325c08eb093ffbcc37b37a9318",
         "scripts/validate_label_decisions.py": "a5beae784a5711dd05117f32031f5f02f558c2121b00c6a747f7f469743d7d10"
-      }
+      },
+      "last_used_at": "2026-08-18T10:57:53+08:00"
     },
     "capture-session-to-skill": {
       "added_at": "2026-08-12T15:08:18+08:00",
-      "usage_count": 2,
+      "usage_count": 4,
       "files": {
         "SKILL.md": "ccd737277fe043b61c8abce22fb694062833aec19f542250034593fe62ea9fc7",
         "agents/openai.yaml": "1e4c870c78a1ff3d9c88d90bb1d3e9796c66b32e4a84d19175305a25268b1621",
@@ -80,7 +99,7 @@
         "scripts/record_skill_usage.py": "9068bb02378a97a665577c07b3415eb8d09312cfb4291532f5bba2cf257faac6",
         "scripts/sync_personal_skills.py": "06806f863c4c9a7f041febe132e5b56d06f221950b8bb218e479c08ad991ad30"
       },
-      "last_used_at": "2026-08-14T14:50:55+08:00"
+      "last_used_at": "2026-08-19T11:54:48+08:00"
     },
     "tcr-image-publish": {
       "added_at": "2026-08-12T14:55:15+08:00",
@@ -96,64 +115,69 @@
     },
     "tione-ssh-diagnose": {
       "added_at": "2026-08-12T11:59:02+08:00",
-      "usage_count": 0,
+      "usage_count": 1,
       "files": {
         "SKILL.md": "6de7eb3c07bc4d525638d966b4b4097440f7b53618b84fc38f550f846913d7d3",
         "agents/openai.yaml": "3d5cd0809d7f995ab56dac850f107e37edb86f07b2aecbcbc18af14c8bcb8d05",
         "scripts/diagnose_ssh.py": "bdaba077d8e52dcd31789febd58d6eb6a99041cd2e348d882002cb3b5403badc"
-      }
+      },
+      "last_used_at": "2026-08-18T10:58:13+08:00"
     },
     "sync-follow-branch": {
       "added_at": "2026-08-11T21:09:14+08:00",
-      "usage_count": 0,
+      "usage_count": 2,
       "files": {
         "SKILL.md": "062301f230c56c07774ded4e86afb655e11dd8f51873ff94eeb512021eea170f",
         "agents/openai.yaml": "686bfc2ae3e1e5a2fbf74c710fe0720c06b6baa4240c42a8fa646d9b846d2f0e",
         "scripts/git-follow-preflight.sh": "3fb69239c731d2efbfb37e4a0aa52242f55aa93b300fa3adcb10ea847a77f54f"
-      }
+      },
+      "last_used_at": "2026-08-19T11:19:21+08:00"
     },
     "math-principles-coach": {
       "added_at": "2026-08-04T00:23:00+08:00",
-      "usage_count": 0,
+      "usage_count": 3,
       "files": {
         "SKILL.md": "23b30151fa4947c186f5fe56968047dd16c398848243992ea9d3f71cf5b38415",
         "agents/openai.yaml": "810b9e1e1271894d6be12b3fb84e1c615032eafda943eeb16ee0e8a6035ae76e",
         "references/embodied-ai-math-map.md": "d8602f3e813051d2b60d5270ed1bfeb757e4e5453918d41326a9038cd9530c5d"
-      }
+      },
+      "last_used_at": "2026-08-19T11:36:25+08:00"
     },
     "code-understanding-coach": {
       "added_at": "2026-08-04T00:23:00+08:00",
-      "usage_count": 0,
+      "usage_count": 3,
       "files": {
         "SKILL.md": "66835f2055c47fead7fd7dc8f0daf5cb7bfdfead21188eb3328f1700aa6f7b94",
         "agents/openai.yaml": "58ce1abc8c40fb4ee6c6eb398a1bf930555df881f5373186b45755b87abf8f60",
         "references/learning-path.md": "8643f00ccc782144225068c4d26b0922ac1c43f9e020f74240dbb39e57d4d38d"
-      }
+      },
+      "last_used_at": "2026-08-19T11:36:25+08:00"
     },
     "adaptive-task-coach": {
       "added_at": "2026-07-24T14:09:18+08:00",
-      "usage_count": 1,
+      "usage_count": 2,
       "files": {
         "SKILL.md": "fbfb72cee16634c94cde75b1beaa85c22c68bee1d06baa84fb3eb119ed02d6e9",
         "agents/openai.yaml": "b1538b7296ead3acdf801104c00ee9235a71d2f05ab0dc29495cc0684584fb12",
         "references/state-schema.md": "fc92ea1e8679d4a72ac5c6e0530a0d0118cef25c2552ae58d24e79e9af446889",
         "scripts/task_state.py": "8c5d8a3d16af4d64eea8cc05bfd236cb9203eeb4fcb9d389aadddedd47128bdd"
       },
-      "last_used_at": "2026-08-14T15:13:12+08:00"
+      "last_used_at": "2026-08-19T11:36:25+08:00"
     },
     "plan-training-run": {
       "added_at": "2026-07-21T14:18:37+08:00",
-      "usage_count": 0,
+      "usage_count": 2,
       "files": {
         "SKILL.md": "55ba7417d0bf09985d3fdf99cc91a295ee00f242005b2dd3a96ed864eab2f5c2",
         "agents/openai.yaml": "07a359df0273828828efa69e0f9507cafd0507d77cbf705880bbffee2c239789",
         "references/training-principles.md": "0c8660c74fd213a521d75815ffa974ddc6cde5fba1de0a97ae827811fbc892f6",
         "scripts/plan_training.py": "a630866da7c2994c9d9a154a2a28d0199b1b3cb215887e54aceabf7b13c26347"
-      }
+      },
+      "last_used_at": "2026-08-17T16:48:00+08:00"
     },
     "understand-codebase": {
       "added_at": "2026-07-20T15:48:11+08:00",
-      "usage_count": 1,
+      "usage_count": 9,
       "files": {
         "SKILL.md": "d0775a5ba043727d3fb8b83bcce8a2bdfbfb2f25b9f0cd23ba59bd1035994c6d",
         "agents/openai.yaml": "4ee65e22b26ae74e53ab03ce141f44266658961f0ee1a508c1e78ab35627bb44",
@@ -161,35 +185,36 @@
         "references/prompt-ladder.md": "d8598efb5e6ec19331eb6cc866e94ad6eea0626957d7c41e086f3864b977d363",
         "scripts/repo_inventory.py": "f95f068ce1a12150339e6ee48a2e1a682c4d76969457386e61a7d7f73c95f62d"
       },
-      "last_used_at": "2026-08-14T15:38:39+08:00"
+      "last_used_at": "2026-08-19T11:36:25+08:00"
     },
     "skill-authoring": {
       "added_at": "2026-07-20T15:42:13+08:00",
-      "usage_count": 2,
+      "usage_count": 6,
       "files": {
         "SKILL.md": "d36cf0d53e192d2240ecd3dd61a417b8caec74c89700d317c86f3afa6ea952d1",
         "references/skill-types.md": "dee1317069a48ec62d4b497a5b9464dc3b64f41b422cfc5e173c8ccf5bd357ee"
       },
-      "last_used_at": "2026-08-14T14:50:55+08:00"
+      "last_used_at": "2026-08-19T11:52:03+08:00"
     },
     "tione": {
       "added_at": "2026-06-12T15:47:26+08:00",
-      "usage_count": 0,
+      "usage_count": 3,
       "files": {
         "SKILL.md": "4f2a2aacff970b9a75ee795de541ecf86c050ea3cd09d5dc36d53b351d19e7ee",
         "agents/openai.yaml": "9fc9adc9261271a4e0d28e7b09bc196156423535e85576050b7f233649625747",
         "config.example.json": "395c2c11784f1e12655339f67be7d0b0bf334139d007eb0adc3830c450a7b0a7",
         "references/api-reference.md": "d5ab4951ab052796bcd6d2a8e30a851593e609bddc9011f915bbb4ef6f5c6ff5",
         "scripts/tione_api.py": "8a641880503123fc9d87e0b4c7fa77787fd4964f6e5f6ab1b212acc943df744b"
-      }
+      },
+      "last_used_at": "2026-08-17T16:48:00+08:00"
     },
     "andrej-karpathy-skills": {
       "added_at": "2026-04-22T11:03:55+08:00",
-      "usage_count": 1,
+      "usage_count": 4,
       "files": {
         "SKILL.md": "c6699a43afeadfe3152a3423f6559a60bb7af3a01e8bb8d2e963b3ec142a4bad"
       },
-      "last_used_at": "2026-08-14T15:22:48+08:00"
+      "last_used_at": "2026-08-18T16:39:44+08:00"
     }
   },
   "excluded_files": {

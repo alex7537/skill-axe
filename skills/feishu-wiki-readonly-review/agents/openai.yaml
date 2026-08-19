@@ -1,0 +1,4 @@
+interface:
+  display_name: "飞书 Wiki 只读审阅"
+  short_description: "递归读取飞书 Wiki 并汇总实验方法、评测与经验"
+  default_prompt: "Use $feishu-wiki-readonly-review to read this Feishu Wiki recursively and summarize its methods, evaluations, and lessons without modifying anything."
