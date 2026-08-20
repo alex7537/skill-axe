@@ -1,6 +1,25 @@
 {
   "format_version": 2,
   "skills": {
+    "psi-wam-learning-coach": {
+      "added_at": "2026-08-20T15:07:36+08:00",
+      "usage_count": 2,
+      "files": {
+        "SKILL.md": "e1d9c4d09ae76d4e188ded1322b804cfe935fca389d8b2fe6222831cf0676e7e",
+        "agents/openai.yaml": "ccba033d0deea99518db4bb0d253488bf1af82ed2a52030dd0665ac95b587ca7",
+        "references/action-model-to-wam.md": "f6957659a74295a63cac6b390e6eadfc8bd6e86d013ff9ba1aa55e10555a721d",
+        "references/concept-ladder.md": "e47da35c536280a724298bf688c7bf0d714c7bfbd76524a1b8727f3605e97705",
+        "references/current-wam-map.md": "b96431a9ad3aa944389d3b2f9beb3618518b91599f7f89f896cfb29bd468dd51",
+        "references/evaluation-protocols.md": "2fe2aef4328a5aa19b22aebb287835fa9610a7c9a370713745626763b8e79956",
+        "references/evidence-ledger.md": "708e67219affb03a3edf9dcb20d36f78d437a5a7782600bd690ec66903f7d817",
+        "references/experiment-lessons.md": "eae385ff82b302521a65761dac425656f6ac8634a2e5fe052a9b866e04166dcf",
+        "references/feishu-pretrain-corpus-map.md": "07af8cfef9222135704543f884ea3f0fe6df201c837e54cb36c8e46a70724a71",
+        "references/robbyant-ecosystem-lessons.md": "0a48b2fa676f71f245eb7ca946c6097e479fa8d7e56e0043b5955f6fa3c996c0",
+        "references/robbyant-world-comparison.md": "c984f17f79e82f1b949dfc765d39b168802ef2e46c27e99eb90b3ba3f792cbeb",
+        "references/training-recipes-and-data.md": "39d5a6070911370069c9d63d38d1ef01e2515592e504894638c7a9316fc1de2c"
+      },
+      "last_used_at": "2026-08-20T15:17:08+08:00"
+    },
     "mj-demo-runtime-guide": {
       "added_at": "2026-08-19T19:31:31+08:00",
       "usage_count": 0,
@@ -177,25 +196,25 @@
     },
     "adaptive-task-coach": {
       "added_at": "2026-07-24T14:09:18+08:00",
-      "usage_count": 2,
+      "usage_count": 3,
       "files": {
         "SKILL.md": "fbfb72cee16634c94cde75b1beaa85c22c68bee1d06baa84fb3eb119ed02d6e9",
         "agents/openai.yaml": "b1538b7296ead3acdf801104c00ee9235a71d2f05ab0dc29495cc0684584fb12",
         "references/state-schema.md": "fc92ea1e8679d4a72ac5c6e0530a0d0118cef25c2552ae58d24e79e9af446889",
         "scripts/task_state.py": "8c5d8a3d16af4d64eea8cc05bfd236cb9203eeb4fcb9d389aadddedd47128bdd"
       },
-      "last_used_at": "2026-08-19T11:36:25+08:00"
+      "last_used_at": "2026-08-20T12:16:15+08:00"
     },
     "plan-training-run": {
       "added_at": "2026-07-21T14:18:37+08:00",
-      "usage_count": 2,
+      "usage_count": 3,
       "files": {
         "SKILL.md": "55ba7417d0bf09985d3fdf99cc91a295ee00f242005b2dd3a96ed864eab2f5c2",
         "agents/openai.yaml": "07a359df0273828828efa69e0f9507cafd0507d77cbf705880bbffee2c239789",
         "references/training-principles.md": "0c8660c74fd213a521d75815ffa974ddc6cde5fba1de0a97ae827811fbc892f6",
         "scripts/plan_training.py": "a630866da7c2994c9d9a154a2a28d0199b1b3cb215887e54aceabf7b13c26347"
       },
-      "last_used_at": "2026-08-17T16:48:00+08:00"
+      "last_used_at": "2026-08-20T10:45:14+08:00"
     },
     "understand-codebase": {
       "added_at": "2026-07-20T15:48:11+08:00",
@@ -211,12 +230,12 @@
     },
     "skill-authoring": {
       "added_at": "2026-07-20T15:42:13+08:00",
-      "usage_count": 7,
+      "usage_count": 8,
       "files": {
         "SKILL.md": "d36cf0d53e192d2240ecd3dd61a417b8caec74c89700d317c86f3afa6ea952d1",
         "references/skill-types.md": "dee1317069a48ec62d4b497a5b9464dc3b64f41b422cfc5e173c8ccf5bd357ee"
       },
-      "last_used_at": "2026-08-19T14:50:58+08:00"
+      "last_used_at": "2026-08-20T15:17:08+08:00"
     },
     "tione": {
       "added_at": "2026-06-12T15:47:26+08:00",

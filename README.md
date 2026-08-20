@@ -67,6 +67,15 @@ Machine-bound Skills may be excluded by the local privacy configuration. `remote
 | `code-understanding-coach` | Trace functions and tensors, make minimal changes, and verify experimentally. |
 | `math-principles-coach` | Connect losses, probability, gradients, and train/inference behavior to code and experiments. |
 
+### Domain knowledge and project guides
+
+| Skill | Responsibility |
+|---|---|
+| `feishu-wiki-readonly-review` | Traverse nested Feishu Wiki/Docx trees read-only and synthesize versioned experiment evidence. |
+| `psi-wam-learning-coach` | Join PSI WAM source paths, Flow Matching principles, Feishu pretraining lessons, and evaluation contracts into a progressive learning and experiment guide. |
+| `psi-autolabel-service-guide` | Explain and maintain the PSI Autolabel FastAPI topology, task lifecycle, workers, and cross-node recovery boundaries. |
+| `mj-demo-runtime-guide` | Trace the MJ-Demo Mahjong robot runtime across local perception, remote Brain/VLM calls, orchestration, review, and robot actions. |
+
 ### Data and training design
 
 | Skill | Responsibility |

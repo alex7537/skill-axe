@@ -1,0 +1,7 @@
+interface:
+  display_name: "PSI WAM Learning Coach"
+  short_description: "Trace PSI WAM from tensors to joint video-action learning"
+  default_prompt: "Use $psi-wam-learning-coach to explain one PSI WAM component from code, tensors, math, and a falsifiable experiment."
+
+policy:
+  allow_implicit_invocation: true
