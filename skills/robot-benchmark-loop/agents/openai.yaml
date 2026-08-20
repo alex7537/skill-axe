@@ -1,0 +1,4 @@
+interface:
+  display_name: "Robot Benchmark Loop"
+  short_description: "Build reproducible closed-loop robot benchmarks"
+  default_prompt: "Use $robot-benchmark-loop to design or audit a reproducible robot-policy benchmark and its evaluation gates."

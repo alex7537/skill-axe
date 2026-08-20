@@ -21,6 +21,7 @@ Teach WAM through the user's real repository and familiar action-policy baseline
 - For the reviewed Feishu subtree and coverage boundary, read [references/feishu-pretrain-corpus-map.md](references/feishu-pretrain-corpus-map.md).
 - For data, conditioning, action contracts, optimization, and distributed training lessons, read [references/training-recipes-and-data.md](references/training-recipes-and-data.md).
 - For WorldArena and Psi-WMBench protocols, read [references/evaluation-protocols.md](references/evaluation-protocols.md).
+- For building or auditing the surrounding task/policy/rollout/result benchmark harness, use `$robot-benchmark-loop`; keep WAM metric semantics in this Skill.
 - For reusable successes, failures, experiment priorities, and checkpoint-selection lessons, read [references/experiment-lessons.md](references/experiment-lessons.md).
 - When a claim must be traced to its source class or confidence level, read [references/evidence-ledger.md](references/evidence-ledger.md).
 - When comparing PSI WAM with LingBot-World or borrowing causal streaming ideas, read [references/robbyant-world-comparison.md](references/robbyant-world-comparison.md).

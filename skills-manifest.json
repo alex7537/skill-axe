@@ -1,11 +1,26 @@
 {
   "format_version": 2,
   "skills": {
-    "psi-wam-learning-coach": {
-      "added_at": "2026-08-20T15:07:36+08:00",
+    "robot-benchmark-loop": {
+      "added_at": "2026-08-20T16:49:14+08:00",
       "usage_count": 2,
       "files": {
-        "SKILL.md": "e1d9c4d09ae76d4e188ded1322b804cfe935fca389d8b2fe6222831cf0676e7e",
+        "SKILL.md": "4bbb3de3d90eb9220f7f4c0f064de09b4f6eb5b2503d5647a5b1c422044310e3",
+        "agents/openai.yaml": "bfd0c61d63dfdaa4dd7ad97316aa9b7e9279a4f7cd5750e3379eca10d83fd489",
+        "assets/benchmark-run-manifest.template.json": "d9c1c54f5fba09959d103d0b92cab78141edbc7fc40d69c76df97d424d46a395",
+        "assets/psi-policy-benchmark-plan.template.md": "4301cc12498b94dac0533f6c4f033c3149abcc50b39afc2331728a7a5aad6a9f",
+        "references/benchmark-contract.md": "66c0863d3e3ff876c9e31b4ac10f3d23afa210e109a483ff1189d77069f2cccf",
+        "references/psi-policy-eval-bridge.md": "9c7af9991ba0844e8e2b9e24d546527356295b08169b816e841d1a68f45d4846",
+        "references/robodojo-patterns.md": "b191265d08035cee249f5192dfdc054a6a27e651ca5fdc87cf9e846a8879921c",
+        "scripts/validate_benchmark_manifest.py": "56304bbbf98fa516e1c6eea505fd399e7caf94f976ef6d42d0103ba0427f3705"
+      },
+      "last_used_at": "2026-08-20T17:01:12+08:00"
+    },
+    "psi-wam-learning-coach": {
+      "added_at": "2026-08-20T15:07:36+08:00",
+      "usage_count": 3,
+      "files": {
+        "SKILL.md": "2b2f877483e5e11306376fbc1841ae2c7aff2b824dffd8a78851d0ba90f7122d",
         "agents/openai.yaml": "ccba033d0deea99518db4bb0d253488bf1af82ed2a52030dd0665ac95b587ca7",
         "references/action-model-to-wam.md": "f6957659a74295a63cac6b390e6eadfc8bd6e86d013ff9ba1aa55e10555a721d",
         "references/concept-ladder.md": "e47da35c536280a724298bf688c7bf0d714c7bfbd76524a1b8727f3605e97705",
@@ -18,7 +33,7 @@
         "references/robbyant-world-comparison.md": "c984f17f79e82f1b949dfc765d39b168802ef2e46c27e99eb90b3ba3f792cbeb",
         "references/training-recipes-and-data.md": "39d5a6070911370069c9d63d38d1ef01e2515592e504894638c7a9316fc1de2c"
       },
-      "last_used_at": "2026-08-20T15:17:08+08:00"
+      "last_used_at": "2026-08-20T16:57:36+08:00"
     },
     "mj-demo-runtime-guide": {
       "added_at": "2026-08-19T19:31:31+08:00",
@@ -55,9 +70,9 @@
     },
     "robot-ml-lifecycle": {
       "added_at": "2026-08-15T10:58:27+08:00",
-      "usage_count": 1,
+      "usage_count": 3,
       "files": {
-        "SKILL.md": "2886abe5e6fa508255686e3270a4eb0ef510b7dd76e9150ca61920e96a05f71b",
+        "SKILL.md": "bee6249664c215818dd480ea18fd7a7a12e153e0fd476c6c2f0e1122ca18589b",
         "agents/openai.yaml": "0f880228c23fd843544ddc7f21e67c121af32da521a0298bf76572bc7e71e321",
         "assets/executor-result.schema.json": "9d7dbdc51a022a579f7b9189517f09cb33a6c7ed6f1d37f29937e043eaa8d71d",
         "assets/robot-ml-constraints.template.md": "efa1dcf5db091268c9da0da963d7614f8370a244dd7c3276438160a0706ee6a2",
@@ -70,7 +85,7 @@
         "scripts/test_lifecycle_ledger.py": "7146ebb5cb6fe6c7d4994732d05a160d4d51fadfb8e74e2f28ec1d746757953d",
         "scripts/test_run_once.py": "5b5bbeafd363d85ffc45dfd785b01f37b3c0ebafc562a9973a69d0bdef9c84fd"
       },
-      "last_used_at": "2026-08-14T15:38:39+08:00"
+      "last_used_at": "2026-08-20T16:57:36+08:00"
     },
     "publish-model-release": {
       "added_at": "2026-08-14T14:53:35+08:00",
@@ -129,7 +144,7 @@
     },
     "capture-session-to-skill": {
       "added_at": "2026-08-12T15:08:18+08:00",
-      "usage_count": 5,
+      "usage_count": 6,
       "files": {
         "SKILL.md": "7e08c46e3d993315b2cb918d4817e7fc9cb87de74ea13944e019d231f4b7bb46",
         "agents/openai.yaml": "1e4c870c78a1ff3d9c88d90bb1d3e9796c66b32e4a84d19175305a25268b1621",
@@ -140,7 +155,7 @@
         "scripts/record_skill_usage.py": "9068bb02378a97a665577c07b3415eb8d09312cfb4291532f5bba2cf257faac6",
         "scripts/sync_personal_skills.py": "dd6bfab2713b20ed17a9b242f5f2519f91b2909478cc2c6a8a8bca2a6793b51b"
       },
-      "last_used_at": "2026-08-19T15:23:44+08:00"
+      "last_used_at": "2026-08-20T17:06:18+08:00"
     },
     "tcr-image-publish": {
       "added_at": "2026-08-12T14:55:15+08:00",
@@ -218,7 +233,7 @@
     },
     "understand-codebase": {
       "added_at": "2026-07-20T15:48:11+08:00",
-      "usage_count": 10,
+      "usage_count": 12,
       "files": {
         "SKILL.md": "d0775a5ba043727d3fb8b83bcce8a2bdfbfb2f25b9f0cd23ba59bd1035994c6d",
         "agents/openai.yaml": "4ee65e22b26ae74e53ab03ce141f44266658961f0ee1a508c1e78ab35627bb44",
@@ -226,16 +241,16 @@
         "references/prompt-ladder.md": "d8598efb5e6ec19331eb6cc866e94ad6eea0626957d7c41e086f3864b977d363",
         "scripts/repo_inventory.py": "f95f068ce1a12150339e6ee48a2e1a682c4d76969457386e61a7d7f73c95f62d"
       },
-      "last_used_at": "2026-08-19T14:50:58+08:00"
+      "last_used_at": "2026-08-20T16:57:36+08:00"
     },
     "skill-authoring": {
       "added_at": "2026-07-20T15:42:13+08:00",
-      "usage_count": 8,
+      "usage_count": 9,
       "files": {
         "SKILL.md": "d36cf0d53e192d2240ecd3dd61a417b8caec74c89700d317c86f3afa6ea952d1",
         "references/skill-types.md": "dee1317069a48ec62d4b497a5b9464dc3b64f41b422cfc5e173c8ccf5bd357ee"
       },
-      "last_used_at": "2026-08-20T15:17:08+08:00"
+      "last_used_at": "2026-08-20T16:57:36+08:00"
     },
     "tione": {
       "added_at": "2026-06-12T15:47:26+08:00",

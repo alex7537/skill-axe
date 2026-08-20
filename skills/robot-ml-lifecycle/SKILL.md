@@ -95,6 +95,8 @@ The direct mutation commands below are for a human-controlled/manual session. St
 ### 6. Evaluate and decide
 
 - Freeze checkpoint, dataset/split, preprocessing, metric implementation, and failure policy before evaluation.
+- Use `$robot-benchmark-loop` when evaluation spans task registries, policy adapters, seeded simulator rollouts, result manifests, coverage qualification, aggregation, resume, or benchmark-level promotion gates.
+- For hybrid PSI-style evaluation stacks, such as WAN 82D offline plus MolmoSpaces simulator evidence, freeze one acceptance contract before launch and let `$robot-benchmark-loop` own the cross-track promotion rule.
 - Use repository-native evaluation commands and `$dataset-split-protocol` exposure rules. Use `$remote-attention-heatmap` only as diagnostic evidence.
 - Record metrics by checkpoint and data slice, runtime validity, failure taxonomy, checkpoint-selection rule, and decision: `retry`, `promote`, or `stop`.
 - If the decision is `retry`, create a new ledger cycle from the earliest invalidated phase. Do not rewrite the old cycle.

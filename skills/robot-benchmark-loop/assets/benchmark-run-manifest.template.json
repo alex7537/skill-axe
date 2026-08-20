@@ -1,0 +1,70 @@
+{
+  "schema_version": "robot-benchmark-run/v1",
+  "run_id": "REPLACE_ME",
+  "benchmark": {
+    "name": "REPLACE_ME",
+    "version": "REPLACE_ME",
+    "repository": "REPLACE_ME",
+    "git_commit": "0000000000000000000000000000000000000000",
+    "task_registry_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "capability_registry_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "asset_release": "REPLACE_ME",
+    "asset_selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "policy": {
+    "name": "REPLACE_ME",
+    "adapter_revision": "REPLACE_ME",
+    "protocol": "ws",
+    "checkpoint_role": "raw",
+    "checkpoint_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "observation_schema": "REPLACE_ME",
+    "action_schema": "REPLACE_ME",
+    "preprocessing_revision": "REPLACE_ME",
+    "normalization_revision": "REPLACE_ME"
+  },
+  "environment": {
+    "simulator": "REPLACE_ME",
+    "simulator_version": "REPLACE_ME",
+    "container_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "control_hz": 0.0,
+    "observation_hz": 0.0
+  },
+  "sampling": {
+    "seeds": [0, 1, 2],
+    "selection_policy": "frozen_manifest",
+    "tasks": [
+      {
+        "task_id": "REPLACE_ME",
+        "dimension": "REPLACE_ME",
+        "variant": "standard",
+        "embodiment": "REPLACE_ME",
+        "required_episodes_per_seed": 1,
+        "max_steps": 1,
+        "config_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "layout_selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "success_predicate_version": "REPLACE_ME"
+      }
+    ]
+  },
+  "metrics": {
+    "revision": "REPLACE_ME",
+    "primary": [
+      {"name": "success_rate", "direction": "higher", "aggregation": "equal_task_macro"}
+    ],
+    "missing_result_policy": "disqualify"
+  },
+  "runtime": {
+    "parallelism": 1,
+    "max_episode_retries": 0,
+    "max_process_restarts": 0,
+    "timeout_seconds": 1,
+    "assignment_manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "qualification": {
+    "required_coverage": 1.0,
+    "max_invalid_fraction": 0.0,
+    "max_abandoned_fraction": 0.0,
+    "allow_partial_official_score": false
+  },
+  "output_root": "REPLACE_ME"
+}
