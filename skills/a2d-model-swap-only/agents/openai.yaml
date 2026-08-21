@@ -1,0 +1,4 @@
+interface:
+  display_name: "A2D Model Swap Only"
+  short_description: "Swap A2D bundles without pipeline drift"
+  default_prompt: "Use $a2d-model-swap-only to test another A2D model while keeping the validated pipeline unchanged."

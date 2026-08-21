@@ -1,0 +1,37 @@
+{
+  "schema_version": "a2d-model-swap-baseline/v1",
+  "baseline_id": "REPLACE_ME",
+  "workspace_root": "REPLACE_ME",
+  "repository_commit": "0000000000000000000000000000000000000000",
+  "protected_files": [
+    {
+      "path": "relative/path/to/evaluator.py",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "environment": {
+    "type": "conda",
+    "name": "REPLACE_ME",
+    "identity": "REPLACE_ME"
+  },
+  "command_argv": [
+    "python",
+    "relative/path/to/evaluator.py",
+    "--bundle",
+    "{MODEL_BUNDLE}",
+    "--output",
+    "{OUTPUT_ROOT}"
+  ],
+  "allowed_placeholders": ["MODEL_BUNDLE", "OUTPUT_ROOT"],
+  "allowed_write_roots": ["REPLACE_ME"],
+  "runtime_contract": {
+    "observation_schema": "REPLACE_ME",
+    "action_schema": "REPLACE_ME",
+    "preprocessing_revision": "REPLACE_ME",
+    "normalization_revision": "REPLACE_ME",
+    "execute_horizon": 1,
+    "action_rate_hz": 1.0,
+    "max_actions": 1,
+    "success_profile": "REPLACE_ME"
+  }
+}

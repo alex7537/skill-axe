@@ -1,0 +1,4 @@
+interface:
+  display_name: "A2D Grasp Evaluation"
+  short_description: "Diagnose and compare A2D grasp rollouts"
+  default_prompt: "Use $a2d-grasp-evaluation to design or diagnose an A2D grasp rollout comparison with a frozen success profile."
