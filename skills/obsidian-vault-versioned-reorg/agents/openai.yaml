@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Vault Versioned Reorg"
+  short_description: "Safely audit and reorganize Obsidian vaults with Git"
+  default_prompt: "Use $obsidian-vault-versioned-reorg to audit and safely reorganize this Obsidian vault with a local Git rollback point."

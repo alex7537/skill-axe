@@ -1,6 +1,51 @@
 {
   "format_version": 2,
   "skills": {
+    "mask-generator-policy-integration": {
+      "added_at": "2026-08-24T14:32:50+08:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "5cf1e57cc1185e5376e26d72762d4580123f635a1b2bbef78db2f8a3dc8d154a",
+        "agents/openai.yaml": "d3e73d55f230794c2965d04ffca16f960ba44d8e4d65c5cc644a9a99fc2d8640",
+        "references/integration-contract.md": "e7e3477c8fb2819f3675f3837306be9752f928bc5ff6f0b3d31913e8e91d6349",
+        "references/psi-policy-case.md": "8cf511c50035b376f05156125b18f2ad34892819b15c3d0df47abd9453e14a7b",
+        "scripts/compare_submodule_state.py": "ebe0c33f10c3d5a0e2692ed85774c2d53b1853c6f44d5bbc3f14840b5a16e9fd"
+      },
+      "last_used_at": "2026-08-24T14:42:55+08:00"
+    },
+    "obsidian-vault-versioned-reorg": {
+      "added_at": "2026-08-24T11:29:12+08:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "19517546569f296f60ba07cc0a910c54681bac83e6291dc361e64c26075d0a68",
+        "agents/openai.yaml": "a8d9d116c317ae105fd1184ba047e180594ce22bb68a760c42061675f1833c4c",
+        "references/content-model.md": "d1b9fc8f3a4797bb0359d41101597c4a74d0d6baa29278b23b5eb8a362cde05c",
+        "references/runbook.md": "f6a53942a45ea460a8ee255b9bc85c943a5071564ee94a5afb441d5a25de04e1",
+        "scripts/audit_vault.py": "b5e024d4c44ae5dbb50844c2ca5e3097a604043f1a2790eb45a965d773942bfb",
+        "scripts/compare_audits.py": "e108d679e0823feeec0c0fbdc1816e17c234d4c67f9b154a924fa405c8adefbe"
+      },
+      "last_used_at": "2026-08-24T11:33:24+08:00"
+    },
+    "claudian-auth-diagnose": {
+      "added_at": "2026-08-24T10:02:24+08:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "c71d25f8a451ac3992f35758df6abd9778bd1a9b46caffc17c63af0c391c5b8f",
+        "agents/openai.yaml": "0c3da55e8c9dd92b2ad0906df54d5fe961c2f3e568187a62ee171e4b13e2a646",
+        "scripts/diagnose.py": "eec8093d95eaf22867c8c4398cbba28cb9a73e4c9e06eba3ded851d0a2fcfdb0"
+      },
+      "last_used_at": "2026-08-24T10:09:06+08:00"
+    },
+    "psi-policy-research-map": {
+      "added_at": "2026-08-21T17:32:51+08:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "cccab1fa1d6fa67719be5b591c471c4235b82ae8638541e9bf8c9028d12bb182",
+        "references/comparison-contract.md": "72c8272657abe586fbb930ad2cad4e648718635b01bed4f17912fb30e42c44cd",
+        "references/experiment-queue.md": "3194955b10b11791bfb4a25245de2736a108de074fc7e56866cf1707a9ed26fa",
+        "references/research-landscape.md": "0693ac5f778777bd253eecb21a516893404e69a1b9693863a106a3f291b1dfae"
+      }
+    },
     "a2d-model-swap-only": {
       "added_at": "2026-08-21T14:17:46+08:00",
       "usage_count": 1,
@@ -15,18 +60,18 @@
     },
     "a2d-grasp-evaluation": {
       "added_at": "2026-08-21T14:17:46+08:00",
-      "usage_count": 1,
+      "usage_count": 3,
       "files": {
         "SKILL.md": "656d56ff429d5082b77f61ea445604e5e5723e1ad5d33368c2caaecd76ea8bb1",
         "agents/openai.yaml": "a14bc5eafb0faf0f005214786f0669cb5e2ef2d5c3d325b426e78743f2924a17",
         "references/evaluation-methodology.md": "f922b4bc8e52c63b1fdff9a3ebd337d804f41e678029a1331470823274159912",
         "scripts/summarize_a2d_eval.py": "f44562a222c89ff0feddf7a936c3deeb83d648ac77f7c825fd8015f97d91432e"
       },
-      "last_used_at": "2026-08-21T14:21:50+08:00"
+      "last_used_at": "2026-08-21T15:10:54+08:00"
     },
     "robot-benchmark-loop": {
       "added_at": "2026-08-20T16:49:14+08:00",
-      "usage_count": 3,
+      "usage_count": 4,
       "files": {
         "SKILL.md": "4bbb3de3d90eb9220f7f4c0f064de09b4f6eb5b2503d5647a5b1c422044310e3",
         "agents/openai.yaml": "bfd0c61d63dfdaa4dd7ad97316aa9b7e9279a4f7cd5750e3379eca10d83fd489",
@@ -37,7 +82,7 @@
         "references/robodojo-patterns.md": "b191265d08035cee249f5192dfdc054a6a27e651ca5fdc87cf9e846a8879921c",
         "scripts/validate_benchmark_manifest.py": "56304bbbf98fa516e1c6eea505fd399e7caf94f976ef6d42d0103ba0427f3705"
       },
-      "last_used_at": "2026-08-20T19:29:08+08:00"
+      "last_used_at": "2026-08-24T11:17:29+08:00"
     },
     "psi-wam-learning-coach": {
       "added_at": "2026-08-20T15:07:36+08:00",
@@ -73,9 +118,10 @@
       "added_at": "2026-08-19T14:51:30+08:00",
       "usage_count": 2,
       "files": {
-        "SKILL.md": "3db602938634ab152f342652ec923e2a5ac58914858c921a091ebeabbb084d28",
+        "SKILL.md": "6499318bfea4c5e43b78ed3f3f644ba86af6d4b7d981bdbdcde91860c89038a6",
         "agents/openai.yaml": "362e55511827b4fe37e913a6ed727c063cc4b26733c975066880b45bf97f4dc2",
         "references/api-surface.md": "9aa975b741c8a1be816e983f1b0ecaee3f71659a40f2b95c7d60c93145ef9a16",
+        "references/feishu-operations.md": "74644b48fef96fb1e2349f9b7e8b245b5ec4efaf5c8d5ff68666e6c141652732",
         "references/runtime-architecture.md": "37fda492cd74fa2444e8415a4e195bfc88173686751ad028e4de626b2a095195"
       },
       "last_used_at": "2026-08-19T19:12:48+08:00"
@@ -93,7 +139,7 @@
     },
     "robot-ml-lifecycle": {
       "added_at": "2026-08-15T10:58:27+08:00",
-      "usage_count": 4,
+      "usage_count": 5,
       "files": {
         "SKILL.md": "bee6249664c215818dd480ea18fd7a7a12e153e0fd476c6c2f0e1122ca18589b",
         "agents/openai.yaml": "0f880228c23fd843544ddc7f21e67c121af32da521a0298bf76572bc7e71e321",
@@ -108,7 +154,7 @@
         "scripts/test_lifecycle_ledger.py": "7146ebb5cb6fe6c7d4994732d05a160d4d51fadfb8e74e2f28ec1d746757953d",
         "scripts/test_run_once.py": "5b5bbeafd363d85ffc45dfd785b01f37b3c0ebafc562a9973a69d0bdef9c84fd"
       },
-      "last_used_at": "2026-08-20T20:03:28+08:00"
+      "last_used_at": "2026-08-21T15:10:54+08:00"
     },
     "publish-model-release": {
       "added_at": "2026-08-14T14:53:35+08:00",
@@ -167,7 +213,7 @@
     },
     "capture-session-to-skill": {
       "added_at": "2026-08-12T15:08:18+08:00",
-      "usage_count": 7,
+      "usage_count": 10,
       "files": {
         "SKILL.md": "7e08c46e3d993315b2cb918d4817e7fc9cb87de74ea13944e019d231f4b7bb46",
         "agents/openai.yaml": "1e4c870c78a1ff3d9c88d90bb1d3e9796c66b32e4a84d19175305a25268b1621",
@@ -176,9 +222,9 @@
         "references/restore-on-new-machine.md": "0fd494015830a6004c862835c2a36b013b4196d570aea3036aa0b5e3655bd3d6",
         "scripts/install_global_reminder.py": "b8b57e51b39a5f8dbc3a19448f72136c3df07095c7e3d156f4c29b3a8f5f2b5b",
         "scripts/record_skill_usage.py": "9068bb02378a97a665577c07b3415eb8d09312cfb4291532f5bba2cf257faac6",
-        "scripts/sync_personal_skills.py": "dd6bfab2713b20ed17a9b242f5f2519f91b2909478cc2c6a8a8bca2a6793b51b"
+        "scripts/sync_personal_skills.py": "50ca830643a009e627378886c1f2a88a15c2470e41b00e2ab41d4af6c0a3e2f2"
       },
-      "last_used_at": "2026-08-21T14:14:59+08:00"
+      "last_used_at": "2026-08-24T14:42:55+08:00"
     },
     "tcr-image-publish": {
       "added_at": "2026-08-12T14:55:15+08:00",
@@ -194,13 +240,13 @@
     },
     "tione-ssh-diagnose": {
       "added_at": "2026-08-12T11:59:02+08:00",
-      "usage_count": 1,
+      "usage_count": 2,
       "files": {
         "SKILL.md": "6de7eb3c07bc4d525638d966b4b4097440f7b53618b84fc38f550f846913d7d3",
         "agents/openai.yaml": "3d5cd0809d7f995ab56dac850f107e37edb86f07b2aecbcbc18af14c8bcb8d05",
         "scripts/diagnose_ssh.py": "bdaba077d8e52dcd31789febd58d6eb6a99041cd2e348d882002cb3b5403badc"
       },
-      "last_used_at": "2026-08-18T10:58:13+08:00"
+      "last_used_at": "2026-08-24T10:04:59+08:00"
     },
     "sync-follow-branch": {
       "added_at": "2026-08-11T21:09:14+08:00",
@@ -214,49 +260,49 @@
     },
     "math-principles-coach": {
       "added_at": "2026-08-04T00:23:00+08:00",
-      "usage_count": 3,
+      "usage_count": 4,
       "files": {
         "SKILL.md": "23b30151fa4947c186f5fe56968047dd16c398848243992ea9d3f71cf5b38415",
         "agents/openai.yaml": "810b9e1e1271894d6be12b3fb84e1c615032eafda943eeb16ee0e8a6035ae76e",
         "references/embodied-ai-math-map.md": "d8602f3e813051d2b60d5270ed1bfeb757e4e5453918d41326a9038cd9530c5d"
       },
-      "last_used_at": "2026-08-19T11:36:25+08:00"
+      "last_used_at": "2026-08-24T12:02:18+08:00"
     },
     "code-understanding-coach": {
       "added_at": "2026-08-04T00:23:00+08:00",
-      "usage_count": 3,
+      "usage_count": 4,
       "files": {
         "SKILL.md": "66835f2055c47fead7fd7dc8f0daf5cb7bfdfead21188eb3328f1700aa6f7b94",
         "agents/openai.yaml": "58ce1abc8c40fb4ee6c6eb398a1bf930555df881f5373186b45755b87abf8f60",
         "references/learning-path.md": "8643f00ccc782144225068c4d26b0922ac1c43f9e020f74240dbb39e57d4d38d"
       },
-      "last_used_at": "2026-08-19T11:36:25+08:00"
+      "last_used_at": "2026-08-24T10:22:41+08:00"
     },
     "adaptive-task-coach": {
       "added_at": "2026-07-24T14:09:18+08:00",
-      "usage_count": 3,
+      "usage_count": 6,
       "files": {
         "SKILL.md": "fbfb72cee16634c94cde75b1beaa85c22c68bee1d06baa84fb3eb119ed02d6e9",
         "agents/openai.yaml": "b1538b7296ead3acdf801104c00ee9235a71d2f05ab0dc29495cc0684584fb12",
         "references/state-schema.md": "fc92ea1e8679d4a72ac5c6e0530a0d0118cef25c2552ae58d24e79e9af446889",
         "scripts/task_state.py": "8c5d8a3d16af4d64eea8cc05bfd236cb9203eeb4fcb9d389aadddedd47128bdd"
       },
-      "last_used_at": "2026-08-20T12:16:15+08:00"
+      "last_used_at": "2026-08-24T10:42:06+08:00"
     },
     "plan-training-run": {
       "added_at": "2026-07-21T14:18:37+08:00",
-      "usage_count": 4,
+      "usage_count": 5,
       "files": {
         "SKILL.md": "55ba7417d0bf09985d3fdf99cc91a295ee00f242005b2dd3a96ed864eab2f5c2",
         "agents/openai.yaml": "07a359df0273828828efa69e0f9507cafd0507d77cbf705880bbffee2c239789",
         "references/training-principles.md": "0c8660c74fd213a521d75815ffa974ddc6cde5fba1de0a97ae827811fbc892f6",
         "scripts/plan_training.py": "a630866da7c2994c9d9a154a2a28d0199b1b3cb215887e54aceabf7b13c26347"
       },
-      "last_used_at": "2026-08-20T20:03:28+08:00"
+      "last_used_at": "2026-08-21T15:10:54+08:00"
     },
     "understand-codebase": {
       "added_at": "2026-07-20T15:48:11+08:00",
-      "usage_count": 12,
+      "usage_count": 13,
       "files": {
         "SKILL.md": "d0775a5ba043727d3fb8b83bcce8a2bdfbfb2f25b9f0cd23ba59bd1035994c6d",
         "agents/openai.yaml": "4ee65e22b26ae74e53ab03ce141f44266658961f0ee1a508c1e78ab35627bb44",
@@ -264,20 +310,20 @@
         "references/prompt-ladder.md": "d8598efb5e6ec19331eb6cc866e94ad6eea0626957d7c41e086f3864b977d363",
         "scripts/repo_inventory.py": "f95f068ce1a12150339e6ee48a2e1a682c4d76969457386e61a7d7f73c95f62d"
       },
-      "last_used_at": "2026-08-20T16:57:36+08:00"
+      "last_used_at": "2026-08-21T15:10:54+08:00"
     },
     "skill-authoring": {
       "added_at": "2026-07-20T15:42:13+08:00",
-      "usage_count": 9,
+      "usage_count": 12,
       "files": {
         "SKILL.md": "d36cf0d53e192d2240ecd3dd61a417b8caec74c89700d317c86f3afa6ea952d1",
         "references/skill-types.md": "dee1317069a48ec62d4b497a5b9464dc3b64f41b422cfc5e173c8ccf5bd357ee"
       },
-      "last_used_at": "2026-08-20T16:57:36+08:00"
+      "last_used_at": "2026-08-24T14:36:46+08:00"
     },
     "tione": {
       "added_at": "2026-06-12T15:47:26+08:00",
-      "usage_count": 3,
+      "usage_count": 4,
       "files": {
         "SKILL.md": "4f2a2aacff970b9a75ee795de541ecf86c050ea3cd09d5dc36d53b351d19e7ee",
         "agents/openai.yaml": "9fc9adc9261271a4e0d28e7b09bc196156423535e85576050b7f233649625747",
@@ -285,7 +331,7 @@
         "references/api-reference.md": "d5ab4951ab052796bcd6d2a8e30a851593e609bddc9011f915bbb4ef6f5c6ff5",
         "scripts/tione_api.py": "8a641880503123fc9d87e0b4c7fa77787fd4964f6e5f6ab1b212acc943df744b"
       },
-      "last_used_at": "2026-08-17T16:48:00+08:00"
+      "last_used_at": "2026-08-24T09:46:40+08:00"
     },
     "andrej-karpathy-skills": {
       "added_at": "2026-04-22T11:03:55+08:00",

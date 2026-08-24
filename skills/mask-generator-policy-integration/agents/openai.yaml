@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mask Generator Policy Integration"
+  short_description: "Safely wire an RGB-to-mask model into policy tokens"
+  default_prompt: "Use $mask-generator-policy-integration to integrate a pretrained RGB-to-mask generator into a policy token pipeline and verify its freeze and optimizer behavior."

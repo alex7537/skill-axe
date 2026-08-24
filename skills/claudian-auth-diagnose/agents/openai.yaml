@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claudian Auth Diagnose"
+  short_description: "Diagnose recurring Claudian OAuth and VPN failures"
+  default_prompt: "Use $claudian-auth-diagnose to determine why Claudian authentication keeps failing."

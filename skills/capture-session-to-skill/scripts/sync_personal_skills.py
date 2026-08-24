@@ -59,7 +59,9 @@ TOKEN_PATTERNS = [
     re.compile(rb"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
     re.compile(rb"AKID[A-Za-z0-9]{16,}"),
     re.compile(rb"gh[pousr]_[A-Za-z0-9_]{20,}"),
-    re.compile(rb"sk-[A-Za-z0-9_-]{20,}"),
+    # Require a token boundary so ordinary words such as "mask-generator"
+    # are not mistaken for an OpenAI-style secret beginning at their "sk-".
+    re.compile(rb"(?<![A-Za-z0-9])sk-[A-Za-z0-9_-]{20,}"),
     re.compile(rb"xox[baprs]-[A-Za-z0-9-]{20,}"),
 ]
 PRIVACY_PATTERNS = [
