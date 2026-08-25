@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Asset Routing"
+  short_description: "Route research ideas, code, runs, data, and checkpoints"
+  default_prompt: "Use $research-asset-routing to decide what belongs in Obsidian, GitHub, Hugging Face, experiment tracking, and data storage."
