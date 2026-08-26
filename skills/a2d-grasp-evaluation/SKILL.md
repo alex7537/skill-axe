@@ -1,6 +1,6 @@
 ---
 name: a2d-grasp-evaluation
-description: Design, launch, resume, monitor, compare, and report A2D imitation-learning grasp rollout evaluations using a diagnostic funnel for arm arrival, hand commands, hand tracking, target contact, lift, and retention. Use for A2D checkpoint comparisons, execute-horizon ablations, grasp/lift success analysis, evaluator progress checks, failure attribution, or packaging rollout evidence. Use with a2d-model-swap-only when the pipeline must remain unchanged; use robot-benchmark-loop for formal multi-task qualification.
+description: Design, launch, resume, monitor, compare, and report A2D imitation-learning grasp rollout evaluations using a diagnostic funnel for arm arrival, hand commands, hand tracking, target contact, lift, and retention. Use for A2D checkpoint comparisons, Diffusion/CFM inference-start or sampling-step ablations, execute-horizon ablations, grasp/lift success analysis, evaluator progress checks, failure attribution, or packaging rollout evidence. Use with a2d-model-swap-only when the pipeline must remain unchanged; use robot-benchmark-loop for formal multi-task qualification.
 ---
 
 # A2D Grasp Evaluation
@@ -10,6 +10,7 @@ Diagnose the first failed stage of grasp execution instead of hiding arm, hand, 
 ## Route the request
 
 - Read [references/evaluation-methodology.md](references/evaluation-methodology.md) before designing, launching, or interpreting an evaluation.
+- Read [references/generative-inference-ablation.md](references/generative-inference-ablation.md) before comparing Diffusion/CFM sampling start, inference iterations, timestep grids, ODE solvers, or execute horizons.
 - Use `$a2d-model-swap-only` when the comparison must vary only a checkpoint or deployment bundle.
 - Use `$robot-benchmark-loop` when several tasks, seeds, models, or simulator tracks need a frozen run manifest, coverage qualification, aggregation, and promotion decision.
 - Use `$remote-policy-bundle` first when the requested checkpoint still needs to be exported and verified from a remote machine.
@@ -96,6 +97,7 @@ Treat initial episodes as smoke validation only. Compare incomplete runs only at
 - `hand_target` is control intent; `hand_actual` includes lag, load, deformation, and actuation response.
 - Do not reject a predicted chunk solely because an unexecuted tail leaves the training distribution; separate executed-prefix, full-chunk, and physical-limit diagnostics.
 - Smaller execute horizons add feedback and sampling boundaries; larger horizons reduce boundaries and increase open-loop duration. Report both horizon and achieved action cadence.
+- Generative inference iterations and execute horizon are different controls: the former changes how one action chunk is generated; the latter changes how long the robot remains open-loop before observing again. Never change both in one comparison.
 - Height-only success counts strikes or throws; contact-only success counts failed lifts; final-height-only misses a valid grasp followed by a drop.
 - Nominal `rate_hz` is not achieved frequency when observation, contact, ground-truth, rendering, and inference RPCs add latency.
 - A reference selected by nearest arm pose may not be object-specific ground truth.

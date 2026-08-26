@@ -2,27 +2,27 @@
 
 Automatically generated from `skills-manifest.json`. Do not edit manually.
 
-**33 skills · 143 total uses**
+**33 skills · 147 total uses**
 
 | Skill | Usage count |
 |---|---:|
-| [skill-authoring](skills/skill-authoring/) | 18 |
+| [skill-authoring](skills/skill-authoring/) | 19 |
 | [understand-codebase](skills/understand-codebase/) | 16 |
-| [capture-session-to-skill](skills/capture-session-to-skill/) | 14 |
+| [capture-session-to-skill](skills/capture-session-to-skill/) | 15 |
 | [math-principles-coach](skills/math-principles-coach/) | 8 |
 | [psi-wam-learning-coach](skills/psi-wam-learning-coach/) | 7 |
 | [adaptive-task-coach](skills/adaptive-task-coach/) | 6 |
 | [code-understanding-coach](skills/code-understanding-coach/) | 6 |
 | [plan-training-run](skills/plan-training-run/) | 6 |
+| [research-asset-routing](skills/research-asset-routing/) | 6 |
 | [robot-ml-lifecycle](skills/robot-ml-lifecycle/) | 6 |
 | [tione](skills/tione/) | 6 |
 | [andrej-karpathy-skills](skills/andrej-karpathy-skills/) | 5 |
-| [research-asset-routing](skills/research-asset-routing/) | 5 |
+| [a2d-grasp-evaluation](skills/a2d-grasp-evaluation/) | 4 |
 | [feishu-wiki-readonly-review](skills/feishu-wiki-readonly-review/) | 4 |
 | [obsidian-vault-versioned-reorg](skills/obsidian-vault-versioned-reorg/) | 4 |
 | [psi-policy-research-map](skills/psi-policy-research-map/) | 4 |
 | [robot-benchmark-loop](skills/robot-benchmark-loop/) | 4 |
-| [a2d-grasp-evaluation](skills/a2d-grasp-evaluation/) | 3 |
 | [remote-policy-bundle](skills/remote-policy-bundle/) | 3 |
 | [sync-follow-branch](skills/sync-follow-branch/) | 3 |
 | [tione-ssh-diagnose](skills/tione-ssh-diagnose/) | 3 |
