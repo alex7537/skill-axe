@@ -1,6 +1,6 @@
 interface:
   display_name: "TI-ONE"
-  short_description: "Query and draft Tencent TI-ONE tasks/services"
+  short_description: "Inspect and plan TI-ONE tasks, services, and alerts"
   default_prompt: "Use $tione to inspect my running TI-ONE training tasks."
 
 policy:

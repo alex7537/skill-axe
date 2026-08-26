@@ -1,0 +1,4 @@
+interface:
+  display_name: "Private Proxy Stack Runbook"
+  short_description: "Deploy and diagnose a VPS proxy stack safely"
+  default_prompt: "Use $private-proxy-stack-runbook to plan, deploy, verify, or troubleshoot the private VPS proxy stack."
