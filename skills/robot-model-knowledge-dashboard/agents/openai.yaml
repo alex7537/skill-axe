@@ -1,0 +1,4 @@
+interface:
+  display_name: "Robot Model Knowledge Dashboard"
+  short_description: "Track learned robot-model routes and refresh an Obsidian map."
+  default_prompt: "Use $robot-model-knowledge-dashboard to summarize installed model-learning skills and refresh my Obsidian model architecture dashboard."

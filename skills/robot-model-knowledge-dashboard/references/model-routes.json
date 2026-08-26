@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-08-26",
+  "dashboard_title": "模型架构知识版图",
+  "routes": [
+    {
+      "id": "action-policy",
+      "title": "生成式 Action Policy",
+      "role": "从当前视觉/状态生成动作块，是其他路线的控制基线。",
+      "status": "structured",
+      "skills": [
+        {
+          "name": "psi-policy-research-map",
+          "summary": "Diffusion、Flow Matching、IMLE/RS-IMLE 与研究实验地图",
+          "evidence": "research-map",
+          "last_verified": "2026-08-25",
+          "notes": [
+            "[[飞书文档/对于目前模型VA的理解]]",
+            "[[30_Knowledge/具身智能模仿学习统一白皮书_VLA_WAM]]"
+          ]
+        }
+      ],
+      "next_question": "在相同数据、encoder、训练预算和 rollout 协议下，生成方法改变带来什么可归因增益？"
+    },
+    {
+      "id": "vla",
+      "title": "VLA / 语言条件策略",
+      "role": "连接视觉语言预训练、机器人状态与连续动作生成。",
+      "status": "verified",
+      "skills": [
+        {
+          "name": "openpi-pi05-learning-coach",
+          "summary": "OpenPI π0.5 架构、异构训练、语言/状态 token、Flow Matching 推理与开源边界",
+          "evidence": "live-source+runtime",
+          "last_verified": "2026-08-26",
+          "notes": [
+            "[[论文模板阅读结果/pi_0.5_Vision-Language-Action_Model_with_Open-World_Generalization]]",
+            "[[30_Knowledge/具身智能模仿学习统一白皮书_VLA_WAM]]"
+          ]
+        }
+      ],
+      "next_question": "语言究竟改变了目标选择、空间 grounding，还是只作为静态任务标签？"
+    },
+    {
+      "id": "world-model",
+      "title": "World Model / WAM",
+      "role": "从 action-only 策略扩展到未来视频 latent、动作联合生成和递归 rollout。",
+      "status": "structured",
+      "skills": [
+        {
+          "name": "psi-wam-learning-coach",
+          "summary": "PSI WAM 从视频 codec、联合 Transformer、双 Flow Matching 到闭环评估",
+          "evidence": "repository+reviewed-corpus",
+          "last_verified": "2026-08-25",
+          "notes": [
+            "[[30_Knowledge/World_Model]]",
+            "[[飞书文档/VLA_World_Model_WAM三大架构对比解析]]",
+            "[[30_Knowledge/具身智能模仿学习统一白皮书_VLA_WAM]]"
+          ]
+        }
+      ],
+      "next_question": "未来视觉是否随动作干预正确变化，并在 recursive rollout 中改善闭环控制？"
+    },
+    {
+      "id": "value-critic",
+      "title": "Value / Reward / Critic",
+      "role": "估计状态或动作价值，用于排序、选择、强化学习或失败预警。",
+      "status": "structured",
+      "skills": [
+        {
+          "name": "psi-visual-value-function-coach",
+          "summary": "MC/C51/IQL 视觉价值链、ViT/Mask 表征、目标构造、训练与评估",
+          "evidence": "repository-map",
+          "last_verified": "2026-08-26",
+          "notes": []
+        }
+      ],
+      "next_question": "价值模型是否能在 episode-held-out 场景中稳定排序真实进度和失败风险？"
+    },
+    {
+      "id": "perception-integration",
+      "title": "感知与辅助表征集成",
+      "role": "将 Mask、空间 token 或专用感知模型作为策略内部条件，而非独立终点。",
+      "status": "structured",
+      "skills": [
+        {
+          "name": "mask-generator-policy-integration",
+          "summary": "RGB-to-mask 生成器、mask token encoder、冻结策略与 action-loss 语义保护",
+          "evidence": "integration-contract",
+          "last_verified": "2026-08-26",
+          "notes": []
+        }
+      ],
+      "next_question": "新增表征是否被策略真正使用，且 action loss 是否破坏其原有语义？"
+    },
+    {
+      "id": "hierarchical-planning",
+      "title": "分层规划与 Test-Time Compute",
+      "role": "高层产生子任务、记忆或候选计划，低层跨本体执行，并按难度分配推理计算。",
+      "status": "gap",
+      "skills": [],
+      "next_question": "显式高层规划的收益是否超过直接 prompt 条件化，并来自更少失败而非更多计算？"
+    }
+  ],
+  "supporting_skills": [
+    {"name": "robot-benchmark-loop", "role": "正式 benchmark、coverage、manifest 和聚合资格"},
+    {"name": "robot-ml-lifecycle", "role": "数据→训练→评估→发布闭环编排"},
+    {"name": "dataset-split-protocol", "role": "episode/session 级无泄漏数据角色"},
+    {"name": "plan-training-run", "role": "训练 steps/epochs/batch/schedule 预算"},
+    {"name": "a2d-grasp-evaluation", "role": "A2D 抓取诊断漏斗与 rollout 证据"},
+    {"name": "remote-attention-heatmap", "role": "远端 checkpoint 的 ViT 注意力对比"},
+    {"name": "publish-model-release", "role": "GitHub/Hugging Face 可复现模型发布"},
+    {"name": "research-asset-routing", "role": "Obsidian/GitHub/HF/运行平台的资产归属"}
+  ],
+  "candidates": [
+    {
+      "priority": "P0",
+      "route": "hierarchical-planning",
+      "model": "τ₀-VLA",
+      "released": "2026-08",
+      "why": "分层 VLA、执行记忆和 world-model-guided test-time computation，直接延伸 π0.5 高低层问题。",
+      "first_question": "额外 test-time search 如何改变 subtask 正确率，并怎样传导到闭环成功？",
+      "source": "https://github.com/sii-research/tau-0-vla"
+    },
+    {
+      "priority": "P1",
+      "route": "vla",
+      "model": "Qwen-VLA",
+      "released": "2026-05",
+      "why": "Qwen3.5-4B VLM + 1.15B DiT，把操纵、导航和轨迹预测统一到跨本体动作框架。",
+      "first_question": "embodiment-aware prompt 如何避免为每个平台增加独立 action head？",
+      "source": "https://github.com/QwenLM/Qwen-VLA"
+    },
+    {
+      "priority": "P1",
+      "route": "action-policy",
+      "model": "GR00T N1.6",
+      "released": "2025-12",
+      "why": "开放 humanoid foundation model，使用更大 DiT、部分解冻 VLM 和 state-relative action chunk。",
+      "first_question": "relative action 与绝对动作在多本体、纠错和长时程误差积累上的权衡是什么？",
+      "source": "https://research.nvidia.com/labs/gear/gr00t-n1_6/"
+    },
+    {
+      "priority": "P2",
+      "route": "world-model",
+      "model": "VISTA",
+      "released": "2026-02",
+      "why": "用大规模 world model 产生文字+视觉 subgoal，再由低层 VLA 执行。",
+      "first_question": "视觉 subgoal 相比纯文字 subtask 是否提供可测的 OOD grounding 增益？",
+      "source": "https://arxiv.org/abs/2602.10983"
+    },
+    {
+      "priority": "P2",
+      "route": "value-critic",
+      "model": "WCM",
+      "released": "2026-07",
+      "why": "World Critic Model 将视觉世界理解转成 VLA 强化学习 critic，连接当前视觉价值路线。",
+      "first_question": "视觉 critic 的价值排序是否在策略分布外仍校准，并真正改善策略而非只拟合偏好？",
+      "source": "https://arxiv.org/abs/2607.29613"
+    }
+  ],
+  "untracked_discovery_keywords": [
+    "architecture",
+    "vision-language-action",
+    "world-model",
+    "value function",
+    "reward-model",
+    "action policy",
+    "policy integration"
+  ],
+  "ignored_untracked_skills": [
+    "code-understanding-coach",
+    "math-principles-coach",
+    "understand-codebase",
+    "skill-authoring",
+    "robot-model-knowledge-dashboard"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "skills_root": "<personal-codex-skills-root>",
+  "vault_root": "<obsidian-vault-root>",
+  "dashboard_relative_path": "30_Knowledge/模型架构知识版图.md",
+  "protected_roots": [
+    ".obsidian",
+    "Clippings",
+    "论文模板阅读结果"
+  ]
+}

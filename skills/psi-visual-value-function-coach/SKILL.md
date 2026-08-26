@@ -1,6 +1,6 @@
 ---
 name: psi-visual-value-function-coach
-description: Explain and audit PSI reward-model visual value functions from task stages and reward schedules through return-to-go or IQL targets, ViT/Mask encoding, SpatialSoftmax, MLP/C51 heads, losses, gradients, and inference. Use in the psi-reward-model repository when the user asks how value, reward, GT, value atoms, logits, cross-entropy, MSE, MC, or IQL are constructed or wants a concise end-to-end mental model. Do not use for generic vision models unrelated to value learning.
+description: Explain, audit, and compare PSI reward-model visual value methods from task stages and reward schedules through return-to-go or IQL targets, ViT/Mask encoding, SpatialSoftmax, MLP/C51 heads, training, inference, and evaluation. Use in the psi-reward-model repository when the user asks how value, reward, GT, value atoms, logits, cross-entropy, MSE, MC, or IQL work; wants the current strategy/architecture/training/inference summarized; or wants a stable reference for comparing and improving alternative value methods. Do not use for generic vision models unrelated to value learning.
 ---
 
 # Psi Visual Value Function Coach
@@ -24,6 +24,19 @@ Trace explanations in this order:
 `task stages -> reward schedule -> per-step reward -> return-to-go/TD target -> visual features -> value prediction -> loss -> gradients -> inference value`
 
 When the user is confused about one link, explain that link without restarting the entire chain. Read [references/value-chain.md](references/value-chain.md) for formulas, shape defaults, common misconceptions, and repository-specific validation checks.
+
+## Route method summaries and comparisons
+
+- Read [references/current-repository-methods.md](references/current-repository-methods.md) when summarizing the current strategy, architecture, training, inference, configuration, or implementation risks. Re-check the live repository before treating the captured values as current.
+- Read [references/method-comparison-framework.md](references/method-comparison-framework.md) when comparing MC, C51, IQL, success classification, progress estimation, or a future value-learning method. Fill one method card per method and compare evidence under the same data/evaluation contract.
+
+Keep three layers separate in every comparison:
+
+1. **Task definition:** stages, reward polarity, discount, horizon, and terminal semantics.
+2. **Learning method:** target construction, architecture, output representation, loss, and optimization.
+3. **Evaluation contract:** split, metrics, ablations, seeds, and rollout relationship.
+
+Do not attribute a gain to the learning algorithm when the reward schedule, data split, encoder, or training budget also changed.
 
 ## Preserve the important distinctions
 
