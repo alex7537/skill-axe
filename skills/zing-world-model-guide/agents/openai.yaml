@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zing World Model Guide"
+  short_description: "Explain Zing-0.5 architecture and inference"
+  default_prompt: "Use $zing-world-model-guide to explain this Zing-0.5 question with source-backed facts and clear unknowns."

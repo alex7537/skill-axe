@@ -1,6 +1,30 @@
 {
   "format_version": 2,
   "skills": {
+    "obsidian-vault-backup": {
+      "added_at": "2026-08-27T11:21:33+08:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "c2454ecae26037f1e212f220e206ac92ce35329d409d2351e3a6933a578c913e",
+        "agents/openai.yaml": "fe3a31deada3b0caa176886e5478cfaa385ce13214e3aa42f713ce8bca3d3c64",
+        "config.example.json": "a6a61220235719d7f450d926615fc6812bd159fd4158fc22c4f531e6372fdd38",
+        "references/backup-policy.md": "7c11c6f06927bbd7417a5c7faeadd3e1261979ef38d63aea20e1ddc0cbad2df8",
+        "scripts/sync_vault.py": "22be18060c6ca833bf3ff102cc595aab0f9d24d3f0cf68c689739eb6cd039d68"
+      },
+      "last_used_at": "2026-08-27T11:27:21+08:00"
+    },
+    "zing-world-model-guide": {
+      "added_at": "2026-08-26T16:49:59+08:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "6a4709f8f599cde97da6c785aca0d8fc691a00a13bad39e5905c3659ba057a47",
+        "agents/openai.yaml": "c74bb0902d039eb461c4297b6c7a1c83d2009cd05c21e113ee2d35f69b7b4d21",
+        "references/architecture.md": "52851c9aa28ba20903907ded87248d887cff1ca575e927b48489562895810236",
+        "references/input-runtime.md": "6c64881e7e6b56f7861034f0836c11368ee7d25e61e591fa8c491ce57236a8f1",
+        "references/zing-0.5-obsidian-note.md": "a4547538e72f151cb1dccc5fb70ff25a14ebf486e9e87de8a00291a4d44e1855"
+      },
+      "last_used_at": "2026-08-26T17:10:11+08:00"
+    },
     "private-proxy-stack-runbook": {
       "added_at": "2026-08-26T14:42:26+08:00",
       "usage_count": 1,
@@ -16,19 +40,19 @@
     },
     "robot-model-knowledge-dashboard": {
       "added_at": "2026-08-26T11:15:37+08:00",
-      "usage_count": 1,
+      "usage_count": 2,
       "files": {
         "SKILL.md": "af52d9b1d99af94c9170abb6ebc93e18b92cc1c117028db5e95f7db7b4e13b49",
         "agents/openai.yaml": "2529f91548741fd2bff86a2c553432d818d5b2041c0b31f1ae745672420ae8f8",
         "config.example.json": "6f52fb5de7980a287de300d753ffb5856b3d92706c0186646a59dadc1b74014e",
-        "references/model-routes.json": "4c28fa67e162131897d4d5afe85d478a484af11e5e8e46cde84cfbbff3dd0554",
+        "references/model-routes.json": "01d82b56eae25fc3eb919d63d72c31d76a55acf7d1d76630ef1a8651cca9ba88",
         "scripts/update_dashboard.py": "9656faeda13ea4a8431428eb785bf76df46fb4f56b9a79e845efc811ea3c01e4"
       },
-      "last_used_at": "2026-08-26T11:20:07+08:00"
+      "last_used_at": "2026-08-26T16:36:33+08:00"
     },
     "openpi-pi05-learning-coach": {
       "added_at": "2026-08-26T10:59:31+08:00",
-      "usage_count": 0,
+      "usage_count": 1,
       "files": {
         "SKILL.md": "8573d53d5111d4084a3d0c23ea0a246f209f219a2424f87618180a4c04be8c03",
         "agents/openai.yaml": "782d43318ec741b169377805531ad2ed9d5d8002789e6cfa4a7c560af696448e",
@@ -37,7 +61,8 @@
         "references/evidence-ledger.md": "a5e8e22f18e4bedf88599b71c549f2fa0613c39ecef9034ba8566d4a951c69c8",
         "references/inference-and-language-conditioning.md": "8a3f1d21dea12e65b950bd0e34b5d291f1ada380338781a7422828812665fcfc",
         "references/training-recipe-and-math.md": "96f8049f876eafbf6a5a82f11fb03c7d699d01d2c1e446c4ea913cc4da0a8491"
-      }
+      },
+      "last_used_at": "2026-08-26T19:32:38+08:00"
     },
     "psi-visual-value-function-coach": {
       "added_at": "2026-08-25T20:10:56+08:00",
@@ -53,14 +78,14 @@
     },
     "research-asset-routing": {
       "added_at": "2026-08-24T15:21:54+08:00",
-      "usage_count": 6,
+      "usage_count": 8,
       "files": {
         "SKILL.md": "017d081c32b1103c2cd3524ca7606885cb349bc79ef48560fcd48bcec14d44b6",
         "agents/openai.yaml": "69b0485efa963eb323bb328f89c2d470057472e60c42e5fa6b7f9fc50c0178b8",
         "assets/idea-card.md": "31d69ce9187ebbdc74398f9d0e9c25b2e6f06b29723d5b5e5a2bd4ef6e300950",
         "references/routing-contract.md": "c8ee5ce9b3531adc49c20c0e7fa878080de93aaee563ed2adae5f66f0a5d9213"
       },
-      "last_used_at": "2026-08-26T16:24:38+08:00"
+      "last_used_at": "2026-08-27T11:27:21+08:00"
     },
     "mask-generator-policy-integration": {
       "added_at": "2026-08-24T14:32:50+08:00",
@@ -76,7 +101,7 @@
     },
     "obsidian-vault-versioned-reorg": {
       "added_at": "2026-08-24T11:29:12+08:00",
-      "usage_count": 4,
+      "usage_count": 5,
       "files": {
         "SKILL.md": "19517546569f296f60ba07cc0a910c54681bac83e6291dc361e64c26075d0a68",
         "agents/openai.yaml": "a8d9d116c317ae105fd1184ba047e180594ce22bb68a760c42061675f1833c4c",
@@ -85,7 +110,7 @@
         "scripts/audit_vault.py": "b5e024d4c44ae5dbb50844c2ca5e3097a604043f1a2790eb45a965d773942bfb",
         "scripts/compare_audits.py": "e108d679e0823feeec0c0fbdc1816e17c234d4c67f9b154a924fa405c8adefbe"
       },
-      "last_used_at": "2026-08-26T11:57:48+08:00"
+      "last_used_at": "2026-08-26T16:39:21+08:00"
     },
     "claudian-auth-diagnose": {
       "added_at": "2026-08-24T10:02:24+08:00",
@@ -202,7 +227,7 @@
     },
     "robot-ml-lifecycle": {
       "added_at": "2026-08-15T10:58:27+08:00",
-      "usage_count": 6,
+      "usage_count": 7,
       "files": {
         "SKILL.md": "bee6249664c215818dd480ea18fd7a7a12e153e0fd476c6c2f0e1122ca18589b",
         "agents/openai.yaml": "0f880228c23fd843544ddc7f21e67c121af32da521a0298bf76572bc7e71e321",
@@ -217,7 +242,7 @@
         "scripts/test_lifecycle_ledger.py": "7146ebb5cb6fe6c7d4994732d05a160d4d51fadfb8e74e2f28ec1d746757953d",
         "scripts/test_run_once.py": "5b5bbeafd363d85ffc45dfd785b01f37b3c0ebafc562a9973a69d0bdef9c84fd"
       },
-      "last_used_at": "2026-08-24T15:27:13+08:00"
+      "last_used_at": "2026-08-26T20:08:43+08:00"
     },
     "publish-model-release": {
       "added_at": "2026-08-14T14:53:35+08:00",
@@ -277,7 +302,7 @@
     },
     "capture-session-to-skill": {
       "added_at": "2026-08-12T15:08:18+08:00",
-      "usage_count": 15,
+      "usage_count": 17,
       "files": {
         "SKILL.md": "7e08c46e3d993315b2cb918d4817e7fc9cb87de74ea13944e019d231f4b7bb46",
         "agents/openai.yaml": "1e4c870c78a1ff3d9c88d90bb1d3e9796c66b32e4a84d19175305a25268b1621",
@@ -288,7 +313,7 @@
         "scripts/record_skill_usage.py": "9068bb02378a97a665577c07b3415eb8d09312cfb4291532f5bba2cf257faac6",
         "scripts/sync_personal_skills.py": "50ca830643a009e627378886c1f2a88a15c2470e41b00e2ab41d4af6c0a3e2f2"
       },
-      "last_used_at": "2026-08-26T16:24:38+08:00"
+      "last_used_at": "2026-08-27T11:27:21+08:00"
     },
     "tcr-image-publish": {
       "added_at": "2026-08-12T14:55:15+08:00",
@@ -334,13 +359,13 @@
     },
     "code-understanding-coach": {
       "added_at": "2026-08-04T00:23:00+08:00",
-      "usage_count": 6,
+      "usage_count": 7,
       "files": {
         "SKILL.md": "66835f2055c47fead7fd7dc8f0daf5cb7bfdfead21188eb3328f1700aa6f7b94",
         "agents/openai.yaml": "58ce1abc8c40fb4ee6c6eb398a1bf930555df881f5373186b45755b87abf8f60",
         "references/learning-path.md": "8643f00ccc782144225068c4d26b0922ac1c43f9e020f74240dbb39e57d4d38d"
       },
-      "last_used_at": "2026-08-25T18:02:20+08:00"
+      "last_used_at": "2026-08-26T19:32:38+08:00"
     },
     "adaptive-task-coach": {
       "added_at": "2026-07-24T14:09:18+08:00",
@@ -355,18 +380,18 @@
     },
     "plan-training-run": {
       "added_at": "2026-07-21T14:18:37+08:00",
-      "usage_count": 6,
+      "usage_count": 7,
       "files": {
         "SKILL.md": "55ba7417d0bf09985d3fdf99cc91a295ee00f242005b2dd3a96ed864eab2f5c2",
         "agents/openai.yaml": "07a359df0273828828efa69e0f9507cafd0507d77cbf705880bbffee2c239789",
         "references/training-principles.md": "0c8660c74fd213a521d75815ffa974ddc6cde5fba1de0a97ae827811fbc892f6",
         "scripts/plan_training.py": "a630866da7c2994c9d9a154a2a28d0199b1b3cb215887e54aceabf7b13c26347"
       },
-      "last_used_at": "2026-08-24T19:55:51+08:00"
+      "last_used_at": "2026-08-26T20:08:43+08:00"
     },
     "understand-codebase": {
       "added_at": "2026-07-20T15:48:11+08:00",
-      "usage_count": 16,
+      "usage_count": 18,
       "files": {
         "SKILL.md": "d0775a5ba043727d3fb8b83bcce8a2bdfbfb2f25b9f0cd23ba59bd1035994c6d",
         "agents/openai.yaml": "4ee65e22b26ae74e53ab03ce141f44266658961f0ee1a508c1e78ab35627bb44",
@@ -374,20 +399,20 @@
         "references/prompt-ladder.md": "d8598efb5e6ec19331eb6cc866e94ad6eea0626957d7c41e086f3864b977d363",
         "scripts/repo_inventory.py": "f95f068ce1a12150339e6ee48a2e1a682c4d76969457386e61a7d7f73c95f62d"
       },
-      "last_used_at": "2026-08-25T17:49:21+08:00"
+      "last_used_at": "2026-08-26T19:32:38+08:00"
     },
     "skill-authoring": {
       "added_at": "2026-07-20T15:42:13+08:00",
-      "usage_count": 19,
+      "usage_count": 21,
       "files": {
         "SKILL.md": "d36cf0d53e192d2240ecd3dd61a417b8caec74c89700d317c86f3afa6ea952d1",
         "references/skill-types.md": "dee1317069a48ec62d4b497a5b9464dc3b64f41b422cfc5e173c8ccf5bd357ee"
       },
-      "last_used_at": "2026-08-26T16:24:38+08:00"
+      "last_used_at": "2026-08-27T11:27:21+08:00"
     },
     "tione": {
       "added_at": "2026-06-12T15:47:26+08:00",
-      "usage_count": 6,
+      "usage_count": 7,
       "files": {
         "SKILL.md": "16b84f2d331f0532947d3c0126ec158cfcda7883783c59fde115c2aceb48779e",
         "agents/openai.yaml": "c20c809f1eadbf8caa5473fc2a94b481bc2e2e331c60e9388fd7ff9837db2edf",
@@ -396,7 +421,7 @@
         "references/training-monitor-runbook.md": "d4c772c4e378e4959d8adb6ed09aa1420eafa375f4718945dc3e025b06625841",
         "scripts/tione_api.py": "8a641880503123fc9d87e0b4c7fa77787fd4964f6e5f6ab1b212acc943df744b"
       },
-      "last_used_at": "2026-08-26T14:38:26+08:00"
+      "last_used_at": "2026-08-26T17:32:23+08:00"
     },
     "andrej-karpathy-skills": {
       "added_at": "2026-04-22T11:03:55+08:00",
@@ -409,6 +434,7 @@
   },
   "excluded_files": {
     "capture-session-to-skill/config.json": "sensitive filename",
+    "obsidian-vault-backup/config.json": "sensitive filename",
     "remote-attention-heatmap/SKILL.md": "machine-local privacy exclusion",
     "remote-attention-heatmap/agents/openai.yaml": "machine-local privacy exclusion",
     "remote-attention-heatmap/scripts/compose_heatmap_comparisons.py": "machine-local privacy exclusion",

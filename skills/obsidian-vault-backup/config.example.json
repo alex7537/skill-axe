@@ -1,0 +1,10 @@
+{
+  "vault_path": "/absolute/path/to/Obsidian Vault",
+  "remote": "origin",
+  "branch": "main",
+  "include_obsidian_config": false,
+  "include_untracked_binary": false,
+  "max_file_mib": 50,
+  "text_extensions": [".md", ".txt", ".canvas", ".css", ".json", ".yaml", ".yml", ".bib"],
+  "binary_extensions": [".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".pdf", ".mp4", ".mov", ".m4a", ".wav"]
+}

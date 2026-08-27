@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Vault Backup"
+  short_description: "Safely preview and back up a Git-versioned Obsidian vault"
+  default_prompt: "Use $obsidian-vault-backup to preview and safely synchronize my Obsidian vault with its configured Git remote."
