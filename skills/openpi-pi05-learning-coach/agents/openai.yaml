@@ -1,4 +1,4 @@
 interface:
-  display_name: "OpenPI π0.5 Learning Coach"
-  short_description: "Trace π0.5 architecture, training, inference, and evidence."
-  default_prompt: "Use $openpi-pi05-learning-coach to trace the current OpenPI π0.5 path from inputs and language conditioning through Flow Matching actions."
+  display_name: "OpenPI π-Family Learning Coach"
+  short_description: "Trace π0.5 and explain π0.6/π*0.6 RECAP with evidence boundaries."
+  default_prompt: "Use $openpi-pi05-learning-coach to explain the relevant π-family model, separate paper claims from public OpenPI support, and trace inputs through language, Flow Matching actions, or RECAP value and advantage conditioning."

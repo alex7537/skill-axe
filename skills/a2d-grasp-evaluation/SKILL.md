@@ -1,6 +1,6 @@
 ---
 name: a2d-grasp-evaluation
-description: Design, launch, resume, monitor, compare, and report A2D imitation-learning grasp rollout evaluations using a diagnostic funnel for arm arrival, hand commands, hand tracking, target contact, lift, and retention. Use for A2D checkpoint comparisons, Diffusion/CFM inference-start or sampling-step ablations, execute-horizon ablations, grasp/lift success analysis, evaluator progress checks, failure attribution, or packaging rollout evidence. Use with a2d-model-swap-only when the pipeline must remain unchanged; use robot-benchmark-loop for formal multi-task qualification.
+description: Design, launch, resume, monitor, compare, and report A2D imitation-learning grasp rollout evaluations using a diagnostic funnel for arm arrival, hand commands, hand tracking, target contact, lift, and retention. Use for A2D checkpoint comparisons, Diffusion/CFM inference-start or sampling-step ablations, execute-horizon ablations, grasp/lift success analysis, evaluator progress checks, failure attribution, packaging rollout evidence, or building a traceable success-video GIF gallery. Use with a2d-model-swap-only when the pipeline must remain unchanged; use robot-benchmark-loop for formal multi-task qualification.
 ---
 
 # A2D Grasp Evaluation
@@ -11,6 +11,7 @@ Diagnose the first failed stage of grasp execution instead of hiding arm, hand, 
 
 - Read [references/evaluation-methodology.md](references/evaluation-methodology.md) before designing, launching, or interpreting an evaluation.
 - Read [references/generative-inference-ablation.md](references/generative-inference-ablation.md) before comparing Diffusion/CFM sampling start, inference iterations, timestep grids, ODE solvers, or execute horizons.
+- Read [references/success-gallery-packaging.md](references/success-gallery-packaging.md) before selecting rollout videos or building a GIF/MP4 success gallery.
 - Use `$a2d-model-swap-only` when the comparison must vary only a checkpoint or deployment bundle.
 - Use `$robot-benchmark-loop` when several tasks, seeds, models, or simulator tracks need a frozen run manifest, coverage qualification, aggregation, and promotion decision.
 - Use `$remote-policy-bundle` first when the requested checkpoint still needs to be exported and verified from a remote machine.
@@ -90,6 +91,8 @@ Add arm/hand/tracking funnel counts, maximum/final lift distributions, streaks, 
 
 Treat initial episodes as smoke validation only. Compare incomplete runs only at equal completed counts with identical seeds; do not rank models from asymmetric or tiny samples.
 
+For a success-video gallery, use `scripts/build_success_grid.py` when its v17 four-model filename contract matches the source collection. Keep a machine-readable clip manifest beside the GIF and MP4; the visual is showcase evidence, not a substitute for the evaluation report.
+
 ## Gotchas
 
 - Successful replay validates much of the execution chain, not policy reproduction.
@@ -101,3 +104,5 @@ Treat initial episodes as smoke validation only. Compare incomplete runs only at
 - Height-only success counts strikes or throws; contact-only success counts failed lifts; final-height-only misses a valid grasp followed by a drop.
 - Nominal `rate_hz` is not achieved frequency when observation, contact, ground-truth, rendering, and inference RPCs add latency.
 - A reference selected by nearest arm pose may not be object-specific ground truth.
+- GitHub README does not reliably autoplay embedded MP4; use a size-controlled looping GIF and keep MP4 as the higher-quality link.
+- GIF/H.264 dimensions should be even. A nominal 100×75 tile may be rounded during chroma scaling and then fail padding; 96×72 tiles produce a stable 960×720 10×10 grid.

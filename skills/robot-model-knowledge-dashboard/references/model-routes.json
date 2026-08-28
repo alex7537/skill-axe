@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-08-26",
+  "snapshot_date": "2026-08-27",
   "dashboard_title": "模型架构知识版图",
   "routes": [
     {
@@ -30,11 +30,12 @@
       "skills": [
         {
           "name": "openpi-pi05-learning-coach",
-          "summary": "OpenPI π0.5 架构、异构训练、语言/状态 token、Flow Matching 推理与开源边界",
+          "summary": "OpenPI π0.5 公开运行链，以及论文级 π0.6/π*0.6、RECAP 价值/优势条件化与开源边界",
           "evidence": "live-source+runtime",
           "last_verified": "2026-08-26",
           "notes": [
             "[[论文模板阅读结果/pi_0.5_Vision-Language-Action_Model_with_Open-World_Generalization]]",
+            "[[20_Research/Papers/π0.6_RECAP_从机器人经验改进VLA]]",
             "[[30_Knowledge/具身智能模仿学习统一白皮书_VLA_WAM]]"
           ]
         }
@@ -58,6 +59,15 @@
             "[[飞书文档/VLA_World_Model_WAM三大架构对比解析]]",
             "[[30_Knowledge/具身智能模仿学习统一白皮书_VLA_WAM]]"
           ]
+        },
+        {
+          "name": "zing-world-model-guide",
+          "summary": "Zing-0.5 的 Wan 视频 latent、四步 DMD、动作条件、因果 KV-cache 与 prompt 切换",
+          "evidence": "inference-code-verified",
+          "last_verified": "2026-08-26",
+          "notes": [
+            "[[30_Knowledge/Zing_0.5_World_Model_架构与推理]]"
+          ]
         }
       ],
       "next_question": "未来视觉是否随动作干预正确变化，并在 recursive rollout 中改善闭环控制？"
@@ -73,7 +83,9 @@
           "summary": "MC/C51/IQL 视觉价值链、ViT/Mask 表征、目标构造、训练与评估",
           "evidence": "repository-map",
           "last_verified": "2026-08-26",
-          "notes": []
+          "notes": [
+            "[[30_Knowledge/视觉价值函数_MC_C51_IQL_架构与评估]]"
+          ]
         }
       ],
       "next_question": "价值模型是否能在 episode-held-out 场景中稳定排序真实进度和失败风险？"
@@ -89,7 +101,9 @@
           "summary": "RGB-to-mask 生成器、mask token encoder、冻结策略与 action-loss 语义保护",
           "evidence": "integration-contract",
           "last_verified": "2026-08-26",
-          "notes": []
+          "notes": [
+            "[[30_Knowledge/Mask生成器到机器人策略的集成契约]]"
+          ]
         }
       ],
       "next_question": "新增表征是否被策略真正使用，且 action loss 是否破坏其原有语义？"
@@ -101,6 +115,26 @@
       "status": "gap",
       "skills": [],
       "next_question": "显式高层规划的收益是否超过直接 prompt 条件化，并来自更少失败而非更多计算？"
+    }
+  ],
+  "adjacent_routes": [
+    {
+      "id": "multimodal-foundation-models",
+      "title": "通用多模态生成与长上下文基础模型",
+      "role": "不直接输出机器人动作，但提供音视频联合生成、原生多模态、MoE、稀疏注意力与长上下文机制，作为 VLA、WAM 和分层规划的相邻技术路线。",
+      "status": "verified",
+      "skills": [
+        {
+          "name": "minimax-h3-m3-architecture-guide",
+          "summary": "MiniMax H3 联合音视频 latent 生成，以及 M3 多模态 MoE、MSA 和百万上下文",
+          "evidence": "official-release+checked-config+license",
+          "last_verified": "2026-08-27",
+          "notes": [
+            "[[30_Knowledge/MiniMax_H3_M3_架构原理与开放边界]]"
+          ]
+        }
+      ],
+      "next_question": "哪些通用多模态机制能在受控实验中改善机器人未来预测、语义规划或长时程记忆，而不是只增加模型规模？"
     }
   ],
   "supporting_skills": [

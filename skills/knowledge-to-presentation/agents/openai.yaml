@@ -1,0 +1,4 @@
+interface:
+  display_name: "Knowledge to Presentation"
+  short_description: "将 Obsidian 与技术知识压缩为可讲透的 PPT 和演讲备注"
+  default_prompt: "Use $knowledge-to-presentation to turn my research notes into a concise PPT with accessible mathematics and 5/10-minute speaker notes."

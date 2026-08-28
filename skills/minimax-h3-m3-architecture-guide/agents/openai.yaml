@@ -1,0 +1,4 @@
+interface:
+  display_name: "MiniMax H3 / M3 Architecture Guide"
+  short_description: "Explain H3 and M3 architecture, openness, and deployment"
+  default_prompt: "Use $minimax-h3-m3-architecture-guide to explain MiniMax H3 or M3 from architecture to deployment boundaries."

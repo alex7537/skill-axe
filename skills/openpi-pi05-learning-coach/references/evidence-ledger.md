@@ -17,6 +17,9 @@ Use this file to prevent paper claims, public code, local notes, and experiments
 - π0.5 official PDF: `https://www.physicalintelligence.company/download/pi05.pdf`
 - OpenPI: `https://github.com/Physical-Intelligence/openpi`
 - π0 paper: `https://arxiv.org/abs/2410.24164`
+- π*0.6 / RECAP paper: `https://arxiv.org/abs/2511.14759`
+- π*0.6 official PDF: `https://www.physicalintelligence.company/download/pistar06.pdf`
+- π*0.6 project page: `https://www.pi.website/blog/pistar06`
 
 Paper-supported claims:
 
@@ -29,6 +32,14 @@ Public-code-supported boundary:
 
 - tested `README.md` line 8 states that OpenPI currently supports only the Flow Matching head for π0.5 training and inference;
 - therefore an ordinary `policy.infer()` action call must not be described as the paper's complete hierarchical runtime.
+- on 2026-08-27 the official README listed π0, π0-FAST, and π0.5; it did not document a complete official π0.6/π*0.6 RECAP implementation or checkpoint release.
+
+π*0.6 paper-supported claims:
+
+- π0.6 upgrades the base VLM to Gemma 3 4B, increases the action expert to 860M, adds robot data, and supports richer conditioning;
+- π*0.6 adds a binarized advantage condition and is trained with RECAP using demonstrations, autonomous experience, and optional expert interventions;
+- a separate 670M distributional value model provides value-derived advantage labels;
+- the reported throughput and failure-rate improvements are author claims from the paper system, not local reproduction evidence.
 
 ## Local source snapshots
 

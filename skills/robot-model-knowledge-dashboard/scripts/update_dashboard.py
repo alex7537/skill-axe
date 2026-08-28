@@ -71,8 +71,10 @@ def find_untracked(registry: dict, skills_root: Path, tracked: set[str]) -> list
 
 def render_dashboard(registry: dict, skills_root: Path, registry_path: Path) -> str:
     route_rows: list[tuple[dict, list[dict]]] = []
+    adjacent_rows: list[tuple[dict, list[dict]]] = []
     tracked: set[str] = set()
     core_unique: set[str] = set()
+    adjacent_unique: set[str] = set()
     covered_routes = 0
 
     for route in registry["routes"]:
@@ -87,6 +89,17 @@ def render_dashboard(registry: dict, skills_root: Path, registry_path: Path) -> 
         if any(item["installed"] for item in skills):
             covered_routes += 1
         route_rows.append((route, skills))
+
+    for route in registry.get("adjacent_routes", []):
+        skills = []
+        for entry in route.get("skills", []):
+            info = skill_info(skills_root, entry["name"])
+            merged = {**entry, **info}
+            skills.append(merged)
+            tracked.add(entry["name"])
+            if info["installed"]:
+                adjacent_unique.add(entry["name"])
+        adjacent_rows.append((route, skills))
 
     support_rows = []
     for entry in registry.get("supporting_skills", []):
@@ -118,6 +131,7 @@ def render_dashboard(registry: dict, skills_root: Path, registry_path: Path) -> 
         f"- 模型主路线：**{len(registry['routes'])}**",
         f"- 已有专题模型 Skill：**{len(core_unique)}**",
         f"- 已覆盖主路线：**{covered_routes}/{len(registry['routes'])}**",
+        f"- 相邻基础路线：**{len(registry.get('adjacent_routes', []))}**（专题 Skill：{len(adjacent_unique)}）",
         f"- 支撑型 Skill：**{sum(bool(row['installed']) for row in support_rows)}**",
         f"- 待学习最新候选：**{len(registry.get('candidates', []))}**",
         f"- 候选来源快照：**{registry['snapshot_date']}**",
@@ -134,6 +148,9 @@ def render_dashboard(registry: dict, skills_root: Path, registry_path: Path) -> 
         '  C --> F',
         '  D -. 评估与选择 .-> B',
         '  D -. 评估与选择 .-> C',
+        '  G[通用多模态基础模型] -. 视觉生成 / 长上下文 .-> B',
+        '  G -. 视频 latent / 稀疏注意力 .-> C',
+        '  G -. 规划与记忆机制 .-> F',
         "```",
         "",
         "## 已学习模型路线",
@@ -141,6 +158,38 @@ def render_dashboard(registry: dict, skills_root: Path, registry_path: Path) -> 
     ]
 
     for route, skills in route_rows:
+        lines.extend([
+            f"### {route['title']}",
+            "",
+            f"> {route['role']}",
+            "",
+            "| 专题 Skill | 安装 | 已总结内容 | 证据 | 最近核对 | Obsidian |",
+            "|---|---:|---|---|---|---|",
+        ])
+        if skills:
+            for item in skills:
+                notes = "<br>".join(item.get("notes", [])) or "—"
+                installed = "✅" if item["installed"] else "❌"
+                lines.append(
+                    f"| `${item['name']}` | {installed} | {item['summary']} | "
+                    f"{item['evidence']} | {item['last_verified']} | {notes} |"
+                )
+        else:
+            lines.append("| — | — | 尚无专用总结 Skill | gap | — | — |")
+        lines.extend([
+            "",
+            f"**下一问题：** {route['next_question']}",
+            "",
+        ])
+
+    lines.extend([
+        "## 相邻基础模型路线（不计入机器人主路线覆盖率）",
+        "",
+        "> 这些模型不直接证明机器人控制能力；这里只记录可迁移到 VLA、WAM、规划与记忆的机制。",
+        "",
+    ])
+
+    for route, skills in adjacent_rows:
         lines.extend([
             f"### {route['title']}",
             "",
