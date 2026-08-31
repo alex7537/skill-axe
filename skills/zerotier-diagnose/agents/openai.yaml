@@ -1,0 +1,4 @@
+interface:
+  display_name: "ZeroTier Diagnose"
+  short_description: "检查并解释 ZeroTier 安装、服务与虚拟网络状态"
+  default_prompt: "Use $zerotier-diagnose to inspect this device’s ZeroTier installation, service, network membership, virtual IPs, and peer paths."
