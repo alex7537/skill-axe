@@ -2,12 +2,12 @@
 
 Automatically generated from `skills-manifest.json`. Do not edit manually.
 
-**40 skills · 236 total uses**
+**41 skills · 240 total uses**
 
 | Skill | Usage count |
 |---|---:|
-| [skill-authoring](skills/skill-authoring/) | 28 |
-| [capture-session-to-skill](skills/capture-session-to-skill/) | 26 |
+| [skill-authoring](skills/skill-authoring/) | 29 |
+| [capture-session-to-skill](skills/capture-session-to-skill/) | 27 |
 | [understand-codebase](skills/understand-codebase/) | 24 |
 | [research-asset-routing](skills/research-asset-routing/) | 13 |
 | [math-principles-coach](skills/math-principles-coach/) | 12 |
@@ -23,16 +23,16 @@ Automatically generated from `skills-manifest.json`. Do not edit manually.
 | [obsidian-vault-versioned-reorg](skills/obsidian-vault-versioned-reorg/) | 6 |
 | [sync-follow-branch](skills/sync-follow-branch/) | 6 |
 | [feishu-wiki-readonly-review](skills/feishu-wiki-readonly-review/) | 4 |
+| [obsidian-vault-backup](skills/obsidian-vault-backup/) | 4 |
 | [openpi-pi05-learning-coach](skills/openpi-pi05-learning-coach/) | 4 |
 | [remote-policy-bundle](skills/remote-policy-bundle/) | 4 |
 | [robot-benchmark-loop](skills/robot-benchmark-loop/) | 4 |
 | [robot-model-knowledge-dashboard](skills/robot-model-knowledge-dashboard/) | 4 |
-| [obsidian-vault-backup](skills/obsidian-vault-backup/) | 3 |
+| [knowledge-tree-reconcile](skills/knowledge-tree-reconcile/) | 3 |
 | [psi-autolabel-service-guide](skills/psi-autolabel-service-guide/) | 3 |
 | [tione-ssh-diagnose](skills/tione-ssh-diagnose/) | 3 |
 | [dataset-split-protocol](skills/dataset-split-protocol/) | 2 |
 | [knowledge-to-presentation](skills/knowledge-to-presentation/) | 2 |
-| [knowledge-tree-reconcile](skills/knowledge-tree-reconcile/) | 2 |
 | [mask-generator-policy-integration](skills/mask-generator-policy-integration/) | 2 |
 | [psi-visual-value-function-coach](skills/psi-visual-value-function-coach/) | 2 |
 | [zing-world-model-guide](skills/zing-world-model-guide/) | 2 |
@@ -44,5 +44,6 @@ Automatically generated from `skills-manifest.json`. Do not edit manually.
 | [publish-model-release](skills/publish-model-release/) | 1 |
 | [seg-label-audit](skills/seg-label-audit/) | 1 |
 | [zerotier-diagnose](skills/zerotier-diagnose/) | 1 |
+| [decision-grilling](skills/decision-grilling/) | 0 |
 | [mj-demo-runtime-guide](skills/mj-demo-runtime-guide/) | 0 |
 | [tcr-image-publish](skills/tcr-image-publish/) | 0 |
