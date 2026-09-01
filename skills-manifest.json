@@ -15,9 +15,10 @@
       "added_at": "2026-08-31T11:08:07+08:00",
       "usage_count": 2,
       "files": {
-        "SKILL.md": "94958a2db1647d8073ff3e33af08e90f0065d114bacdf5601ba52fbbf9b4e149",
-        "agents/openai.yaml": "d08d102ca3113d639d16a61c5893d39e264984a0e1461727e24d2b6c221d5040",
+        "SKILL.md": "f64ebe81aba4812e3569bb9fc7174855fcc81e63af929bee6728216707f04413",
+        "agents/openai.yaml": "4a4cd138cfcab04b3e001114d750255dad58b71990b82006ed51c95ea93f9511",
         "references/decision-matrix.md": "745cca26a3358f9edebaf7ea507a696f45388fb8923372b593433ed828cdcd34",
+        "references/dual-store-status-audit.md": "8c5fbedded44da438b6584df65bf32b01aaeab8fa7bc7a9d97f866d287747ffb",
         "scripts/scan_knowledge_tree.py": "a7ed991cc0c548668af435b73dd05d67f03b9019d3be16f03544032edc61f582"
       },
       "last_used_at": "2026-09-01T12:29:54+08:00"
@@ -408,23 +409,23 @@
     },
     "math-principles-coach": {
       "added_at": "2026-08-04T00:23:00+08:00",
-      "usage_count": 11,
+      "usage_count": 12,
       "files": {
         "SKILL.md": "23b30151fa4947c186f5fe56968047dd16c398848243992ea9d3f71cf5b38415",
         "agents/openai.yaml": "810b9e1e1271894d6be12b3fb84e1c615032eafda943eeb16ee0e8a6035ae76e",
         "references/embodied-ai-math-map.md": "d8602f3e813051d2b60d5270ed1bfeb757e4e5453918d41326a9038cd9530c5d"
       },
-      "last_used_at": "2026-08-28T16:30:54+08:00"
+      "last_used_at": "2026-09-01T15:16:27+08:00"
     },
     "code-understanding-coach": {
       "added_at": "2026-08-04T00:23:00+08:00",
-      "usage_count": 10,
+      "usage_count": 11,
       "files": {
         "SKILL.md": "66835f2055c47fead7fd7dc8f0daf5cb7bfdfead21188eb3328f1700aa6f7b94",
         "agents/openai.yaml": "58ce1abc8c40fb4ee6c6eb398a1bf930555df881f5373186b45755b87abf8f60",
         "references/learning-path.md": "8643f00ccc782144225068c4d26b0922ac1c43f9e020f74240dbb39e57d4d38d"
       },
-      "last_used_at": "2026-09-01T12:39:01+08:00"
+      "last_used_at": "2026-09-01T15:16:27+08:00"
     },
     "adaptive-task-coach": {
       "added_at": "2026-07-24T14:09:18+08:00",
@@ -450,7 +451,7 @@
     },
     "understand-codebase": {
       "added_at": "2026-07-20T15:48:11+08:00",
-      "usage_count": 23,
+      "usage_count": 24,
       "files": {
         "SKILL.md": "d0775a5ba043727d3fb8b83bcce8a2bdfbfb2f25b9f0cd23ba59bd1035994c6d",
         "agents/openai.yaml": "4ee65e22b26ae74e53ab03ce141f44266658961f0ee1a508c1e78ab35627bb44",
@@ -458,16 +459,16 @@
         "references/prompt-ladder.md": "d8598efb5e6ec19331eb6cc866e94ad6eea0626957d7c41e086f3864b977d363",
         "scripts/repo_inventory.py": "f95f068ce1a12150339e6ee48a2e1a682c4d76969457386e61a7d7f73c95f62d"
       },
-      "last_used_at": "2026-09-01T11:34:40+08:00"
+      "last_used_at": "2026-09-01T15:44:42+08:00"
     },
     "skill-authoring": {
       "added_at": "2026-07-20T15:42:13+08:00",
-      "usage_count": 27,
+      "usage_count": 28,
       "files": {
         "SKILL.md": "d36cf0d53e192d2240ecd3dd61a417b8caec74c89700d317c86f3afa6ea952d1",
         "references/skill-types.md": "dee1317069a48ec62d4b497a5b9464dc3b64f41b422cfc5e173c8ccf5bd357ee"
       },
-      "last_used_at": "2026-09-01T13:21:24+08:00"
+      "last_used_at": "2026-09-01T15:47:47+08:00"
     },
     "tione": {
       "added_at": "2026-06-12T15:47:26+08:00",

@@ -2,17 +2,17 @@
 
 Automatically generated from `skills-manifest.json`. Do not edit manually.
 
-**40 skills · 232 total uses**
+**40 skills · 236 total uses**
 
 | Skill | Usage count |
 |---|---:|
-| [skill-authoring](skills/skill-authoring/) | 27 |
+| [skill-authoring](skills/skill-authoring/) | 28 |
 | [capture-session-to-skill](skills/capture-session-to-skill/) | 26 |
-| [understand-codebase](skills/understand-codebase/) | 23 |
+| [understand-codebase](skills/understand-codebase/) | 24 |
 | [research-asset-routing](skills/research-asset-routing/) | 13 |
-| [math-principles-coach](skills/math-principles-coach/) | 11 |
+| [math-principles-coach](skills/math-principles-coach/) | 12 |
+| [code-understanding-coach](skills/code-understanding-coach/) | 11 |
 | [psi-wam-learning-coach](skills/psi-wam-learning-coach/) | 11 |
-| [code-understanding-coach](skills/code-understanding-coach/) | 10 |
 | [a2d-grasp-evaluation](skills/a2d-grasp-evaluation/) | 8 |
 | [adaptive-task-coach](skills/adaptive-task-coach/) | 7 |
 | [andrej-karpathy-skills](skills/andrej-karpathy-skills/) | 7 |

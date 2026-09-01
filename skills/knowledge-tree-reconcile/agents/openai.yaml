@@ -1,4 +1,4 @@
 interface:
   display_name: "Knowledge Tree Reconcile"
-  short_description: "全局检索并将新知识去重归入 Skill 或 Obsidian"
-  default_prompt: "Use $knowledge-tree-reconcile to compare this new knowledge against my existing skills and Obsidian vault, then update the correct knowledge-tree node without duplication."
+  short_description: "跨 Skill/Obsidian 去重归档并审计双端同步状态"
+  default_prompt: "Use $knowledge-tree-reconcile to reconcile this knowledge across my personal skills and Obsidian vault, or audit both stores and their remotes when I ask for knowledge-tree update status."

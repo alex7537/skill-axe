@@ -1,11 +1,17 @@
 ---
 name: knowledge-tree-reconcile
-description: Globally search personal Codex skills and an Obsidian vault, compare incoming knowledge with existing nodes, classify it as duplicate, extension, contradiction, new concept, or new workflow, and update the smallest canonical skill, note, or knowledge-map entry without creating duplicate truth. Use when the user says 检查并更新知识树、全局检索之前的知识、把新知识归入已有版图、判断该更新 skill 还是 Obsidian, or asks to reconcile a completed explanation/workflow against their existing knowledge system. Do not mutate the vault or skills unless the user explicitly requests the update.
+description: Globally reconcile knowledge across personal Codex skills and an Obsidian vault, or audit whether both stores are current with their Git remotes. Use when the user says 检查并更新知识树、全局检索之前的知识、把新知识归入已有版图、判断该更新 skill 还是 Obsidian、检查知识树更新状态、两端是否对齐, or asks to reconcile knowledge or verify both personal-skills/skill-axe and Obsidian/Vault synchronization. Do not mutate, commit, or push either store unless the user explicitly requests the exact update or backup.
 ---
 
 # Knowledge Tree Reconcile
 
 Treat the knowledge tree as a set of canonical owners plus navigation links, not as one giant document. Search globally, decide locally, and make the smallest verified update.
+
+## Choose the mode
+
+- **Content reconciliation:** compare incoming knowledge with existing skills and notes, then route it to one canonical owner using the workflow below.
+- **Dual-store status audit:** when the user asks whether the knowledge tree is updated, synchronized, backed up, current, or aligned, read and follow [references/dual-store-status-audit.md](references/dual-store-status-audit.md). This mode must inspect both the personal-skill side and the Obsidian side; checking only one is incomplete.
+- If the user asks for both reconciliation and synchronization status, reconcile first, then run the dual-store audit so the report includes the newly changed local state.
 
 ## Canonical roles
 
@@ -55,6 +61,7 @@ Treat the knowledge tree as a set of canonical owners plus navigation links, not
 - maps contain links/status rather than duplicated instructions;
 - changed artifacts pass their format/behavior checks;
 - unrelated worktree changes are preserved.
+- for a status/alignment request, both stores were audited through their owning skills and reported separately; unknown or blocked remote state was not described as aligned.
 
 ## Gotchas
 
@@ -64,3 +71,5 @@ Treat the knowledge tree as a set of canonical owners plus navigation links, not
 - Installed-skill count, note count, and dashboard count are inventory metrics, not evidence of understanding.
 - Current machine state decays quickly. Store the reusable inference and dated evidence, not a timeless claim that a service or model is still online.
 - Do not let a broad meta-skill absorb domain logic. It owns retrieval, comparison, routing, and verification; the domain skill owns the actual procedure.
+- Semantic coverage is not synchronization. Finding a note and a skill proves discoverability, not that either Git remote contains the latest local content.
+- Do not infer that two local `skill-axe` checkouts point at the same commit. Resolve the configured sync checkout, any user-facing checkout, and the remote HEAD explicitly when alignment matters.
