@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blindbox Service Scaffold"
+  short_description: "Scaffold and verify auditable blind-box commerce services"
+  default_prompt: "Use $blindbox-service-scaffold to design a server-authoritative mystery-box service and validate its first vertical slice."
