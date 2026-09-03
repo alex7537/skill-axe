@@ -1,0 +1,4 @@
+interface:
+  display_name: "Corporate Git Push Gate"
+  short_description: "Require explicit confirmation before company Git mutations"
+  default_prompt: "Inspect the target Git remote and prepare a confirmation card before any company-repository push."

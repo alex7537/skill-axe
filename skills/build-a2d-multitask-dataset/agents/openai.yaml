@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build A2D Multitask Dataset"
+  short_description: "Build balanced V3 datasets without copying RGB"
+  default_prompt: "Use $build-a2d-multitask-dataset to build and verify a fresh task-balanced A2D V3 training dataset."

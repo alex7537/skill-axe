@@ -91,6 +91,7 @@ The direct mutation commands below are for a human-controlled/manual session. St
 - Use `$tione` to inspect or draft the exact task payload. Require approval before create/start/stop/delete operations.
 - Use `$tione-ssh-diagnose` only when endpoint, host-key, or user-key authentication fails.
 - Record TI-ONE task/instance IDs, image digest, resource configuration, resolved launch config, logs, checkpoints, and termination reason.
+- For an explicitly approved successor run on one GPU, never trigger on predecessor PID exit alone. Bind the exact predecessor command/run, require no `failure.json`, require a completed `summary.json`, re-run dataset/config/step preflight, confirm no other trainer exists, then launch and perform a bounded startup health check. Any failed gate aborts the successor without retrying or occupying the GPU.
 
 ### 6. Evaluate and decide
 
