@@ -17,13 +17,15 @@ A final object-height value cannot answer all three.
 | Infrastructure | reset, observation, action, contact, and GT RPCs succeed | evaluator/server/runtime invalidity |
 | Arm arrival | actual 7D pose reaches frozen pre-lift reference | approach or arm policy/execution |
 | Hand command | commanded 6D hand target reaches frozen shape | policy hand output |
-| Hand actual | measured 6D hand pose reaches frozen shape | actuation or physical response |
+| Hand actual | measured 6D hand pose compared with frozen shape | reference mismatch; investigate actuation only with command/actual evidence |
 | Tracking | command-to-actual error at frozen lags | latency, drive strength, or contact load |
 | Contact | target object has the required multi-finger contacts | closure, geometry, or alignment |
 | Lift | contact and relative lift hold simultaneously | stability or lift trajectory |
 | Retention | final contact/lift and maximum streak | sustained holding versus later drop |
 
 Nearest-reference matching is diagnostic. When the reference comes from another object, seed, or episode, do not present the paired hand target as object-specific ground truth.
+
+Audit the implementation before treating this table as a causal funnel. Whole-episode minima may come from different frames; a successful trial may miss a reference shape entirely. Compare successful trials against readiness flags, and use task outcomes to summarize failures when the reference gates are not validated. For concrete checks, read [parallel reset and outcome audit](parallel-reset-and-outcome-audit.md).
 
 ## Controlled comparisons
 

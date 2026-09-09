@@ -5,11 +5,12 @@ description: Design, launch, resume, monitor, compare, and report A2D imitation-
 
 # A2D Grasp Evaluation
 
-Diagnose the first failed stage of grasp execution instead of hiding arm, hand, contact, lift, and infrastructure failures behind one success percentage.
+Separate task outcomes from diagnostic reference matches, and locate the earliest failure supported by execution evidence rather than one aggregate success percentage.
 
 ## Route the request
 
 - Read [references/evaluation-methodology.md](references/evaluation-methodology.md) before designing, launching, or interpreting an evaluation.
+- Read [references/parallel-reset-and-outcome-audit.md](references/parallel-reset-and-outcome-audit.md) for multi-environment handoffs, equal-count snapshots, reference-based failure labels, or sustained-versus-final retention analysis.
 - Read [references/generative-inference-ablation.md](references/generative-inference-ablation.md) before comparing Diffusion/CFM sampling start, inference iterations, timestep grids, ODE solvers, or execute horizons.
 - Read [references/success-gallery-packaging.md](references/success-gallery-packaging.md) before selecting rollout videos or building a GIF/MP4 success gallery.
 - Use `$a2d-model-swap-only` when the comparison must vary only a checkpoint or deployment bundle.
@@ -49,6 +50,8 @@ Keep numerator and denominator for each stage:
 6. Valid target-object multi-finger contact occurred.
 7. Contact and relative object lift occurred simultaneously for the persistence gate.
 8. Contact/lift remained at the final frame.
+
+Reference-based arm/hand readiness flags are diagnostics, not necessarily monotonic success gates. Before using their failure labels causally, check whether successful trials also fail those flags and whether the measurements refer to the same relevant time window.
 
 Keep maximum and final relative lift separate. Keep contact-only, transient lift, sustained lift, and retained lift separate. Do not blame the hand when arm arrival or infrastructure failed first.
 

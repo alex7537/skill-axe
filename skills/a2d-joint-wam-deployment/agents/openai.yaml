@@ -1,0 +1,4 @@
+interface:
+  display_name: "A2D Joint WAM Deployment"
+  short_description: "Deploy Joint WAM with verified online Wan conditioning"
+  default_prompt: "Use $a2d-joint-wam-deployment to package, verify, and smoke-test this Joint WAM checkpoint on the target Isaac device."
