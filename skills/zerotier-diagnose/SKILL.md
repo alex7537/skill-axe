@@ -1,6 +1,6 @@
 ---
 name: zerotier-diagnose
-description: Inspect, explain, and troubleshoot ZeroTier installation, version, service health, network membership, assigned virtual IPs, routes, and direct-versus-relayed peer paths on macOS or Linux. Use when the user asks 检查 ZeroTier、ZeroTier 是否安装完整、服务是否在线、虚拟 IP 是什么、为什么显示 OFFLINE/RELAY/TUNNELED, or wants the current overlay-network packet path explained. Do not join or leave networks, change controller membership, or alter routes unless the user explicitly requests that mutation.
+description: Inspect, explain, and troubleshoot ZeroTier installation, version, service health, network membership, assigned virtual IPs, routes, and direct-versus-relayed peer paths on macOS or Linux. Use when the user asks 检查 ZeroTier、ZeroTier 是否安装完整、服务是否在线、虚拟 IP 是什么、为什么显示 OFFLINE/RELAY/TUNNELED, or wants the current overlay-network packet path explained. Also use for ZeroTier + Windows App remote Linux input freezes to separate network health from RDP session failures. Do not join or leave networks, change controller membership, or alter routes unless the user explicitly requests that mutation.
 ---
 
 # ZeroTier Diagnose
@@ -21,6 +21,10 @@ Treat diagnosis as a read-only evidence funnel. Distinguish installation artifac
 5. Use `listnetworks` to verify at least one `OK` membership, its virtual interface, assigned IPs, and managed routes. An installed and online node may still belong to no network.
 6. Use `peers` to classify current paths. `DIRECT` is peer-to-peer; `RELAY` is an encrypted relayed path. Report mixed results per peer rather than labeling the entire node direct or relayed.
 7. Read `references/mental-model.md` when explaining Controller, Root/Planet, Node ID, Network ID, virtual IP, routes, encryption, or packet flow.
+
+## Remote desktop input freezes
+
+For ZeroTier + Windows App connections where the Linux desktop keeps refreshing but mouse or keyboard input fails, read [references/rdp-input-freeze.md](references/rdp-input-freeze.md). Map the active connection to its current display and session before proposing a repair. Distinguish restored operation from a proven root cause.
 
 ## Repair boundary
 
