@@ -9,6 +9,10 @@ Separate task outcomes from diagnostic reference matches, and locate the earlies
 
 ## Route the request
 
+- For local A2D launch/resume or stop/report, follow [automatic Obsidian reporting](references/automatic-obsidian-report.md): attach the independent report observer by default, verify its first local/vault outputs, and preserve completion/interruption reports. The evaluation repository owns executable reporting logic; this skill owns invocation and verification. A skill edit alone is not running automation.
+
+- Read [references/inference-runtime-lessons.md](references/inference-runtime-lessons.md) for action-only bundle compatibility, RPC timing, fixed policy seeds, timeout diagnosis, or interrupted-batch recovery.
+
 - Read [references/evaluation-methodology.md](references/evaluation-methodology.md) before designing, launching, or interpreting an evaluation.
 - Read [references/parallel-reset-and-outcome-audit.md](references/parallel-reset-and-outcome-audit.md) for multi-environment handoffs, equal-count snapshots, reference-based failure labels, or sustained-versus-final retention analysis.
 - Read [references/generative-inference-ablation.md](references/generative-inference-ablation.md) before comparing Diffusion/CFM sampling start, inference iterations, timestep grids, ODE solvers, or execute horizons.
