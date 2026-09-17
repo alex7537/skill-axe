@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-08-27",
+  "snapshot_date": "2026-09-14",
   "dashboard_title": "模型架构知识版图",
   "routes": [
     {
@@ -11,12 +11,14 @@
       "skills": [
         {
           "name": "psi-policy-research-map",
-          "summary": "Diffusion、Flow Matching、IMLE/RS-IMLE 与研究实验地图",
-          "evidence": "research-map",
-          "last_verified": "2026-08-25",
+          "summary": "Diffusion、Flow Matching、IMLE/RS-IMLE，以及 A2D RDT-170M 预训练迁移与受控实验边界",
+          "evidence": "research-map+verified-a2d-rdt-adapter-smoke",
+          "last_verified": "2026-09-12",
           "notes": [
             "[[飞书文档/对于目前模型VA的理解]]",
-            "[[30_Knowledge/具身智能模仿学习统一白皮书_VLA_WAM]]"
+            "[[30_Knowledge/具身智能模仿学习统一白皮书_VLA_WAM]]",
+            "[[30_Knowledge/生成式动作策略_DP_CFM_IMLE_统一理解]]",
+            "[[30_Knowledge/视觉编码与策略架构_空间Token与预训练]]"
           ]
         }
       ],
@@ -57,6 +59,15 @@
             "[[30_Knowledge/World_Model]]",
             "[[30_Knowledge/Robbyant_LingBot_生态与PSI_WAM启示]]",
             "[[飞书文档/VLA_World_Model_WAM三大架构对比解析]]",
+            "[[30_Knowledge/具身智能模仿学习统一白皮书_VLA_WAM]]"
+          ]
+        },
+        {
+          "name": "a2d-wan-video-aux",
+          "summary": "A2D CFM 的 frozen Wan VAE future-video auxiliary 训练分支与 action-only 部署边界",
+          "evidence": "repository+smoke-tested-integration",
+          "last_verified": "2026-09-07",
+          "notes": [
             "[[30_Knowledge/具身智能模仿学习统一白皮书_VLA_WAM]]"
           ]
         },
@@ -145,7 +156,8 @@
     {"name": "a2d-grasp-evaluation", "role": "A2D 抓取诊断漏斗与 rollout 证据"},
     {"name": "remote-attention-heatmap", "role": "远端 checkpoint 的 ViT 注意力对比"},
     {"name": "publish-model-release", "role": "GitHub/Hugging Face 可复现模型发布"},
-    {"name": "research-asset-routing", "role": "Obsidian/GitHub/HF/运行平台的资产归属"}
+    {"name": "research-asset-routing", "role": "Obsidian/GitHub/HF/运行平台的资产归属"},
+    {"name": "a2d-joint-wam-deployment", "role": "Joint WAM bundle、外部 Wan VAE、九帧在线编码与 Isaac 部署门禁"}
   ],
   "candidates": [
     {

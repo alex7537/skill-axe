@@ -254,8 +254,8 @@ def render_dashboard(registry: dict, skills_root: Path, registry_path: Path) -> 
         "4. 看板为全自动生成文件；人工判断应写进链接的专题笔记。",
         "",
         "---",
-        f"生成日期：`{today}`  ",
-        f"Registry SHA256：`{reg_hash}`  ",
+        f"生成日期：`{today}`",
+        f"Registry SHA256：`{reg_hash}`",
         "生成器：`$robot-model-knowledge-dashboard`",
         "",
     ])

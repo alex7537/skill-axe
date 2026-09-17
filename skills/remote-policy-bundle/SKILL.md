@@ -50,6 +50,14 @@ The script performs read-only checkpoint inspection plus a temporary remote expo
 7. atomically renames the verified local archive;
 8. writes `download_manifest.json` and removes only its unique remote temporary directory.
 
+For an A2D RDT-170M run saved as Hugging Face model directories rather than
+ordinary `.ckpt` files, use `scripts/pull_remote_rdt_bundle.py`. It exports a
+schema-v4 `rdt_170m_a2d` archive containing the complete selected action-core
+state dict, model/config/mapping/data provenance, empty-language embedding, and
+pinned RDT runtime source. SigLIP remains an external artifact identified by
+revision and SHA256. This is bundle-valid but not rollout-ready until an RDT
+online policy adapter passes model-load and prediction smoke.
+
 ## Verify and deliver
 
 Read the generated `download_manifest.json`. Report:
@@ -71,4 +79,7 @@ Do not claim success when only a `.partial` file exists.
 - Never overwrite an existing verified archive. Choose a new output directory or label.
 - On failure, retain `.partial` and the exact remote temporary directory for diagnosis. Never broadly delete `/tmp`, a run directory, or shared storage.
 - An absent remote `git` binary is acceptable only when the repository exporter safely records `git_sha: null`.
+- RDT Hugging Face directories are not compatible with the ordinary CFM
+  exporter. Never rename `pytorch_model.bin` to a CFM checkpoint or claim that
+  an RDT bundle can load through the action-only `Policy` wrapper.
 - Do not store SSH keys, API keys, W&B credentials, signed URLs, or raw session transcripts in this skill or generated manifests.

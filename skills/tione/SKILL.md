@@ -1,6 +1,6 @@
 ---
 name: tione
-description: "Use this skill for Tencent Cloud TI-ONE / Tione task-style modeling, Notebook/development-machine, online service, and training-monitor work: querying tasks, details, pods, logs, development machines, billing/resource groups, drafting resource payloads, or planning a long-running state-change monitor with Feishu alerts. Also use when the user says 任务式建模, 开发机, Notebook, TI-ONE, Tione, 在线服务, 训练告警, CreateTrainingTask, DescribeTrainingTasks, DescribeNotebooks, or asks to inspect Tione jobs/dev machines."
+description: "Use this skill for Tencent Cloud TI-ONE / Tione task-style modeling, Notebook/development-machine, online service, training-monitor, and GPU-image migration work: querying tasks, pods, logs, development machines, billing/resource groups, drafting resource payloads, planning Feishu alerts, or validating CUDA/PyTorch after A800, Blackwell, sm_120, Docker, or custom-image changes. Also use when the user says 任务式建模, 开发机, Notebook, TI-ONE, Tione, 在线服务, 训练告警, 换GPU/镜像, CreateTrainingTask, DescribeTrainingTasks, or DescribeNotebooks."
 ---
 
 # TI-ONE / Tione
@@ -14,6 +14,7 @@ Use this skill for Tencent Cloud TI-ONE API 3.0 operations around:
 - Resource lookup: billing specs and resource groups.
 - Online services: summarize or draft custom-image service payloads.
 - Training monitoring: inspect or design a long-running poller that detects task state changes and routes approved Feishu alerts.
+- GPU/custom-image migration: distinguish driver visibility from executable PyTorch kernels, audit inherited environments, and gate real workloads after hardware changes.
 
 Prefer read-only calls unless the user explicitly asks to create, start, stop, modify, or delete a resource. Never print Tencent Cloud secrets, W&B keys, image secrets, or auth tokens.
 
@@ -79,6 +80,14 @@ For "查开发机 / Notebook":
 2. For creation parameters, call `notebook <nb-id>` or use `notebooks --details` and summarize `ResourceConf`, `ImageInfo`, `DataConfigs`, `VolumeSourceType`, `VpcId`, `SubnetId`, `RootAccess`, `DirectInternetAccess`, `AutoStopping`, `SSHConfig`, `ExposePortConfig`, `SystemDiskConfig`, `LogEnable`, and timestamps.
 3. Do not print `PublicKey`, image secrets, or presigned URLs with `authToken` unredacted.
 
+For "换 GPU / Docker / 自定义镜像":
+
+1. Read [references/blackwell-pytorch-migration.md](references/blackwell-pytorch-migration.md).
+2. Use `$tione-ssh-diagnose` first when rebuild changed the SSH host key; never suppress host-key verification.
+3. Run `scripts/probe_pytorch_gpu.py` against the actual Python executable. `nvidia-smi`, `torch.cuda.is_available()`, and `is_bf16_supported()` are insufficient without a real kernel launch.
+4. Inspect `pyvenv.cfg`, `sys.prefix`, `torch.__file__`, and `torchvision.__file__` before deciding whether a shared venv can be reused.
+5. Pass a real repository gate—encoder forward, HDF5 batch, checkpoint load, backward, save/resume—as appropriate before launching a long run.
+
 For "创建任务式建模 / CreateTrainingTask":
 
 1. Read `references/api-reference.md` section `CreateTrainingTask` before drafting the payload.
@@ -109,3 +118,12 @@ For "训练任务监控 / 飞书告警":
 Read [references/api-reference.md](references/api-reference.md) when drafting payloads, checking field names, or needing official source links.
 
 Read [references/training-monitor-runbook.md](references/training-monitor-runbook.md) for polling, state-diff, Feishu routing, dry-run, deployment, reliability, and handoff requirements.
+
+Read [references/blackwell-pytorch-migration.md](references/blackwell-pytorch-migration.md) for A800/CUDA 12.1 to Blackwell/CUDA 12.8+ image migration, shared-venv inheritance, and model-level acceptance gates.
+
+## Gotchas
+
+- `nvidia-smi` reports the maximum CUDA level supported by the driver, not the CUDA version or GPU architectures compiled into PyTorch.
+- A Blackwell device can make `torch.cuda.is_available()` and `torch.cuda.is_bf16_supported()` return true while the first operation still fails with `no kernel image is available` when `sm_120` is absent.
+- A shared venv created with `include-system-site-packages=true` silently inherits Torch from the current container; after an image rebuild, the same venv path may execute a different Torch version.
+- Rebuilding a Notebook can regenerate every SSH host-key algorithm. Verify the endpoint, test authentication with pinned new keys, and replace only the exact host:port entry.

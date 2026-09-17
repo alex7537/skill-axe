@@ -1,11 +1,13 @@
 ---
 name: tione-ssh-diagnose
-description: Diagnose Tencent Cloud TI-ONE Notebook/development-machine SSH failures, especially after restart or rebuild. Use when the user provides a TI-ONE development-machine/Notebook ID, name, SSH alias, host and port, or reports 连接不上, REMOTE HOST IDENTIFICATION HAS CHANGED, Host key verification failed, SHA256 fingerprint mismatch, known_hosts conflict, or uncertainty about whether the local private key or remote authorized_keys is invalid.
+description: Diagnose Tencent Cloud TI-ONE Notebook/development-machine SSH failures, especially after restart, rebuild, or stopping to edit login public keys. Use when the user provides a TI-ONE development-machine/Notebook ID, name, SSH alias, host and port, or reports 连接不上, 添加公钥后旧客户端连不上, REMOTE HOST IDENTIFICATION HAS CHANGED, Host key verification failed, SHA256 fingerprint mismatch, known_hosts conflict, or uncertainty about whether the local private key or remote authorized_keys is invalid.
 ---
 
 # TI-ONE SSH Diagnose
 
 Determine whether failure comes from endpoint discovery, network reachability, server host-key verification, or user public-key authentication. Keep those layers separate in the report.
+
+When adding a client's public key involves a platform stop/edit/start cycle, or the user asks why failed login still saves a host key, read [references/public-key-edit-host-identity.md](references/public-key-edit-host-identity.md). Distinguish the user's platform workflow from directly editing a running server's `authorized_keys`.
 
 ## Workflow
 
@@ -44,7 +46,7 @@ Determine whether failure comes from endpoint discovery, network reachability, s
 Remain read-only unless the user explicitly asks to fix the connection. Before removing an entry, require both:
 
 - current endpoint verified from TI-ONE or explicitly confirmed by the user;
-- new fingerprint shown to the user or otherwise checked against a trusted source.
+- new fingerprint checked through a trusted channel, or explicitly accepted by the user after its unverified status has been explained. Merely displaying a scanned fingerprint does not verify identity.
 
 Then remove only the exact host-and-port entry:
 
@@ -62,3 +64,4 @@ Never delete the entire `known_hosts` file and never suppress host-key verificat
 - Multiple algorithms can be stored for one endpoint. Remove by exact `[host]:port`, not by line number, because line numbers drift.
 - Hashed `known_hosts` entries are still discoverable with `ssh-keygen -F`; do not rely on text search alone.
 - Do not claim a changed fingerprint is safe solely because the machine was restarted.
+- `ssh-keygen -R` removes a trust record; it does not verify the replacement identity. Run repairs on the actual failing client and its reported known_hosts file, which may be a Linux workstation rather than the agent's Mac.

@@ -26,6 +26,31 @@ Role: learn a conditional vector field transporting noise to an action distribut
 
 The note uses one-step Flow Matching as a speed and modality-coverage comparator. Do not reduce Flow Matching to “fast Diffusion”: compare interpolation, target vector field, integration steps, conditioning, and the evaluation protocol.
 
+### RDT transfer baseline
+
+Role: test whether a pretrained cross-embodiment diffusion Transformer provides
+useful visual and action priors beyond the native A2D CFM/DP/IMLE baselines.
+
+PSI implementation evidence dated 2026-09-12:
+
+- official `RoboticsDiffusionTransformer` source was pinned to commit
+  `cd79363a1387e8f81c7724d070ef7e45fd23150f` and RDT-170M weights to immutable
+  revision `8aa386cac3bbfd9540676c75b3d767cc7f88a10a`;
+- A2D arm/hand state and action are preserved in 13 active slots of RDT's 128D
+  semantic container, with dimension and 64-step tail masks applied to loss;
+- two A2D camera histories plus a missing-camera background produce 4,374 frozen
+  SigLIP tokens; language is currently the official empty embedding, so this is
+  not evidence of language-conditioned control;
+- real data forward/backward, optimizer save/resume, deterministic validation,
+  and a 100-step optimization smoke passed before a formal 100k-step run was
+  launched from pretrained RDT-170M weights.
+
+Do not infer transfer benefit from compatibility or falling train loss. Compare
+against native CFM/DP with matched A2D split, rollout seeds, execution horizon,
+solver budget, and checkpoint-selection protocol. The sixth dexterous-hand joint
+uses project-reserved slot 45 with no official pretrained semantic, and rollout
+quality remains a separate evidence gate.
+
 ## 2. Coverage and sample efficiency
 
 ### IMLE Policy and Conditional RS-IMLE
@@ -137,4 +162,3 @@ expressive action generation
 ```
 
 Each arrow is an empirical hypothesis. Test components independently before composing them into one large system.
-
