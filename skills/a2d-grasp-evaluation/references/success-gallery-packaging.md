@@ -1,6 +1,6 @@
-# Success-video gallery packaging
+# Success and failure video galleries
 
-Use this reference only for the `Report/package` mode when rollout videos must become a traceable GIF/MP4 showcase. It does not authorize a new evaluation, change the success contract, or turn a visual gallery into benchmark evidence.
+Use this reference only for the `Report/package` mode when rollout videos must become a traceable success/failure GIF/MP4 showcase. It does not authorize a new evaluation, change the success contract, or turn a visual gallery into benchmark evidence.
 
 ## Select defensible clips
 
@@ -82,3 +82,13 @@ Keep the MP4 even when the GIF is compact: it preserves better motion quality at
 - A late-only segment may show empty tables after successful objects leave the camera view. Confirm time windows visually before bulk rendering.
 - A filename containing `success` or `10cm` is not enough when provenance is unclear. Reconcile it with the evaluator collection or manifest before presenting it as verified success.
 - Four equal quadrants can look like a controlled comparison, but the gallery omits failures and denominators. Link the real evaluation report for performance claims.
+
+## Failure collections and paired cameras
+
+- Before collection, freeze scene, models, failure predicate, per-model quota, maximum attempts, selection order and view names. Keep the existing inference contract unless the user requests a change. A failure-targeted stopping rule is not an unbiased success-rate benchmark.
+- Use both head and wrist frames already returned in observations where supported; do not add competing observation/control RPCs to a live single-env evaluation. Missing historic RGB cannot be reconstructed as original footage from action/seed logs. A new rollout or replay is a new provenance record.
+- In the existing action-frame recorder, retain the reset frame and each action's observation. Verify actual decoded count against recorded observations, not a universal hard-coded 301; 301 applies only to a complete 300-action rollout with one initial frame.
+- Select completed task failures under the frozen metric. Exclude infrastructure/reset-invalid, partial, undecodable and contaminated episodes. Pair the two views by the same model/scene/episode identity; never pad missing quota with duplicates or rename successes as failures.
+- Keep criterion, executed steps, seeds, initial pose, view, frame count, clip hashes, sampling policy and playback FPS in the source manifest. Playback FPS is not wall-clock action frequency.
+- First inspect available source artifacts. If recording needs a new runner while a test owns the endpoint, use the user's chosen queue or authorized pause; do not assume permissions to interrupt it. Save quota shortfalls explicitly.
+- Build model-by-view previews locally, preserve MP4 originals, and verify full GIF/MP4 decode plus unique cell coverage. Upload only after confirmation of the concrete preview and destination. Do not claim the old v17 success-grid script directly supports a new failure schema.

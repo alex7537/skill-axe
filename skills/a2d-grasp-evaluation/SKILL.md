@@ -1,11 +1,34 @@
 ---
 name: a2d-grasp-evaluation
-description: Design, launch, resume, monitor, compare, and report A2D imitation-learning grasp rollout evaluations using a diagnostic funnel for arm arrival, hand commands, hand tracking, target contact, lift, and retention. Use for A2D checkpoint comparisons, Diffusion/CFM inference-start or sampling-step ablations, execute-horizon ablations, grasp/lift success analysis, evaluator progress checks, failure attribution, packaging rollout evidence, or building a traceable success-video GIF gallery. Use with a2d-model-swap-only when the pipeline must remain unchanged; use robot-benchmark-loop for formal multi-task qualification.
+description: Unified A2D policy evaluation entry point (测评、测试监督). Use for evaluation goals and parameters, launch/resume/pause, progress monitoring, success and failure diagnosis, automatic reports, or head/wrist video and GIF collections. Coordinate the existing evaluator and reporting tools without duplicating their implementation. Use specialist benchmark or deployment skills only when the requested phase needs them; not a general skill scheduler or training launcher.
 ---
 
-# A2D Grasp Evaluation
+# 测评 · A2D（统一入口）
 
 Separate task outcomes from diagnostic reference matches, and locate the earliest failure supported by execution evidence rather than one aggregate success percentage.
+
+## 一个入口，按需执行
+
+用户说“测评”“继续测试”“测试进度”“分析失败”“采集视频”时，在 A2D 语境中由本 skill 接手。沿用已确认的目标、参数和权限；信息缺失才询问。不要为了走完整流程重启已有任务。
+
+| 请求／阶段 | 本入口负责 | 必须交付的证据 |
+|---|---|---|
+| 目标与配置 | 核对模型/哈希、场景、数量、执行模式、H、动作上限、种子和判据，冻结计划 | 简洁的目标参数表＋plan 路径 |
+| 启动／续跑 | 核对进程/端口、调用已验证 runner、按完整身份跳过已有终态 | PID、端口、首轮进展；不以“已启动进程”代替跑通 |
+| 暂停／停止 | 在用户指定回合边界保存记录，停止已授权的准确进程，核对续跑位置 | 暂停清单、已完成覆盖、未完成样本隔离记录 |
+| 监督 | 检查实际进程、日志增长、异常和计划覆盖 | 每模型完成数、成功/有效、无效、当前回合与告警 |
+| 分析 | 用逐步证据核对接触、抬升、持续时间、跟踪与初态差异 | 观测现象与因果假设分开；说明比较限制 |
+| 归档 | 默认挂载独立报告 observer，核对完成/中断报告 | 参数导览在开头，本地及指定 vault 报告一致 |
+| 视频／展示 | 确定成功/失败筛选、双视角、每模型配额和尝试上限，制作预览 | 原始视频、样本 manifest、GIF；发布单独确认 |
+
+## 代码与专业知识的边界
+
+- 本 skill 是统一操作入口，不是常驻进程，也不会自行调度其他 skill。
+- 测评仓库 `flow-matching-test-a2d-v2` 的 `feat/a2d-eval-loop-v0` 分支维护闭环和自动报告实现；本机路径由 `config.json` 或 `A2D_EVAL_REPO` 指定，不假定固定目录。
+- 已有运行目录中的 `orchestrate.py` / `supervise.py` / `evaluate.py` 仍承担实际仿真任务。先核对具体入口和契约，不声称它们已全部成为仓库内通用 runner。
+- 报告代码只在测评仓库修改；skill 的兼容脚本只转发。已有聚合/展示辅助脚本仅在其输入契约匹配时使用，不复制新的执行后端到 skill。
+- 按下方路由读取专业 skill/参考资料；用户不必自行选多个入口。不复制其他 skill 的完整流程，不建立重复的全局调度 skill。
+- 仅查看进度时保持只读；修改参数创建新批次。已有明确授权继续有效。报告归档不自动授权发布 GIF、远端代码或下一轮训练。
 
 ## Route the request
 
@@ -16,7 +39,7 @@ Separate task outcomes from diagnostic reference matches, and locate the earlies
 - Read [references/evaluation-methodology.md](references/evaluation-methodology.md) before designing, launching, or interpreting an evaluation.
 - Read [references/parallel-reset-and-outcome-audit.md](references/parallel-reset-and-outcome-audit.md) for multi-environment handoffs, equal-count snapshots, reference-based failure labels, or sustained-versus-final retention analysis.
 - Read [references/generative-inference-ablation.md](references/generative-inference-ablation.md) before comparing Diffusion/CFM sampling start, inference iterations, timestep grids, ODE solvers, or execute horizons.
-- Read [references/success-gallery-packaging.md](references/success-gallery-packaging.md) before selecting rollout videos or building a GIF/MP4 success gallery.
+- Read [references/success-gallery-packaging.md](references/success-gallery-packaging.md) before selecting successful or failed rollouts and building paired-view GIF/MP4 galleries.
 - Use `$a2d-model-swap-only` when the comparison must vary only a checkpoint or deployment bundle.
 - Use `$robot-benchmark-loop` when several tasks, seeds, models, or simulator tracks need a frozen run manifest, coverage qualification, aggregation, and promotion decision.
 - Use `$remote-policy-bundle` first when the requested checkpoint still needs to be exported and verified from a remote machine.
