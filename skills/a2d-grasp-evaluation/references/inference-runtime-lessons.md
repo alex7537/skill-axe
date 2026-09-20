@@ -52,3 +52,12 @@ Freeze policy seed42 per episode, requested layout seed schedule, 300-action bud
 New timestamp evidence supersedes equating wall-clock waiting with simulated motion: the three local modes had median within-chunk simulated intervals near 1/30, 1/60 and 1/120 second despite wall throughput near 2,11,15 actions/s. This is a measured local outcome, not a guaranteed RPC frequency. Record simulator counters, especially video-history spans. Do not assume a 0.45-second RPC wall interval advances 0.45 simulated seconds.
 
 Success percentages and dated model results belong in the linked experiment reports and Vault note; the skill owns this repeatable protocol. A future speedup should preserve explicit simulation-time action hold and observation cadence before being promoted as equivalent.
+
+## 2026-09-20 RDT：返回值契约与无效批次熔断
+
+- 根因：客户端访问不存在的 `StepResponse.success`。该协议只有 observation、grasp_success、place_success、message；ResetResponse 才有 success。任务未抓起与 RPC 执行失败必须分开判断。
+- 影响：错误批次共110次尝试、0有效（107次接口错误、3次reset异常）。不能报告为0%模型成功率。原始记录移入 quarantine，保留 INCIDENT.json、日志与撤回说明，从正式聚合排除。
+- 修复验收：真实 protobuf 契约测试，检查 observation 及必需状态字段；先完成1次完整300步有效 smoke，再允许批量任务。固定版 smoke 已完成、0抓取成功，只证明执行链路恢复。
+- 监督：AttributeError/TypeError/ImportError、必需字段缺失立即阻断；连续3次基础设施无效阻断。一般偶发异常记录后跳过；不能无条件吞异常跑空配额。后续场景须检查前序状态与有效回合，不仅检查进程退出。
+- 报告：分列尝试、有效、成功、无效；有效为0时成功率显示“—”。配额跑完不代表评测合格。记录修复版本，新建批次，不混入错误批次。
+- 看板：训练数据类型独立于测试场景；单Box训练可以在Bottle测试。保留分类依据，未知标待核实；历史400步与当前300步、不同成功定义不得直接汇总排名。
