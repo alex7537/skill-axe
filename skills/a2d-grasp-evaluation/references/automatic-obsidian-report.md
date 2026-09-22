@@ -32,3 +32,9 @@
 - 同事部署整个静态目录，无需原始测试环境。静态快照标明归档时间和批次状态，不显示实时运行承诺。
 - 上传前核对明确的目标仓库/分支和授权，记录提交 SHA；未推送就明确标记“本地已归档、待发布”。上传失败保留归档，不能影响测试任务。
 - 当前钩子适用于本仓库 observer 的多场景 schema；其他 runner 单独验证适配，不声称所有历史任务自动生效。
+
+## 已授权自动发布（2026-09-22）
+
+用户已授权本机 A2D 测试终态快照自动发布至 `git@github.com:alex7537/a2d-eval.git` 的 main。后续本机任务挂载 observer 时默认添加 `--publish-remote git@github.com:alex7537/a2d-eval.git --publish-branch main`，无需每批重复询问。此授权仅限测试报告/静态结果，不扩展到权重、视频或其他仓库。
+
+验收时检查 `publish_status.json` 的 state=published、commit及远端分支；不能把静态文件生成当作上传成功。上传器保留远端其他批次和训练数据，更新单批次及 reports/latest；失败最多重试3次，保留报告并明确待补传。旧 runner 必须适配或补传；skill 本身不是后台任务。
