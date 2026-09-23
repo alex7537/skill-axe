@@ -1,6 +1,6 @@
 ---
 name: a2d-grasp-evaluation
-description: Unified A2D policy evaluation entry point (测评、测试监督). Use for evaluation goals and parameters, launch/resume/pause, progress monitoring, success and failure diagnosis, automatic reports, or head/wrist video and GIF collections. Coordinate the existing evaluator and reporting tools without duplicating their implementation. Use specialist benchmark or deployment skills only when the requested phase needs them; not a general skill scheduler or training launcher.
+description: Unified A2D evaluation-to-report entry point (测评、测试监督、测试到OB到飞书). Use for evaluation parameters, launch/resume/pause, progress, failure diagnosis, automatic Obsidian records, optional head/wrist GIF galleries, and Feishu reports under a confirmed parent page. Show the execution chain and stage-specific conditions when invoked for a new task. Coordinate existing tools without duplicating their implementation; not a general skill scheduler or training launcher.
 ---
 
 # 测评 · A2D（统一入口）
@@ -11,6 +11,12 @@ Separate task outcomes from diagnostic reference matches, and locate the earlies
 
 用户说“测评”“继续测试”“测试进度”“分析失败”“采集视频”时，在 A2D 语境中由本 skill 接手。沿用已确认的目标、参数和权限；信息缺失才询问。不要为了走完整流程重启已有任务。
 
+### 调用时先展示链路
+
+每次进入新的 A2D 任务，先用简短导航说明：**测试配置 → 执行/监督 → Obsidian记录 → 可选视频/GIF → 图表报告 → 飞书子页面 → 回读验收**。标出本次起点、要执行/跳过/待补条件的环节；用户可逐项追加限制。按 [测试到飞书的链路契约](references/evaluation-to-feishu.md) 展示已知设置和真正缺失项。
+
+这是一份可修改的执行清单，不是每步重新申请许可：已有授权内继续；单问进度时给一句导航后直接只读检查，不展开所有阶段或自动启动发布。用户指定“先看链路，等我补条件”时，先只做只读准备，等待其补充后执行依赖条件的动作。
+
 | 请求／阶段 | 本入口负责 | 必须交付的证据 |
 |---|---|---|
 | 目标与配置 | 核对模型/哈希、场景、数量、执行模式、H、动作上限、种子和判据，冻结计划 | 简洁的目标参数表＋plan 路径 |
@@ -20,10 +26,12 @@ Separate task outcomes from diagnostic reference matches, and locate the earlies
 | 分析 | 用逐步证据核对接触、抬升、持续时间、跟踪与初态差异 | 观测现象与因果假设分开；说明比较限制 |
 | 归档 | 默认挂载独立报告 observer，核对完成/中断报告 | 参数导览在开头，本地及指定 vault 报告一致 |
 | 视频／展示 | 确定成功/失败筛选、双视角、每模型配额和尝试上限，制作预览 | 原始视频、样本 manifest、GIF；发布单独确认 |
+| 飞书报告 | 从冻结快照和已核验素材生成图表，写入已授权的确切父节点/文档 | 成功/分母一致、GIF真实、文档回读一致、父节点关系正确 |
 
 ## 代码与专业知识的边界
 
 - 本 skill 是统一操作入口，不是常驻进程，也不会自行调度其他 skill。
+- 测试→本地/Obsidian已有observer实现；视频制作与飞书交付目前有经验证的工具流程，不等于无人值守的一体化服务。状态和后续自动化接口见 [链路契约](references/evaluation-to-feishu.md)。
 - 测评仓库 `flow-matching-test-a2d-v2` 的 `feat/a2d-eval-loop-v0` 分支维护闭环和自动报告实现；本机路径由 `config.json` 或 `A2D_EVAL_REPO` 指定，不假定固定目录。
 - 已有运行目录中的 `orchestrate.py` / `supervise.py` / `evaluate.py` 仍承担实际仿真任务。先核对具体入口和契约，不声称它们已全部成为仓库内通用 runner。
 - 报告代码只在测评仓库修改；skill 的兼容脚本只转发。已有聚合/展示辅助脚本仅在其输入契约匹配时使用，不复制新的执行后端到 skill。
@@ -32,6 +40,7 @@ Separate task outcomes from diagnostic reference matches, and locate the earlies
 
 ## Route the request
 
+- For an end-to-end request, stage-condition briefing, or Obsidian/video-to-Feishu report, read [evaluation-to-Feishu workflow](references/evaluation-to-feishu.md). Use the current lark-cli embedded authoring skills for document operations; do not use the read-only review skill as a write backend.
 - For local A2D launch/resume or stop/report, follow [automatic Obsidian reporting](references/automatic-obsidian-report.md): attach the independent report observer by default, verify its first local/vault outputs, and preserve completion/interruption reports. The evaluation repository owns executable reporting logic; this skill owns invocation and verification. A skill edit alone is not running automation.
 
 - Read [references/inference-runtime-lessons.md](references/inference-runtime-lessons.md) for action-only bundle compatibility, RPC timing, fixed policy seeds, timeout diagnosis, or interrupted-batch recovery.

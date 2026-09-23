@@ -1,0 +1,4 @@
+interface:
+  display_name: "项目图表化飞书总结"
+  short_description: "核对项目源码与 Obsidian 笔记，生成并验证图表化飞书总结文档"
+  default_prompt: "使用 $project-to-feishu-visual-report，参考当前项目与 Obsidian，创建以图片和表格为主的飞书总结文档。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Masterarbeit Search"
+  short_description: "每日筛选 3–5 个机器人/具身 AI 大论文机会"
+  default_prompt: "Use $masterarbeit-search to find and prioritize today’s 3–5 verified Masterarbeit opportunities, following my South-Germany company → applied research → LUH fallback order."

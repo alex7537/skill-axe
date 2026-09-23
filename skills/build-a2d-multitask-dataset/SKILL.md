@@ -1,13 +1,22 @@
 ---
 name: build-a2d-multitask-dataset
-description: Build and audit a directly trainable, task-balanced A2D V3 dataset from two or more already-processed RGB HDF5 datasets. Use when requests mention mixing box/bottle or multiple object tasks, selecting an equal number of episodes per task, rebuilding a fresh 9:1 split, resolving duplicate episode names, reusing JPEG data without copying, recomputing joint normalization, or calculating the resulting CFM budget. Do not use for raw 450GB RGB ingestion, Wan latent precomputation, or segmentation-label adjudication.
+description: Build and audit directly trainable A2D V3 dataset compositions from already-processed RGB HDF5 data, including balanced multi-task mixtures and exact single-task subsets used for negative-transfer ablations. Use when requests mention mixing box/bottle, removing one task while retaining exactly the same episodes and split, selecting episodes per task, rebuilding a 9:1 split, reusing JPEG payloads through hard links, recomputing normalization, or calculating the resulting CFM budget. Do not use for raw 450GB RGB ingestion, Wan latent precomputation, or segmentation-label adjudication.
 ---
 
-# Build A2D Multitask Dataset
+# Build A2D Dataset Compositions
 
 Create a new immutable dataset version from processed V3 sources. Preserve the
 source HDF5 payloads; change only membership, namespacing, split manifests, and
 train-bound normalization.
+
+Choose the experiment mode before building:
+
+- **Balanced mixture:** select an equal number of episodes independently from
+  two or more processed task sources and create a fresh split.
+- **Exact task-removal ablation:** filter one task from an existing mixed
+  dataset while retaining exactly its episode membership and train/val roles.
+  Read [exact task-subset ablation](references/exact-task-subset-ablation.md)
+  before changing the config or interpreting the result.
 
 ## Establish the contract
 
@@ -29,6 +38,13 @@ inside each task. For N=300 and 9:1, use 270 train + 30 val per task.
 Locate `scripts/create_balanced_multitask_dataset.py` in the active
 `flow-matching-test-a2d-v2` repository. Inspect and test it before execution;
 do not reconstruct an ad-hoc merger when the script is available.
+
+For an exact task-removal experiment, prefer the repository's
+`scripts/create_task_subset_dataset.py`. It must select by manifest `task_id`,
+intersect the source train/val manifests, and reject any requested count that
+does not match. Do not re-sample 300 episodes from the original source: even a
+stable seed is weaker evidence than exact membership equality against the
+mixed dataset being compared.
 
 The builder must:
 
@@ -70,6 +86,16 @@ Require all of the following before calling the output trainable:
 - task exposure ratio reported after oversampling;
 - config warmup recomputed from actual total steps.
 
+For an exact task-removal ablation, additionally require:
+
+- selected episode names equal the source mixed dataset's task membership;
+- source and destination roles match for every selected episode;
+- source/destination inode and device match for every HDF5 hard link;
+- no non-selected task appears in dataset, split, index, or normalization
+  provenance;
+- the comparison declares whether it fixes per-task sample exposure, total
+  optimizer steps, or wall-clock compute.
+
 If equal episode counts yield an effective-window ratio close to 1:1, use the
 ordinary shuffled DataLoader. Add a balanced sampler only when the measured
 window ratio materially differs or the user explicitly requires fixed per-batch
@@ -87,3 +113,10 @@ composition.
   live run, deleting a partial version, or pushing repository changes.
 - Separate task-level validation is still needed when one aggregate metric could
   hide negative transfer.
+- A `mixed(Box300+Bottle300) → Box300-only` experiment does not establish that
+  300 episodes are sufficient or insufficient. It tests task mixing under the
+  declared budget. Data sufficiency requires a nested Box-only size sweep such
+  as 300 versus 600/1090 with a separately frozen budget rule.
+- Recomputing Box-only normalization answers the operational question “how well
+  does a properly trained Box-only policy work?” Reusing mixed normalization is
+  a different, stricter preprocessing ablation. Do not silently mix the two.

@@ -25,7 +25,7 @@
 
 ## 静态看板归档（2026-09-20）
 
-独立仓库 `alex7537/a2d-eval` 已承接 observer 与 `dashboard/export_report.py`。新任务核对实际调用的是包含静态导出钩子的版本；旧进程不会自动升级。
+独立仓库 `<github-owner>/a2d-eval` 已承接 observer 与 `dashboard/export_report.py`。新任务核对实际调用的是包含静态导出钩子的版本；旧进程不会自动升级。
 
 - 完成、暂停或中断：先生成本地/Ob报告及 auto_report_status.json，再由同一快照导出 static_report。成功/有效/无效须逐项相等，不重新解释成功判据。
 - 核对 static_report 的 results.json、REPORT.md 与原报告；缺失训练数据类型标待核实，不能从测试场景猜测。
@@ -35,6 +35,6 @@
 
 ## 已授权自动发布（2026-09-22）
 
-用户已授权本机 A2D 测试终态快照自动发布至 `git@github.com:alex7537/a2d-eval.git` 的 main。后续本机任务挂载 observer 时默认添加 `--publish-remote git@github.com:alex7537/a2d-eval.git --publish-branch main`，无需每批重复询问。此授权仅限测试报告/静态结果，不扩展到权重、视频或其他仓库。
+用户已授权本机 A2D 测试终态快照自动发布至 `https://github.com/<github-owner>/a2d-eval.git` 的 main。后续本机任务挂载 observer 时默认添加 `--publish-remote https://github.com/<github-owner>/a2d-eval.git --publish-branch main`，无需每批重复询问。此授权仅限测试报告/静态结果，不扩展到权重、视频或其他仓库。
 
 验收时检查 `publish_status.json` 的 state=published、commit及远端分支；不能把静态文件生成当作上传成功。上传器保留远端其他批次和训练数据，更新单批次及 reports/latest；失败最多重试3次，保留报告并明确待补传。旧 runner 必须适配或补传；skill 本身不是后台任务。

@@ -1,6 +1,6 @@
 ---
 name: tione
-description: "Use this skill for Tencent Cloud TI-ONE / Tione task-style modeling, Notebook/development-machine, online service, training-monitor, and GPU-image migration work: querying tasks, pods, logs, development machines, billing/resource groups, drafting resource payloads, planning Feishu alerts, or validating CUDA/PyTorch after A800, Blackwell, sm_120, Docker, or custom-image changes. Also use when the user says 任务式建模, 开发机, Notebook, TI-ONE, Tione, 在线服务, 训练告警, 换GPU/镜像, CreateTrainingTask, DescribeTrainingTasks, or DescribeNotebooks."
+description: "Use this skill for Tencent Cloud TI-ONE / Tione task-style modeling, Notebook/development-machine, online service, development-directory/storage layout audits, training-monitor, and GPU-image migration work: querying tasks, pods, logs, development machines, billing/resource groups, drafting resource payloads, planning Feishu alerts, or validating CUDA/PyTorch after A800, Blackwell, sm_120, Docker, or custom-image changes. Also use when the user says 任务式建模, 开发机, Notebook, TI-ONE, Tione, 在线服务, 训练告警, 换GPU/镜像, CreateTrainingTask, DescribeTrainingTasks, or DescribeNotebooks."
 ---
 
 # TI-ONE / Tione
@@ -112,6 +112,12 @@ For "训练任务监控 / 飞书告警":
 4. Treat remote file creation, secret installation, monitor startup, baseline initialization, and test notifications as separate writes. Show the exact targets and obtain explicit confirmation before each mutation phase.
 5. Verify first with a one-shot dry run that does not write state or send messages. Expand scope only after the expected event set and recipient mapping are reviewed.
 6. Never deploy the only monitor on a sleeping personal computer; use an approved long-lived runtime and document its restart behavior.
+
+## Development workspace and shared storage
+
+For “workspace 是否适合开发”, “代码/环境放 share_data 合理吗”, or environment failures after switching development machines, read [references/development-workspace-storage.md](references/development-workspace-storage.md).
+
+Prefer verified persistent storage for the primary editable source tree, especially when stopping the instance clears `/workspace`. Use `/workspace/<user>` only for disposable runtime/build/cache content or an explicitly chosen reconstructible working copy with a verified recovery workflow. Do not infer SSD backing or persistence from the pathname; verify source backup/recovery before any migration. A shared venv may retain its directory while losing its external Python interpreter, or silently inherit different packages from a replacement image.
 
 ## References
 

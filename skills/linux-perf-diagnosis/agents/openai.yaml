@@ -1,0 +1,3 @@
+interface:
+  display_name: "Linux 进程性能排查"
+  short_description: "从 top 到 perf 调用链定位 Linux、ROS 2 与 Tegra 进程 CPU 热点"
