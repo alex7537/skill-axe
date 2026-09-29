@@ -30,6 +30,8 @@ Keep external observation and action schemas unchanged unless the user explicitl
 
 For the concrete PSI implementation and its file-level changes, read [references/psi-policy-case.md](references/psi-policy-case.md).
 
+For an end-to-end integration plan, read [references/implementation-recipe.md](references/implementation-recipe.md): it covers branch wiring, independent freezing, optimizer ownership, checkpoint migration, shared inference and acceptance evidence. Treat its configuration as a semantic sketch, not drop-in code.
+
 ## Required verification
 
 Do not call the integration complete from a successful forward pass alone. Verify:

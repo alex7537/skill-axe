@@ -1,6 +1,6 @@
 ---
 name: anschreiben-masterarbeit
-description: Create or adapt a concise German Masterarbeit motivations letter (Anschreiben) for Yurui Zhang when the user says “使用 anschreiben-masterarbeit skill 给这个岗位写动机信”, asks for an Anschreiben/Motivationsschreiben or an accompanying Word file for a thesis role, or wants a company-specific version. Use the confirmed Fraunhofer IGCV Word letter as the sole baseline; preserve its core research narrative and only customize the employer and role-specific fit.
+description: Create or adapt a concise German Masterarbeit motivations letter (Anschreiben) for Yurui Zhang when the user says “使用 anschreiben-masterarbeit skill 给这个岗位写动机信”, asks for an Anschreiben/Motivationsschreiben or an accompanying Word file for a thesis role, or wants a company-specific version. Use the confirmed Fraunhofer IGCV Word letter as the sole baseline; preserve its core research narrative and only customize the employer and role-specific fit. By default, deliver both the letter text and a matching, visually verified Word document in the same turn.
 ---
 
 # Anschreiben Masterarbeit
@@ -55,7 +55,13 @@ Write four compact paragraphs. Preserve paragraphs 2 and 3 materially unchanged 
 
 ## Word output rules
 
-When the user requests a local `.docx` after confirming the letter text:
+Whenever creating or adapting an Anschreiben, generate the corresponding local `.docx` in the same turn by default. Do not wait for a separate request to generate the document or for text confirmation. If the user explicitly asks for text only, a draft for discussion, or to postpone document creation, follow that instruction.
+
+- Use the latest letter text, including explicit user edits and requested additions, as the document content. When revising the letter, also update the corresponding Word deliverable unless the user asks otherwise.
+- Apply the available `documents` skill for document generation and visual verification, while retaining this skill's template-preservation rules.
+- Save the final Word file in the current task's user-facing output directory (normally `outputs/`); keep render images and other QA intermediates in `work/`.
+- Deliver the letter text and a clickable download link to the actual Word file using its absolute filesystem path. If the user requests only the document, return the file without repeating the full letter. Do not present a relative path or claim a file exists before verifying it.
+- If generation or rendering is blocked, report the exact limitation and distinguish the completed letter text from the unverified or missing Word deliverable.
 
 - Start by copying the confirmed IGCV Word document. Preserve its page setup, styles, fonts, sections, compatibility namespaces, and all untouched package parts. Change only the recipient, date or subject when requested, and the two position-specific body paragraphs. Do not rebuild the document from a blank file or broadly parse and reserialize `word/document.xml`.
 - Delete source recipient lines that are no longer needed rather than leaving empty address paragraphs.

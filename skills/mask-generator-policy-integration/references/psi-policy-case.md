@@ -79,11 +79,11 @@ The encoder entry should conceptually include:
 
 The exact model path and learning rates belong in the experiment config, not in reusable code.
 
-## Why the frozen-generator version replaced joint action fine-tuning
+## Why prefer a frozen generator after joint action fine-tuning
 
 The original joint version allowed the only loss—FlowMatch action loss—to update SegFormer. There was no BCE/Dice loss preserving the offline package-mask task. Subsequent paired evaluation showed large degradation in explicit mask agreement, with most drift occurring early in policy training. This is consistent with action gradients repurposing the high-bandwidth probability map toward arm, gripper, or task-phase cues.
 
-The corrected baseline freezes the released mask generator and trains only `TimmMaskEncoder` to translate its stable probability map into a useful policy token.
+The recommended corrected baseline freezes the released mask generator and trains only `TimmMaskEncoder` to translate its stable probability map into a useful policy token. This is a contract, not proof that every local implementation or historical run enforces it.
 
 ## Acceptance checks
 
@@ -99,3 +99,11 @@ The corrected baseline freezes the released mask generator and trains only `Timm
 ## Historical checkpoint caution
 
 A full policy checkpoint stores all module weights even when some modules are frozen. Older checkpoints from the unfrozen joint-training version may therefore contain a semantically degraded SegFormer. Initialize a corrected run from the trusted standalone generator, not by resuming the degraded full checkpoint.
+
+
+## Evidence reconciliation (2026-09-23)
+
+- Resolve the policy class and its actual backbone before naming it RDT. The examined historical case uses `FlowMatchPolicy` with `TransformerForFlowMatching`; a pretrained vision encoder does not prove that the action backbone is pretrained. Determine scratch versus resumed training from run configuration and checkpoint-loading evidence.
+- Separate the independently domain-fine-tuned SegFormer generator from the mask-token encoder. The observed standalone objective is supervised weighted BCE plus Dice against stored masks. Do not assert SAM/teacher distillation without label-generation provenance; stored pseudo-label supervision alone does not identify the teacher or prove an online distillation objective.
+- A dated local composite implementation still exposes only `frozen` and catches additional keyword arguments through `**_`. Consequently, the recommended independent freeze flags may be silently ignored. Inspect the constructor and optimizer membership, not just YAML or documentation. A module found on one branch may depend on encoder classes available only on another branch.
+- Supersedes any reading of the preceding diagrams as completed runtime acceptance: independent freezing, initialization provenance, full-policy reload, and mask-token usage ablations must be verified on the exact runnable revision. Keep concrete historical metrics and methodological interpretation in the associated Obsidian integration note.

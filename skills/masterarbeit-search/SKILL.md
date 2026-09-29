@@ -30,12 +30,24 @@ When a meaningful preference changed the ranking, state the adjustment in one co
 
 ## Daily output contract
 
-- Return exactly 3–5 highest-priority, non-duplicate opportunities; if fewer are verified, say so rather than padding the list.
+- Return 3–5 highest-priority, non-duplicate opportunities in chat; if fewer are verified, say so rather than padding the list. Every daily search must also create or update the Obsidian daily note in the same turn, including when there are no new opportunities.
 - For each item give: organization/location, live source link, technical fit, why it ranks here, pipeline state, and one concrete next action formatted as `- [ ] ...`.
 - Follow the action with a compact user-feedback block: `喜欢度（1–5）`, `最吸引我的点`, `担忧 / 不想做的部分`, and `我愿意的下一步`.
 - Keep the wording compact enough to act on today. Do not dump a broad directory or repeat settled background.
-- Use the state flow exactly: `Found → Review → Apply → Contacted → Interview → Rejected / Offer`. Preserve existing state; only advance it with evidence.
+- Preserve evidence-backed states, including existing `Candidate`, `Review/Apply 优先`, and `Candidate/Review` labels. Use `Submitted` for a user-confirmed completed application; application priority or prepared materials alone are not submission evidence. Do not downgrade a submitted role to Found/Review or infer a submission date.
 - Flag an item as `Needs LUH supervision check` until the academic arrangement is confirmed. A company offer alone is not a registered thesis.
+
+## Required Obsidian daily record
+
+- Fixed directory: `/Users/<user>/Documents/Obsidian Vault/20_Research/研究机会/`.
+- Filename: `YYYY-MM-DD_Masterarbeit_Search_Daily.md`, using the user's local calendar date (or the explicit requested date).
+- Before writing, read the existing daily note, action board, and relevant earlier entries. Match openings by official URL/job ID plus employer and topic; distinguish IGCV VLA manipulation from IGCV LLM manipulation.
+- Create or update one note per date in the same operation as the chat output. Preserve user comments, checked actions, and unrelated content; merge repeated runs without duplicate opportunity blocks.
+- Include `今日重点`, an ordered opportunity list, and `今日完成情况`. Every opportunity needs type, city, title, current official link and verification date, fit to all three project repositories, state, and one concrete unchecked `- [ ]` next step. Keep the compact user-feedback block above.
+- Include `已投递状态更新`: update matching existing overview/action-board/daily entries in place when the user confirms submission, preserve `Submitted`, and link back rather than create another candidate. Record no change when there is no new submission evidence; never invent dates or completed actions.
+- If there are no high-priority new opportunities, still write a short note saying **“无高优先级新机会”**, with focus, any state updates, and completion summary. Do not repeat old openings to fill the quota; link an existing candidate only if needed for a follow-up action.
+- Read back the saved note and status changes before reporting success; return the actual daily-note and skill paths when relevant. If writing is blocked, report the blocker rather than claiming the note was saved.
+- This is a per-invocation persistence rule, not a scheduled job. Do not create an automation unless separately requested.
 
 ## User-specific evidence to reuse
 
