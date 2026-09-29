@@ -2,7 +2,7 @@
 
 Automatically generated from `skills-manifest.json`. Do not edit manually.
 
-**55 skills · 610 total uses**
+**55 skills · 613 total uses**
 
 | Skill | Usage count |
 |---|---:|
@@ -12,7 +12,7 @@ Automatically generated from `skills-manifest.json`. Do not edit manually.
 | [code-understanding-coach](skills/code-understanding-coach/) | 43 |
 | [understand-codebase](skills/understand-codebase/) | 41 |
 | [math-principles-coach](skills/math-principles-coach/) | 35 |
-| [knowledge-tree-reconcile](skills/knowledge-tree-reconcile/) | 28 |
+| [knowledge-tree-reconcile](skills/knowledge-tree-reconcile/) | 30 |
 | [psi-wam-learning-coach](skills/psi-wam-learning-coach/) | 28 |
 | [andrej-karpathy-skills](skills/andrej-karpathy-skills/) | 24 |
 | [plan-training-run](skills/plan-training-run/) | 22 |
@@ -22,8 +22,8 @@ Automatically generated from `skills-manifest.json`. Do not edit manually.
 | [adaptive-task-coach](skills/adaptive-task-coach/) | 15 |
 | [remote-policy-bundle](skills/remote-policy-bundle/) | 15 |
 | [feishu-wiki-readonly-review](skills/feishu-wiki-readonly-review/) | 13 |
+| [obsidian-vault-backup](skills/obsidian-vault-backup/) | 12 |
 | [corporate-git-push-gate](skills/corporate-git-push-gate/) | 11 |
-| [obsidian-vault-backup](skills/obsidian-vault-backup/) | 11 |
 | [sync-follow-branch](skills/sync-follow-branch/) | 10 |
 | [tione-ssh-diagnose](skills/tione-ssh-diagnose/) | 10 |
 | [dataset-split-protocol](skills/dataset-split-protocol/) | 9 |

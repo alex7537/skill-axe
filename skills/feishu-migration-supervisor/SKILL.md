@@ -61,6 +61,8 @@ Before modifying any existing target, freshly check its identity, owner and effe
 
 ## Recovery rules
 
+For XML replay, nested-list paragraph loss, byte verification, large-file omissions and static embed conversions, read [references/xml-replay-verification.md](references/xml-replay-verification.md) before preparing bulk writes. These cases were exercised in a completed migration; successful API responses did not detect dropped paragraphs.
+
 - A create timeout, connection loss after submission, or process crash in `creating` means **unknown outcome**, not permission to create again. Mark `unknown_write`; inspect the intended target parent and receipts to reconcile the object before retrying. Titles alone are not stable IDs.
 - Persist each successful target mapping atomically. Resume by source key; do not create a second target for an already mapped source.
 - For an asynchronous job, resume the existing job/ticket, not the original create request. Never persist temporary access URLs with the job state.

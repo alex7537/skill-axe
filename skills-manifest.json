@@ -16,7 +16,8 @@
       "added_at": "2026-09-29T15:03:57+08:00",
       "usage_count": 1,
       "files": {
-        "SKILL.md": "018edb460d4cb3adaafb3d114ff181f67acd30576350a9055b55c0b82f94d527",
+        "SKILL.md": "a86347027e3969d52184e64a2372c6409fcd84dc7bf74d2513889b9b1f50b13a",
+        "references/xml-replay-verification.md": "b937ef6210527c3325c9f2c503f3481015568d5d12be6fc463bc204009377910",
         "scripts/audit_manifest.py": "82e7d7b8dd36118d4bf97d2dd37d78151a8c9b96ee192f57fd8724605ba84e11"
       },
       "last_used_at": "2026-09-29T15:08:34+08:00"
@@ -185,7 +186,7 @@
     },
     "knowledge-tree-reconcile": {
       "added_at": "2026-08-31T11:08:07+08:00",
-      "usage_count": 28,
+      "usage_count": 30,
       "files": {
         "SKILL.md": "f64ebe81aba4812e3569bb9fc7174855fcc81e63af929bee6728216707f04413",
         "agents/openai.yaml": "4a4cd138cfcab04b3e001114d750255dad58b71990b82006ed51c95ea93f9511",
@@ -193,7 +194,7 @@
         "references/dual-store-status-audit.md": "8c5fbedded44da438b6584df65bf32b01aaeab8fa7bc7a9d97f866d287747ffb",
         "scripts/scan_knowledge_tree.py": "a7ed991cc0c548668af435b73dd05d67f03b9019d3be16f03544032edc61f582"
       },
-      "last_used_at": "2026-09-29T15:50:25+08:00"
+      "last_used_at": "2026-09-29T16:13:49+08:00"
     },
     "zerotier-diagnose": {
       "added_at": "2026-08-31T10:41:33+08:00",
@@ -233,7 +234,7 @@
     },
     "obsidian-vault-backup": {
       "added_at": "2026-08-27T11:21:33+08:00",
-      "usage_count": 11,
+      "usage_count": 12,
       "files": {
         "SKILL.md": "c2454ecae26037f1e212f220e206ac92ce35329d409d2351e3a6933a578c913e",
         "agents/openai.yaml": "fe3a31deada3b0caa176886e5478cfaa385ce13214e3aa42f713ce8bca3d3c64",
@@ -241,7 +242,7 @@
         "references/backup-policy.md": "7c11c6f06927bbd7417a5c7faeadd3e1261979ef38d63aea20e1ddc0cbad2df8",
         "scripts/sync_vault.py": "22be18060c6ca833bf3ff102cc595aab0f9d24d3f0cf68c689739eb6cd039d68"
       },
-      "last_used_at": "2026-09-29T15:50:25+08:00"
+      "last_used_at": "2026-09-29T16:13:49+08:00"
     },
     "zing-world-model-guide": {
       "added_at": "2026-08-26T16:49:59+08:00",
