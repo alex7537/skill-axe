@@ -1,0 +1,4 @@
+interface:
+  display_name: "W&B Project Backup"
+  short_description: "Export and verify W&B experiments for offline access"
+  default_prompt: "Use $wandb-project-backup to inspect project ownership and create a verified local backup of the selected W&B projects."

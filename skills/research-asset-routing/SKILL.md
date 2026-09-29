@@ -59,6 +59,7 @@ Avoid copying full READMEs, code blocks, logs, command transcripts, file trees, 
 ## Composition
 
 - Use `$publish-model-release` when creating or auditing an actual GitHub/Hugging Face release.
+- Use `$wandb-project-backup` for W&B entity/team ownership checks and verified offline export before loss of project access. A run telemetry archive does not imply model checkpoints or datasets were uploaded.
 - Use `$robot-ml-lifecycle` when controlling a multi-phase data→train→evaluate→release loop.
 - Use `$obsidian-vault-versioned-reorg` for Vault paths, links, deduplication, Git history, and safe restructuring.
 - Use `$capture-session-to-skill` when a repeated method should become executable rather than remain a note.

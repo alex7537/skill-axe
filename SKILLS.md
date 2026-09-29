@@ -2,28 +2,28 @@
 
 Automatically generated from `skills-manifest.json`. Do not edit manually.
 
-**54 skills · 604 total uses**
+**55 skills · 610 total uses**
 
 | Skill | Usage count |
 |---|---:|
-| [skill-authoring](skills/skill-authoring/) | 52 |
+| [skill-authoring](skills/skill-authoring/) | 53 |
 | [tione](skills/tione/) | 44 |
+| [capture-session-to-skill](skills/capture-session-to-skill/) | 43 |
 | [code-understanding-coach](skills/code-understanding-coach/) | 43 |
-| [capture-session-to-skill](skills/capture-session-to-skill/) | 42 |
 | [understand-codebase](skills/understand-codebase/) | 41 |
 | [math-principles-coach](skills/math-principles-coach/) | 35 |
+| [knowledge-tree-reconcile](skills/knowledge-tree-reconcile/) | 28 |
 | [psi-wam-learning-coach](skills/psi-wam-learning-coach/) | 28 |
-| [knowledge-tree-reconcile](skills/knowledge-tree-reconcile/) | 27 |
 | [andrej-karpathy-skills](skills/andrej-karpathy-skills/) | 24 |
 | [plan-training-run](skills/plan-training-run/) | 22 |
 | [robot-ml-lifecycle](skills/robot-ml-lifecycle/) | 18 |
 | [a2d-grasp-evaluation](skills/a2d-grasp-evaluation/) | 17 |
+| [research-asset-routing](skills/research-asset-routing/) | 16 |
 | [adaptive-task-coach](skills/adaptive-task-coach/) | 15 |
 | [remote-policy-bundle](skills/remote-policy-bundle/) | 15 |
-| [research-asset-routing](skills/research-asset-routing/) | 15 |
 | [feishu-wiki-readonly-review](skills/feishu-wiki-readonly-review/) | 13 |
-| [corporate-git-push-gate](skills/corporate-git-push-gate/) | 10 |
-| [obsidian-vault-backup](skills/obsidian-vault-backup/) | 10 |
+| [corporate-git-push-gate](skills/corporate-git-push-gate/) | 11 |
+| [obsidian-vault-backup](skills/obsidian-vault-backup/) | 11 |
 | [sync-follow-branch](skills/sync-follow-branch/) | 10 |
 | [tione-ssh-diagnose](skills/tione-ssh-diagnose/) | 10 |
 | [dataset-split-protocol](skills/dataset-split-protocol/) | 9 |
@@ -60,3 +60,4 @@ Automatically generated from `skills-manifest.json`. Do not edit manually.
 | [linux-perf-diagnosis](skills/linux-perf-diagnosis/) | 0 |
 | [loop-engineering](skills/loop-engineering/) | 0 |
 | [mj-demo-runtime-guide](skills/mj-demo-runtime-guide/) | 0 |
+| [wandb-project-backup](skills/wandb-project-backup/) | 0 |
