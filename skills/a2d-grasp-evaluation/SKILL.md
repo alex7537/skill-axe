@@ -41,6 +41,9 @@ Separate task outcomes from diagnostic reference matches, and locate the earlies
 ## Route the request
 
 - For an end-to-end request, stage-condition briefing, or Obsidian/video-to-Feishu report, read [evaluation-to-Feishu workflow](references/evaluation-to-feishu.md). Use the current lark-cli embedded authoring skills for document operations; do not use the read-only review skill as a write backend.
+- 固定初态集合及同步物理步进测试，使用 [a2d-eval-v2](../a2d-eval-v2/SKILL.md)。
+- 初态保存/恢复、配对测试或初始化阈值调整时，读取 [初态恢复验收](references/layout-acceptance.md)。使用版本化标准，保留旧判定，不改变抓取成功定义。
+
 - For local A2D launch/resume or stop/report, follow [automatic Obsidian reporting](references/automatic-obsidian-report.md): attach the independent report observer by default, verify its first local/vault outputs, and preserve completion/interruption reports. The evaluation repository owns executable reporting logic; this skill owns invocation and verification. A skill edit alone is not running automation.
 
 - Read [references/inference-runtime-lessons.md](references/inference-runtime-lessons.md) for action-only bundle compatibility, RPC timing, fixed policy seeds, timeout diagnosis, or interrupted-batch recovery.
