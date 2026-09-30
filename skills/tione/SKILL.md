@@ -1,6 +1,6 @@
 ---
 name: tione
-description: "Use this skill for Tencent Cloud TI-ONE / Tione task-style modeling, Notebook/development-machine, online service, development-directory/storage layout audits, training-monitor, and GPU-image migration work: querying tasks, pods, logs, development machines, billing/resource groups, drafting resource payloads, planning Feishu alerts, or validating CUDA/PyTorch after A800, Blackwell, sm_120, Docker, or custom-image changes. Also use when the user says 任务式建模, 开发机, Notebook, TI-ONE, Tione, 在线服务, 训练告警, 换GPU/镜像, CreateTrainingTask, DescribeTrainingTasks, or DescribeNotebooks."
+description: "Use this skill for Tencent Cloud TI-ONE / Tione task-style modeling, Notebook/development-machine, online service, development-directory/storage layout audits, selective migration inventories and experience capture, training-monitor, and GPU-image migration work: querying tasks, pods, logs, development machines, billing/resource groups, drafting resource payloads, planning Feishu alerts, or validating CUDA/PyTorch after A800, Blackwell, sm_120, Docker, or custom-image changes. Also use when the user says 任务式建模, 开发机, Notebook, TI-ONE, Tione, 在线服务, 训练告警, 换GPU/镜像, CreateTrainingTask, DescribeTrainingTasks, or DescribeNotebooks."
 ---
 
 # TI-ONE / Tione
@@ -118,6 +118,10 @@ For "训练任务监控 / 飞书告警":
 For “workspace 是否适合开发”, “代码/环境放 share_data 合理吗”, or environment failures after switching development machines, read [references/development-workspace-storage.md](references/development-workspace-storage.md).
 
 Prefer verified persistent storage for the primary editable source tree, especially when stopping the instance clears `/workspace`. Use `/workspace/<user>` only for disposable runtime/build/cache content or an explicitly chosen reconstructible working copy with a verified recovery workflow. Do not infer SSD backing or persistence from the pathname; verify source backup/recovery before any migration. A shared venv may retain its directory while losing its external Python interpreter, or silently inherit different packages from a replacement image.
+
+## Selective workspace migration and knowledge capture
+
+For “开发机迁移盘点”, “不需要全量迁移”, or “对照 Obsidian/skills 查漏补缺”, read [references/selective-workspace-migration.md](references/selective-workspace-migration.md). Extend the existing storage audit: identify unique source/experiment evidence, dependency edges and reconstructible assets before proposing transfer. If the user only wants a knowledge handoff, save the requested conclusions and stop without copying bulk data. Use `knowledge-tree-reconcile` for knowledge ownership; this skill owns the infrastructure audit, not general Vault organization.
 
 ## References
 
