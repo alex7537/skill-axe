@@ -1,0 +1,4 @@
+interface:
+  display_name: "Thesis Argument Builder"
+  short_description: "基于证据构建中英文学术论证链"
+  default_prompt: "Use $thesis-argument-builder to turn these verified claims and gaps into aligned Chinese and English thesis arguments."

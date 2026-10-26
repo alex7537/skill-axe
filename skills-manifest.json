@@ -1,6 +1,67 @@
 {
   "format_version": 2,
   "skills": {
+    "citation-integrity-auditor": {
+      "added_at": "2026-10-26T18:06:20+01:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "79e811beb44bead470de39211c81b26345bf197f2a2aa98314da28075c98da79",
+        "agents/openai.yaml": "418d09c070b77e3e5525cefba7fa73d9ca4e574c00565f039af543ba54f9af61",
+        "assets/evidence-ledger.csv": "8284658ec36efd102b291f9c4adad7fff45db6087fc62a052606cb894dd74e7d",
+        "references/audit-contract.md": "2971921ec1548f3d9690470c3085ab23a4919de6ceefbdd0f49ae4eecaad90a0",
+        "scripts/audit_ledger.py": "3c23af4bcf08cdc4c9b934a9bea70569127171c155d23b9221b6feba7ba2a96e",
+        "tests/test_audit_ledger.py": "04cd89b9cb6550ff48a2abcb83ef6f5a7cfd173a3f37df6ecbbfbea25cc287ca"
+      },
+      "last_used_at": "2026-10-26T18:37:15+01:00"
+    },
+    "literature-discovery": {
+      "added_at": "2026-10-26T18:06:20+01:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "ce069ca66607d42625a2f9e1ca91528f0791d5175217b01adfc12abfcf0086e9",
+        "agents/openai.yaml": "d67ff5249b30f0b7ae05cd287f8c9ab0c50f5c59e00b42f0d3b2440384077caa",
+        "assets/example-2d-mechanocoupling-candidates.csv": "fcda455139829f44798787b138822a4b2b79689f5251a434358fdbba515770e4",
+        "assets/literature-candidate-matrix.csv": "1b8e772d9a800615821f444f1dd92e2b29c3c5aa4dad30039f9af54dea9933e3",
+        "references/example-2d-materials-mechanocoupling.md": "9c7766bd5526d7f5cf615832324b0f8f3e9e06a2edb11cfa01b128378391c8ff",
+        "references/example-flow-matching-thesis-pipeline.md": "21086fcfde38558e2918d95ba8185bfe14921ead5e99febbcca536fcb9764143",
+        "references/prompt-patterns.md": "6c8c74031595b36a8d992d5a79b1d0af0512e294c5ed79bf0f26434d38fdd672",
+        "references/search-contract.md": "32b5a98a08806c98221a7e76dd876214310ef9e66745c0a37c84ddbc21a69eb1"
+      },
+      "last_used_at": "2026-10-26T18:37:15+01:00"
+    },
+    "paper-deep-analysis": {
+      "added_at": "2026-10-26T18:06:20+01:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "7e1537cdb69c75df246281778f5eb4373a4a12068de24d31c834825a1410b40c",
+        "agents/openai.yaml": "b7ed0515991952fd8c5a99b070bfce6b7859a10aacdf7a68db79047bb48b4724",
+        "assets/paper-evidence-matrix.csv": "99607d09b078aa416a8f29ccc400a23a148279216f98cd663197d523bba5700e",
+        "references/analysis-contract.md": "05d8b8cc4d2d03963138c20af9b9392542d4c3724692ed6fe831625173dc3b25"
+      },
+      "last_used_at": "2026-10-26T18:37:15+01:00"
+    },
+    "research-gap-mapping": {
+      "added_at": "2026-10-26T18:06:20+01:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "ba3abf73f28baf0ca00f109f164ba2f99577b277a0d2ea67a6a45575c42b2517",
+        "agents/openai.yaml": "54aa638af4fbe8a7f5ac8c0e488c17f3c342116b048f0120d13c93d46b5b7d4d",
+        "assets/research-gap-matrix.csv": "9c9c3d73b99d93ee9533b13404840e2d15bad3f941a4fa1f6d833f07f3cb0e5d",
+        "references/gap-tests.md": "96ac4b1cdedcacf3eabed4c019fabd7cc1b3b3af2abd39a0e0360c83cc88aa79"
+      },
+      "last_used_at": "2026-10-26T18:37:15+01:00"
+    },
+    "thesis-argument-builder": {
+      "added_at": "2026-10-26T18:06:20+01:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "2c173f4ee93f489a8c2fd85e80dc2a380d4e9f7d05f9a534681e147f9fbe99c7",
+        "agents/openai.yaml": "29198977baa69c8fbbf9e5ea0febc5ae4e4fda060c65a03be203e01ddc1fd28c",
+        "assets/argument-outline.md": "c16dbf1331dacfee78a331c197814322ebe4cad343c4348e182ef2ede39c4782",
+        "references/argument-contract.md": "7cf0b316f6651531b898a2356e760922dc33681971764c08ff0fe1bbc1dc753d"
+      },
+      "last_used_at": "2026-10-26T18:37:15+01:00"
+    },
     "wandb-project-backup": {
       "added_at": "2026-09-29T15:53:20+08:00",
       "usage_count": 0,

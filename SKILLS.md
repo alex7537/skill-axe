@@ -2,7 +2,7 @@
 
 Automatically generated from `skills-manifest.json`. Do not edit manually.
 
-**55 skills · 619 total uses**
+**60 skills · 624 total uses**
 
 | Skill | Usage count |
 |---|---:|
@@ -49,14 +49,19 @@ Automatically generated from `skills-manifest.json`. Do not edit manually.
 | [publish-model-release](skills/publish-model-release/) | 2 |
 | [zing-world-model-guide](skills/zing-world-model-guide/) | 2 |
 | [blindbox-service-scaffold](skills/blindbox-service-scaffold/) | 1 |
+| [citation-integrity-auditor](skills/citation-integrity-auditor/) | 1 |
 | [claudian-auth-diagnose](skills/claudian-auth-diagnose/) | 1 |
 | [feishu-cli-multi-account-auth](skills/feishu-cli-multi-account-auth/) | 1 |
 | [feishu-migration-supervisor](skills/feishu-migration-supervisor/) | 1 |
 | [hatch-pet](skills/hatch-pet/) | 1 |
+| [literature-discovery](skills/literature-discovery/) | 1 |
 | [minimax-h3-m3-architecture-guide](skills/minimax-h3-m3-architecture-guide/) | 1 |
+| [paper-deep-analysis](skills/paper-deep-analysis/) | 1 |
 | [private-proxy-stack-runbook](skills/private-proxy-stack-runbook/) | 1 |
+| [research-gap-mapping](skills/research-gap-mapping/) | 1 |
 | [seg-label-audit](skills/seg-label-audit/) | 1 |
 | [tcr-image-publish](skills/tcr-image-publish/) | 1 |
+| [thesis-argument-builder](skills/thesis-argument-builder/) | 1 |
 | [linux-perf-diagnosis](skills/linux-perf-diagnosis/) | 0 |
 | [loop-engineering](skills/loop-engineering/) | 0 |
 | [mj-demo-runtime-guide](skills/mj-demo-runtime-guide/) | 0 |

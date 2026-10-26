@@ -1,0 +1,4 @@
+interface:
+  display_name: "Literature Discovery"
+  short_description: "核验并筛选可追溯的核心文献集"
+  default_prompt: "Use $literature-discovery to search, verify, and screen recent literature into a traceable core-paper set."

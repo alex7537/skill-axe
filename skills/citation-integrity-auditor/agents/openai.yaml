@@ -1,0 +1,4 @@
+interface:
+  display_name: "Citation Integrity Auditor"
+  short_description: "核验引用真实性、定位与论断支持强度"
+  default_prompt: "Use $citation-integrity-auditor to audit every consequential claim and fail closed on unverifiable citations."

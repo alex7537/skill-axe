@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Deep Analysis"
+  short_description: "用全文证据拆解并横向比较核心论文"
+  default_prompt: "Use $paper-deep-analysis to analyze this verified paper corpus with locators and a common comparison matrix."

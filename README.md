@@ -99,6 +99,18 @@ Machine-bound Skills may be excluded by the local privacy configuration. `remote
 | `remote-policy-bundle` | Export remote checkpoints into verified, self-contained deployment archives. |
 | `publish-model-release` | Bind GitHub source and Hugging Face artifacts into a reproducible model release. |
 
+### Academic research and thesis writing
+
+| Skill | Responsibility |
+|---|---|
+| `literature-discovery` | Search, verify, deduplicate, screen, and cluster a recent core-paper set with a reproducible query log. |
+| `paper-deep-analysis` | Extract full-text methods, experiments, results, and limitations into one locator-backed comparison matrix. |
+| `research-gap-mapping` | Challenge candidate research gaps with targeted second-pass searches and rank feasible thesis entry points. |
+| `thesis-argument-builder` | Build aligned Chinese and English academic arguments from verified claims and bounded gaps. |
+| `citation-integrity-auditor` | Audit source identity, publication status, locators, and exact claim-citation support before submission. |
+
+The intended handoff is `literature-discovery` → `paper-deep-analysis` → `research-gap-mapping` → `thesis-argument-builder`, with `citation-integrity-auditor` acting as the integrity gate on evidence matrices and final prose. `masterarbeit-search` remains responsible for finding thesis openings, not academic literature.
+
 ## Handoff spine
 
 The intended durable handoffs are:

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Gap Mapping"
+  short_description: "二次检索并验证可行的研究空白与切入点"
+  default_prompt: "Use $research-gap-mapping to challenge this evidence matrix and rank defensible, feasible research gaps."
