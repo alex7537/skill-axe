@@ -1,0 +1,4 @@
+interface:
+  display_name: "Parabolic & yt-dlp Diagnose"
+  short_description: "Diagnose Windows video download failures safely"
+  default_prompt: "Use $parabolic-yt-dlp-diagnose to identify why this Parabolic or yt-dlp download is failing without exposing cookies."

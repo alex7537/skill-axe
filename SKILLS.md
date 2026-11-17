@@ -2,7 +2,7 @@
 
 Automatically generated from `skills-manifest.json`. Do not edit manually.
 
-**61 skills · 624 total uses**
+**71 skills · 628 total uses**
 
 | Skill | Usage count |
 |---|---:|
@@ -45,6 +45,7 @@ Automatically generated from `skills-manifest.json`. Do not edit manually.
 | [psi-autolabel-service-guide](skills/psi-autolabel-service-guide/) | 3 |
 | [research-project-resume](skills/research-project-resume/) | 3 |
 | [a2d-model-swap-only](skills/a2d-model-swap-only/) | 2 |
+| [personal-skill-chef](skills/personal-skill-chef/) | 2 |
 | [psi-visual-value-function-coach](skills/psi-visual-value-function-coach/) | 2 |
 | [publish-model-release](skills/publish-model-release/) | 2 |
 | [zing-world-model-guide](skills/zing-world-model-guide/) | 2 |
@@ -57,13 +58,22 @@ Automatically generated from `skills-manifest.json`. Do not edit manually.
 | [literature-discovery](skills/literature-discovery/) | 1 |
 | [minimax-h3-m3-architecture-guide](skills/minimax-h3-m3-architecture-guide/) | 1 |
 | [paper-deep-analysis](skills/paper-deep-analysis/) | 1 |
+| [parabolic-yt-dlp-diagnose](skills/parabolic-yt-dlp-diagnose/) | 1 |
 | [private-proxy-stack-runbook](skills/private-proxy-stack-runbook/) | 1 |
 | [research-gap-mapping](skills/research-gap-mapping/) | 1 |
 | [seg-label-audit](skills/seg-label-audit/) | 1 |
 | [tcr-image-publish](skills/tcr-image-publish/) | 1 |
 | [thesis-argument-builder](skills/thesis-argument-builder/) | 1 |
+| [windows-python-project-env](skills/windows-python-project-env/) | 1 |
+| [game-design-fundamentals](skills/game-design-fundamentals/) | 0 |
+| [german-b2-coach](skills/german-b2-coach/) | 0 |
+| [ielts-speaking-coach](skills/ielts-speaking-coach/) | 0 |
+| [iphone-video-transfer-supervisor](skills/iphone-video-transfer-supervisor/) | 0 |
+| [karpathy-guidelines](skills/karpathy-guidelines/) | 0 |
 | [linux-perf-diagnosis](skills/linux-perf-diagnosis/) | 0 |
 | [loop-engineering](skills/loop-engineering/) | 0 |
 | [mj-demo-runtime-guide](skills/mj-demo-runtime-guide/) | 0 |
+| [quick-paper-review](skills/quick-paper-review/) | 0 |
+| [robotics-application-board](skills/robotics-application-board/) | 0 |
 | [video-subtitle-dubbing-pipeline](skills/video-subtitle-dubbing-pipeline/) | 0 |
 | [wandb-project-backup](skills/wandb-project-backup/) | 0 |

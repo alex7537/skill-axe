@@ -1,0 +1,4 @@
+interface:
+  display_name: "iPhone 视频迁移监督"
+  short_description: "监督 Windows 上的 iPhone 大视频复制、校验和安全删除流程"
+  default_prompt: "扫描 iPhone 中的大视频，复制到指定备份目录，完成大小与可播放性校验，并在最终确认后只删除验证通过的原文件。"

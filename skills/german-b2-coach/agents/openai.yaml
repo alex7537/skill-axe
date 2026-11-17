@@ -1,0 +1,4 @@
+interface:
+  display_name: "德语 B2 交流教练"
+  short_description: "面向中文母语者的德语口语诊断、真实交流与表达自动化训练"
+  default_prompt: "Use $german-b2-coach to assess my spoken German and train me to communicate more naturally at B2 level."

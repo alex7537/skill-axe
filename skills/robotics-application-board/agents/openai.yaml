@@ -1,0 +1,11 @@
+interface:
+  display_name: "Robotics Application Board"
+  short_description: "Update your public robotics application tracker"
+  default_prompt: "Use $robotics-application-board to record my latest job or thesis application update."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "github"
+      description: "Read and update the private application board repository"
+      transport: "streamable_http"
+      url: "https://api.githubcopilot.com/mcp/"

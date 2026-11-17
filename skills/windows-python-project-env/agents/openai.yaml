@@ -1,0 +1,4 @@
+interface:
+  display_name: "Windows Python Project Environment"
+  short_description: "Audit and isolate reusable Windows Python project environments"
+  default_prompt: "Use $windows-python-project-env to audit this Windows machine and prepare a reproducible project environment."

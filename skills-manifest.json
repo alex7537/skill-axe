@@ -1,6 +1,62 @@
 {
   "format_version": 2,
   "skills": {
+    "robotics-application-board": {
+      "added_at": "2026-11-03T22:13:26+01:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "53ec94dd5d13af8fadcb89f12fdb2262cfa8d2e4ded9df33d0d2ae8f8e28611d",
+        "agents/openai.yaml": "301ed93309864c5c188b1ad85777cd6e05b8d1182109884d0f3faf9479b21aa7",
+        "scripts/sync_fallback.py": "96ca828b00ec10e1dba3fd5c1244a42889c5ecbc758b675693e3c710900bbb1a"
+      }
+    },
+    "german-b2-coach": {
+      "added_at": "2026-10-29T21:40:17+01:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "ab4a976ee02277583deb36bfbaf2936e6250a7a0e68f8ba67f4f13419c3c96e5",
+        "agents/openai.yaml": "b77c4a9bee38b72ff8f5c5c74a00828ccf549459061b8748d735f588899aa384",
+        "references/communication-rubric.md": "e3393c8c40ccbbef2ccd439e8436523fac62b8029671da5f6c85811e8ebd826b",
+        "references/progress-template.md": "7b6ba5981d16697e7cd8ebabb8453515bd17ce6652f7048bafe6f70e68882879"
+      }
+    },
+    "personal-skill-chef": {
+      "added_at": "2026-10-29T01:15:00+01:00",
+      "usage_count": 2,
+      "files": {
+        "SKILL.md": "c878f40e8eed867abba8ab40c14e59571b0bcbc0ee4ac71ba44539d214d3e6ec",
+        "agents/openai.yaml": "b9c497348347dfa644976926093bdac29b476a2b483e213fef5e8a5f9de83081",
+        "references/learning-routing.md": "1c629445fae45f34f893594ccdfbff364c0e6890c399e1c62c8b42d7b22716a8",
+        "references/order-contract.md": "531ab060636d907e24cebd787f2ecce95bd5fdfa5ef543d4b6e399f479229194",
+        "references/supervised-loop.md": "782f67a53ca6fedf81ae8795cf40e3ea28bdd1ed64ad8a6ee71dea83368aa29e",
+        "references/tool-routing.md": "df7e3071a7d551f68b4bc5ab820d814714f18b94ee5c40b8f4339e454be5c073",
+        "scripts/chef_runtime.ps1": "01c93c561432ef7557e04d13f4a3bff161f05c503519c16f0874e471bca29f32",
+        "scripts/inventory_skills.ps1": "a5740aa33d695f2e0bcb0f0f488ddf4efe494715056801104d2b803a93014201",
+        "tests/test_chef_runtime.ps1": "1bfe48e69fd2cadcc139cdbb1942543414b7f3c2d007cd88c4529fcb897f82c2"
+      },
+      "last_used_at": "2026-10-29T12:46:52+01:00"
+    },
+    "parabolic-yt-dlp-diagnose": {
+      "added_at": "2026-10-28T18:43:00+01:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "277ec775051024e055bc3fa7eb169a7a601575fa49b26b12382b323c1ecf391b",
+        "agents/openai.yaml": "370d0683102653665bc4ede75f473e2a36c2f2d5650f7661dbe41120d0a63bea",
+        "references/failure-matrix.md": "25c4860eb5e8d6da997bbe8a14ccb9cd10d847849b4aa1cafe7fca8e8f2e8194",
+        "scripts/diagnose_parabolic.ps1": "cfbf45596c7116f33f1cdfd75cb854dd8a263b23e66cb78337fdc989c3553d20"
+      },
+      "last_used_at": "2026-10-28T18:43:00+01:00"
+    },
+    "ielts-speaking-coach": {
+      "added_at": "2026-10-27T15:36:15+01:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "76d32224cd92206c5e4f2c75afb05dd7e8a44febd5de747e813e0eae2a322e0b",
+        "agents/openai.yaml": "f9437cda229187e0b896e7cdaaf37742f9602e23896d1310fd86d6bb1d933ee2",
+        "references/progress-template.md": "535600887131e385ff9e7ce13658974de46eba51d88445e431e3e7459f9d4150",
+        "references/scoring-guide.md": "2fdb896977dba800808321ed6bd35a16d4f3a8be8b38622ce799365a8b8e85dd"
+      }
+    },
     "citation-integrity-auditor": {
       "added_at": "2026-10-26T18:06:20+01:00",
       "usage_count": 1,
@@ -61,6 +117,14 @@
         "references/argument-contract.md": "7cf0b316f6651531b898a2356e760922dc33681971764c08ff0fe1bbc1dc753d"
       },
       "last_used_at": "2026-10-26T18:37:15+01:00"
+    },
+    "iphone-video-transfer-supervisor": {
+      "added_at": "2026-10-02T07:14:45+02:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "905c06a86e3c720832c73684a0407e950173a0b4ec94d4b849047107113126a7",
+        "agents/openai.yaml": "01cc4b63c48b4c3d6583452da1bd187e18b3cead57b6969c916c0d10311d6f50"
+      }
     },
     "wandb-project-backup": {
       "added_at": "2026-09-29T15:53:20+08:00",
@@ -157,6 +221,17 @@
         "references/robot-policy-evidence.md": "f75be2ec6d3baeea3611630243ec5ff13b57b91e4b3462a7c93c32f68d07d3bb"
       },
       "last_used_at": "2026-09-22T16:48:11+08:00"
+    },
+    "game-design-fundamentals": {
+      "added_at": "2026-09-08T16:49:30+02:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "f875882aef08940ef9e7232d50dbfba268f191c1f39a66375358f104dc32db1d",
+        "boilerplate/core-loop.ts": "90eb2486b6e8971432c045f3933732b23cf55c9441cd1141436f420b994ed655",
+        "boilerplate/feedback-system.ts": "bd1f802f82d3b213719a3e1ce14aa685d5eab85b0182917a36d9dbb56f8785b2",
+        "templates/gdd-template.md": "7b46ed48a7ffd671bf4bf1ef23f4f271aab1ca62573da21bacde6452193879bc",
+        "templates/player-motivation-worksheet.md": "7aa569c6a3f70105b04febdb633aab9b77b74990a354a3bbeb74f17514f7cbef"
+      }
     },
     "a2d-joint-wam-deployment": {
       "added_at": "2026-09-07T17:05:21+08:00",
@@ -366,6 +441,15 @@
         "references/training-recipe-and-math.md": "96f8049f876eafbf6a5a82f11fb03c7d699d01d2c1e446c4ea913cc4da0a8491"
       },
       "last_used_at": "2026-09-17T17:13:57+08:00"
+    },
+    "windows-python-project-env": {
+      "added_at": "2026-08-25T16:05:46+02:00",
+      "usage_count": 1,
+      "files": {
+        "SKILL.md": "019d454a929f5d33bd339fbfaedaa282edaa79792f56bcf356bc89ecae0a559b",
+        "agents/openai.yaml": "23cb4795cb3bd93a5a43d606bc199ed3acfd750f072dc97e12d31e550bdb0263"
+      },
+      "last_used_at": "2026-08-25T16:07:50+02:00"
     },
     "psi-visual-value-function-coach": {
       "added_at": "2026-08-25T20:10:56+08:00",
@@ -728,6 +812,13 @@
       },
       "last_used_at": "2026-09-30T10:40:49+08:00"
     },
+    "karpathy-guidelines": {
+      "added_at": "2026-07-15T20:37:02+02:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "6e22cc54cb02a5e98ae42d06d9d7292db0c1b43894831b32879beb0166b2aea7"
+      }
+    },
     "tione": {
       "added_at": "2026-06-12T15:47:26+08:00",
       "usage_count": 45,
@@ -744,6 +835,13 @@
         "scripts/tione_api.py": "8a641880503123fc9d87e0b4c7fa77787fd4964f6e5f6ab1b212acc943df744b"
       },
       "last_used_at": "2026-09-30T10:29:14+08:00"
+    },
+    "quick-paper-review": {
+      "added_at": "2026-05-17T19:02:20+02:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "059abe2e6737a9c44a1d6ec0d84bffacef2407773c01ab08dd2461f514b2f53b"
+      }
     },
     "andrej-karpathy-skills": {
       "added_at": "2026-04-22T11:03:55+08:00",

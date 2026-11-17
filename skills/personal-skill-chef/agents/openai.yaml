@@ -1,0 +1,6 @@
+interface:
+  display_name: "Personal Skill Chef"
+  short_description: "Route complex work through the right personal Skills"
+  default_prompt: "Use $personal-skill-chef to choose, sequence, and integrate the smallest relevant set of my personal Skills."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "IELTS 口语教练"
+  short_description: "为中文学习者提供英语口语诊断、训练、全真模考与进步跟踪"
+  default_prompt: "Use $ielts-speaking-coach to assess my speaking level and start the most suitable English speaking session."
+
+policy:
+  allow_implicit_invocation: true
