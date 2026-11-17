@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频字幕与授权配音"
+  short_description: "截取视频、制作说话同步中文字幕，并使用已授权音色生成配音"
+  default_prompt: "Use $video-subtitle-dubbing-pipeline to process this local video with speech-synchronized Chinese subtitles and consented dubbing."

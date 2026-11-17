@@ -2,7 +2,7 @@
 
 Automatically generated from `skills-manifest.json`. Do not edit manually.
 
-**60 skills · 624 total uses**
+**61 skills · 624 total uses**
 
 | Skill | Usage count |
 |---|---:|
@@ -65,4 +65,5 @@ Automatically generated from `skills-manifest.json`. Do not edit manually.
 | [linux-perf-diagnosis](skills/linux-perf-diagnosis/) | 0 |
 | [loop-engineering](skills/loop-engineering/) | 0 |
 | [mj-demo-runtime-guide](skills/mj-demo-runtime-guide/) | 0 |
+| [video-subtitle-dubbing-pipeline](skills/video-subtitle-dubbing-pipeline/) | 0 |
 | [wandb-project-backup](skills/wandb-project-backup/) | 0 |

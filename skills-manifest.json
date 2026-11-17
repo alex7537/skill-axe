@@ -138,6 +138,16 @@
         "references/guide.md": "f7675af140fe75a29104c44b513193ca470e7f265bf2a1b5ec153a1df27381ea"
       }
     },
+    "video-subtitle-dubbing-pipeline": {
+      "added_at": "2026-09-13T19:12:06+02:00",
+      "usage_count": 0,
+      "files": {
+        "SKILL.md": "adecd434e0527f475c545f04100c0f74d3c647dcc33546e7dd0b46f323326cc6",
+        "agents/openai.yaml": "5b92e6db42a93afa56c08923292155c38c567b74a48558f36f2809e0e3ff1990",
+        "references/open-source-voice-options.md": "c7229208fe32844c0ded38360125c828384e2a125634ee3c324b10989c21ca85",
+        "scripts/build_speech_timed_srt.py": "73925097bac1417689153c3c329cfd6cde759627ccafbddacaf0315137b584b1"
+      }
+    },
     "research-project-resume": {
       "added_at": "2026-09-09T11:17:00+08:00",
       "usage_count": 3,
